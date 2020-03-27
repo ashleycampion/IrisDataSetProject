@@ -1,19 +1,51 @@
+# for creating the actual scatter plots we want matplotlib.pyplot
 import matplotlib.pyplot as plt
 
+# get the dataframe from the createDataFrame file
 from createDataFrame import df
+# import the indices that will allow us create separate plots
+# for each of the species (for more on how this is achieved
+# see comments in createDataFrame file)
 from createDataFrame import versicolor
 from createDataFrame import virginica
 
-
+# this function will be called by the main analysis file
 def createScatterPlots():
 
-    # species
+    # there is really no reason when creating scatter plots
+    # based on the iris dataset not to distinguish between
+    # each of the three variables. When, for example, comparing
+    # petal length and petal width, there is no disadvantage
+    # to coloring the plots according to the species rather
+    # than having a monochromatic plot, and the trends of the
+    # variables in the iris data set are clearly related to the
+    # species, so by coloring the plots based on the species
+    # we can more clearly see the trends and compares how the
+    # trends for each species differ. This function then plots
+    # the lengths and widths against each other and adding
+    # colour to distinguish the species, and also plots the species
+    # against all of the lengths and widths
 
+    # we could have used the scatter() function for these plots,
+    # but the plot() function works just as well for our use,
+    # and is quicker, as demonstrated here:
+    # https://pythonmatplotlibtips.blogspot.com/2018/01/compare-pltplot-and-pltscatter-in-speed-python-matplotlib.html
+
+    # species vs other variable plots
+
+    # for the third parameter to the plot() function, we use '.'
+    # to create a scatter plot, i.e. with dots rather than lines
     plt.plot(df["species"], df["sepal_length"], ".")
+    # x label
     plt.xlabel("Species")
+    # y label
     plt.ylabel("Sepal Length (cm)")
+    # title
     plt.title("Species vs. Sepal Length")
+    # save in plots/scatterPlots folder
     plt.savefig("plots/scatterPlots/speciesSepalLength.png")
+    # close the plot so that the next plot is not
+    # superimposed on top of this one
     plt.close()
 
     plt.plot(df["species"], df["sepal_width"], ".")
@@ -37,10 +69,12 @@ def createScatterPlots():
     plt.savefig("plots/scatterPlots/speciesPetalWidth.png")
     plt.close()
 
-    # Sepal length
-    plt.scatter(df["sepal_length"][:versicolor], df["sepal_width"][:versicolor], s=20, label="setosa")
-    plt.scatter(df["sepal_length"][versicolor:virginica], df["sepal_width"][versicolor:virginica], s=20, label="versicolor")
-    plt.scatter(df["sepal_length"][virginica:], df["sepal_width"][virginica:], s=20, label="virginica")
+    # Sepal length plots
+
+    # we add a label here to distinguish between each of the species
+    plt.plot(df["sepal_length"][:versicolor], df["sepal_width"][:versicolor], '.', label="setosa")
+    plt.plot(df["sepal_length"][versicolor:virginica], df["sepal_width"][versicolor:virginica], '.', label="versicolor")
+    plt.plot(df["sepal_length"][virginica:], df["sepal_width"][virginica:], '.', label="virginica")
 
     plt.legend()
     plt.xlabel("Sepal Length (cm)")
@@ -49,9 +83,9 @@ def createScatterPlots():
     plt.savefig("plots/scatterPlots/sepalLengthSepalWidth.png")
     plt.close()
 
-    plt.scatter(df["sepal_length"][:versicolor], df["petal_length"][:versicolor], s=20, label="setosa")
-    plt.scatter(df["sepal_length"][versicolor:virginica], df["petal_length"][versicolor:virginica], s=20, label="versicolor")
-    plt.scatter(df["sepal_length"][virginica:], df["petal_length"][virginica:], s=20, label="virginica")
+    plt.plot(df["sepal_length"][:versicolor], df["petal_length"][:versicolor], '.', label="setosa")
+    plt.plot(df["sepal_length"][versicolor:virginica], df["petal_length"][versicolor:virginica], '.', label="versicolor")
+    plt.plot(df["sepal_length"][virginica:], df["petal_length"][virginica:], '.', label="virginica")
 
     plt.legend()
     plt.xlabel("Sepal Length (cm)")
@@ -60,9 +94,9 @@ def createScatterPlots():
     plt.savefig("plots/scatterPlots/sepalLengthPetalLength.png")
     plt.close()
 
-    plt.scatter(df["sepal_length"][:versicolor], df["petal_width"][:versicolor], s=20, label="setosa")
-    plt.scatter(df["sepal_length"][versicolor:virginica], df["petal_width"][versicolor:virginica], s=20, label="versicolor")
-    plt.scatter(df["sepal_length"][virginica:], df["petal_width"][virginica:], s=20, label="virginica")
+    plt.plot(df["sepal_length"][:versicolor], df["petal_width"][:versicolor], '.', label="setosa")
+    plt.plot(df["sepal_length"][versicolor:virginica], df["petal_width"][versicolor:virginica], '.', label="versicolor")
+    plt.plot(df["sepal_length"][virginica:], df["petal_width"][virginica:], '.', label="virginica")
 
     plt.legend()
     plt.xlabel("Sepal Length (cm)")
@@ -71,10 +105,11 @@ def createScatterPlots():
     plt.savefig("plots/scatterPlots/sepalLengthPetalWidth.png")
     plt.close()
 
-    # Sepal width
-    plt.scatter(df["sepal_width"][:versicolor], df["petal_length"][:versicolor], s=20, label="setosa")
-    plt.scatter(df["sepal_width"][versicolor:virginica], df["petal_length"][versicolor:virginica], s=20, label="versicolor")
-    plt.scatter(df["sepal_width"][virginica:], df["petal_length"][virginica:], s=20, label="virginica")
+    # remaining sepal width plots
+
+    plt.plot(df["sepal_width"][:versicolor], df["petal_length"][:versicolor], '.', label="setosa")
+    plt.plot(df["sepal_width"][versicolor:virginica], df["petal_length"][versicolor:virginica], '.', label="versicolor")
+    plt.plot(df["sepal_width"][virginica:], df["petal_length"][virginica:], '.', label="virginica")
 
     plt.legend()
     plt.xlabel("Sepal Width (cm)")
@@ -83,9 +118,9 @@ def createScatterPlots():
     plt.savefig("plots/scatterPlots/sepalWidthPetalLength.png")
     plt.close()
 
-    plt.scatter(df["sepal_width"][:versicolor], df["petal_width"][:versicolor], s=20, label="setosa")
-    plt.scatter(df["sepal_width"][versicolor:virginica], df["petal_width"][versicolor:virginica], s=20, label="versicolor")
-    plt.scatter(df["sepal_width"][virginica:], df["petal_width"][virginica:], s=20, label="virginica")
+    plt.plot(df["sepal_width"][:versicolor], df["petal_width"][:versicolor], '.', label="setosa")
+    plt.plot(df["sepal_width"][versicolor:virginica], df["petal_width"][versicolor:virginica], '.', label="versicolor")
+    plt.plot(df["sepal_width"][virginica:], df["petal_width"][virginica:], '.', label="virginica")
 
     plt.legend()
     plt.xlabel("Sepal Width (cm)")
@@ -94,11 +129,11 @@ def createScatterPlots():
     plt.savefig("plots/scatterPlots/sepalWidthPetalWidth.png")
     plt.close()
 
-    # Petal length
+    # remaining petal length widths
 
-    plt.scatter(df["petal_length"][:versicolor], df["petal_width"][:versicolor], s=20, label="setosa")
-    plt.scatter(df["petal_length"][versicolor:virginica], df["petal_width"][versicolor:virginica], s=20, label="versicolor")
-    plt.scatter(df["petal_length"][virginica:], df["petal_width"][virginica:], s=20, label="virginica")
+    plt.plot(df["petal_length"][:versicolor], df["petal_width"][:versicolor], '.', label="setosa")
+    plt.plot(df["petal_length"][versicolor:virginica], df["petal_width"][versicolor:virginica], '.', label="versicolor")
+    plt.plot(df["petal_length"][virginica:], df["petal_width"][virginica:], '.', label="virginica")
 
 
     plt.legend()
