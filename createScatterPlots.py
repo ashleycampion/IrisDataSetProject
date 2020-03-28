@@ -194,6 +194,11 @@ def createScatterPlots():
     # we use matplotlit.pyplot to save the image to a file
     plt.savefig("plots/scatterPlots/scatterMatrix.png")
 
+    # we use a raw string here to accurately depict the file path on
+    # Windows systems, i.e. with '\' as the path separator.
+    # see here for the use of raw string:
+    # https://stackoverflow.com/questions/4415259/convert-regular-python-string-to-raw-string
+    print(r"Scatter plots of the Iris dataset have have been created and saved to the the 'plots\scatterPlots' directory.")
 
 
 if __name__ == '__main__':
