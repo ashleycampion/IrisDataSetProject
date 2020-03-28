@@ -113,6 +113,8 @@ def createScatterPlots():
     # are included on the same plot. We do not need to include the
     # label parameter, as we have already defined the labels in the
     # plot() function itself.
+    # although the legends do not interfere with the points in the plots,
+    # it is still safer to make them transparant.
     plt.legend(framealpha=0.5)
     plt.xlabel("Sepal Length (cm)")
     plt.ylabel("Sepal Width (cm)")
