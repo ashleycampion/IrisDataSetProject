@@ -2,7 +2,7 @@ import pandas as pd
 
 # read in the csv file and assign it to a variable
 # (it is now a pandas dataframe object)
-df = pd.read_csv("irisDataSet.txt")
+df = pd.read_csv("irisDataSet.csv")
 
 # these variables will store the indices of the first
 # versicolor and virginicas
@@ -19,8 +19,9 @@ virginica = 0
 # will have a separate color. Additionally, because the species
 # are plotted separately, each can be labelled so that they
 # are distinguishable in the legend, i.e. the legend describes
-# the color used to plot each of the species. The reason for
-# plotting the species separately is given in the README.
+# the color used to plot each of the species. Also, histograms
+# for each of the species' variables can be plotted this way. The
+# reason for plotting the species separately is given in the README.
 def findIndexesForSlicing(df):
     global versicolor
     global virginica
