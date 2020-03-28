@@ -145,9 +145,9 @@ def createScatterPlots():
     plt.close()
 
     # remaining sepal-width plots
-
     for label, group in df.groupby("species"):
-        plt.plot(group["sepal_width"], group["petal_length"], '.', label=label)
+        plt.plot(group["sepal_width"], group["sepal_length"], '.', label=label)
+
 
     plt.legend()
     plt.xlabel("Sepal Width (cm)")
@@ -193,3 +193,8 @@ def createScatterPlots():
     sb.pairplot(data=df, hue="species")
     # we use matplotlit.pyplot to save the image to a file
     plt.savefig("plots/scatterPlots/scatterMatrix.png")
+
+
+
+if __name__ == '__main__':
+    createScatterPlots()
