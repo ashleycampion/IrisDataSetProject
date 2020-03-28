@@ -35,38 +35,58 @@ def createHistograms():
     # together so much that histograms with a width of 0.5 really aren't
     # granular enough. Bins of 0.125 have been used instead.
     # but the setosa petal lengths and widths
+
+    plt.subplot(2,2,1)
+
     plt.hist(df["sepal_length"], bins=np.linspace(0,8,64))
-    # we now include the label for the x axis
-    plt.xlabel("Sepal Length (cm)")
-    # and the y axis
+    # we don't want to label the x axis here, as it would
+    # overlap with the plot under it
+    # plt.xlabel("Length (cm)")
+    # include the label for the y axis
     plt.ylabel("Occurences")
+    # we want the xticks and yticks to be the same across
+    # all the subplots. The xticks will be the same because
+    # the bins are the same, the yticks need to be explicitly
+    # defined. We don't want things to get too messy, so ticks
+    # of 0, 10 and 20 should suffice.
+    plt.yticks([0,10,20])
+
     # give the plot its title
-    plt.title("Sepal Length")
+    plt.title("Overall Sepal Length")
+
+    # as we are creating subplots all on the one file, we do not
+    # save it yet, nor close the plot
+
+    plt.subplot(2,2,2)
+    plt.hist(df["sepal_width"], bins=np.linspace(0,8,64))
+    # we don't either of the labels here, and they would overlap with
+    # the other plots' axes anyway
+    # plt.xlabel("Width (cm)")
+    # plt.ylabel("Occurences")
+    plt.yticks([0,10,20])
+    plt.title("Overall Sepal Width")
+
+    plt.subplot(2,2,3)
+    plt.hist(df["petal_length"], bins=np.linspace(0,8,64))
+    plt.xlabel("Length (cm)")
+    plt.ylabel("Occurences")
+    plt.yticks([0,10,20])
+    plt.title("Overall Petal Length")
+
+    plt.subplot(2,2,4)
+    plt.hist(df["petal_width"], bins=np.linspace(0,8,64))
+    plt.xlabel("Width (cm)")
+    # plt.ylabel("Occurences")
+    plt.yticks([0,10,20])
+    plt.title("Overall Petal Width")
+
+    # To avoid the titles of the bottom plots and the x axis labels
+    # of the upper plots from overlapping.
+    plt.tight_layout()
     # save it to a file in the plots/histogram folder
-    plt.savefig("plots/histograms/sepalLength.png")
+    plt.savefig("plots/histograms/allSpeciesHistograms.png")
     # and close the plot so that the next plot is not
     # superimposed on top of this one
-    plt.close()
-
-    plt.hist(df["sepal_width"], bins=np.linspace(0,8,64))
-    plt.xlabel("Sepal Width (cm)")
-    plt.ylabel("Occurences")
-    plt.title("Sepal Width")
-    plt.savefig("plots/histograms/sepalWidth.png")
-    plt.close()
-
-    plt.hist(df["petal_length"], bins=np.linspace(0,8,64))
-    plt.xlabel("Petal Length (cm)")
-    plt.ylabel("Occurences")
-    plt.title("Petal Length")
-    plt.savefig("plots/histograms/petalLength.png")
-    plt.close()
-
-    plt.hist(df["petal_width"], bins=np.linspace(0,8,64))
-    plt.xlabel("Petal Width (cm)")
-    plt.ylabel("Occurences")
-    plt.title("Petal Width")
-    plt.savefig("plots/histograms/petalWidth.png")
     plt.close()
 
     # setosa
@@ -155,3 +175,8 @@ def createHistograms():
     plt.title("Virginica Petal Width")
     plt.savefig("plots/histograms/virginicaPetalWidth.png")
     plt.close()
+
+    labels = df.species.unique()
+
+
+
