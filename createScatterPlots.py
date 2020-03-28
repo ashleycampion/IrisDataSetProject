@@ -1,6 +1,12 @@
 # for creating the actual scatter plots we want matplotlib.pyplot
 import matplotlib.pyplot as plt
 
+# we will use pandas groupby() function to group by species
+# when plotting the variables against each other
+import pandas as pd
+
+# we will use seaborn pairplot() to present all of the plots
+# on one image file
 import seaborn as sb
 
 # get the dataframe from the createDataFrame file
@@ -8,8 +14,8 @@ from createDataFrame import df
 # import the indices that will allow us create separate plots
 # for each of the species (for more on how this is achieved
 # see comments in createDataFrame file)
-from createDataFrame import versicolor
-from createDataFrame import virginica
+#from createDataFrame import versicolor
+#from createDataFrame import virginica
 
 # this function will be called by the main analysis file
 def createScatterPlots():
@@ -33,6 +39,12 @@ def createScatterPlots():
     # and is quicker, as demonstrated here:
     # https://pythonmatplotlibtips.blogspot.com/2018/01/compare-pltplot-and-pltscatter-in-speed-python-matplotlib.html
 
+    # I have not included the grid to these scatter plots, as
+    # I think it is distracting.
+
+    # to plot each of the species against the other variable
+    # really isn't very interesting; I have only included
+    # these plots here for completeness.
     # species vs other-variables plots
 
     # for the third parameter to the plot() function, we use '.'
@@ -71,12 +83,37 @@ def createScatterPlots():
     plt.savefig("plots/scatterPlots/speciesPetalWidth.png")
     plt.close()
 
+
+
+    # these plots plot sepal-length against the other variables in turn,
+    # colouring the points according to the species
     # Sepal-length plots
 
+    # previously I had created custom functions to slice the species-array
+    # so that I could plot each species separately. However, I realised
+    # afterwards that the pands groupby function can do this, and it is
+    # cleaner. For the older version, see createScatterPlots2.py in the
+    # filesNotUsed folder
+
+    # groupby works here basically by working on a dataframe object and taking
+    # as a parameter a column name of that dataframe. Then for every unique
+    # value in that column, it creates distinct dataframe objects, so that
+    # in this case, we get a dataframe object for each of the iris species.
+    # It actually returns a dictionary, where the keys are the unique values
+    # of the column-parameter inputted, and the values are the dataframes
+    # pertaining to that particular key. This means that we can apply the
+    # groupby function to the iris dataframe with 'species' inputted as a
+    # parameter, and then if we iterate through this with a for loop and
+    # and assign the key and value to separate variables, we can use the
+    # key variable as the label for the species to be plotted and the
+    # value-variable for the actual plotting of the species in question. If
+    # we then include these on the same pair of axes, the species will
+    # be distinguishable by colour.
+
+
     # we add a label here to distinguish between each of the species
-    plt.plot(df["sepal_length"][:versicolor], df["sepal_width"][:versicolor], '.', label="setosa")
-    plt.plot(df["sepal_length"][versicolor:virginica], df["sepal_width"][versicolor:virginica], '.', label="versicolor")
-    plt.plot(df["sepal_length"][virginica:], df["sepal_width"][virginica:], '.', label="virginica")
+    for label, group in df.groupby("species"):
+        plt.plot(group["sepal_length"], group["sepal_width"], '.', label="setosa")
 
     # we add a legend to distinguish between the species, as they
     # are included on the same plot
@@ -87,9 +124,8 @@ def createScatterPlots():
     plt.savefig("plots/scatterPlots/sepalLengthSepalWidth.png")
     plt.close()
 
-    plt.plot(df["sepal_length"][:versicolor], df["petal_length"][:versicolor], '.', label="setosa")
-    plt.plot(df["sepal_length"][versicolor:virginica], df["petal_length"][versicolor:virginica], '.', label="versicolor")
-    plt.plot(df["sepal_length"][virginica:], df["petal_length"][virginica:], '.', label="virginica")
+    for label, group in df.groupby("species"):
+        plt.plot(group["sepal_length"], group["petal_length"], '.', label=label)
 
     plt.legend()
     plt.xlabel("Sepal Length (cm)")
@@ -98,9 +134,8 @@ def createScatterPlots():
     plt.savefig("plots/scatterPlots/sepalLengthPetalLength.png")
     plt.close()
 
-    plt.plot(df["sepal_length"][:versicolor], df["petal_width"][:versicolor], '.', label="setosa")
-    plt.plot(df["sepal_length"][versicolor:virginica], df["petal_width"][versicolor:virginica], '.', label="versicolor")
-    plt.plot(df["sepal_length"][virginica:], df["petal_width"][virginica:], '.', label="virginica")
+    for label, group in df.groupby("species"):
+        plt.plot(group["sepal_length"], group["petal_width"], '.', label=label)
 
     plt.legend()
     plt.xlabel("Sepal Length (cm)")
@@ -111,9 +146,8 @@ def createScatterPlots():
 
     # remaining sepal-width plots
 
-    plt.plot(df["sepal_width"][:versicolor], df["petal_length"][:versicolor], '.', label="setosa")
-    plt.plot(df["sepal_width"][versicolor:virginica], df["petal_length"][versicolor:virginica], '.', label="versicolor")
-    plt.plot(df["sepal_width"][virginica:], df["petal_length"][virginica:], '.', label="virginica")
+    for label, group in df.groupby("species"):
+        plt.plot(group["sepal_width"], group["petal_length"], '.', label=label)
 
     plt.legend()
     plt.xlabel("Sepal Width (cm)")
@@ -122,9 +156,8 @@ def createScatterPlots():
     plt.savefig("plots/scatterPlots/sepalWidthPetalLength.png")
     plt.close()
 
-    plt.plot(df["sepal_width"][:versicolor], df["petal_width"][:versicolor], '.', label="setosa")
-    plt.plot(df["sepal_width"][versicolor:virginica], df["petal_width"][versicolor:virginica], '.', label="versicolor")
-    plt.plot(df["sepal_width"][virginica:], df["petal_width"][virginica:], '.', label="virginica")
+    for label, group in df.groupby("species"):
+        plt.plot(group["sepal_width"], group["petal_width"], '.', label=label)
 
     plt.legend()
     plt.xlabel("Sepal Width (cm)")
@@ -135,9 +168,8 @@ def createScatterPlots():
 
     # remaining petal-length plots
 
-    plt.plot(df["petal_length"][:versicolor], df["petal_width"][:versicolor], '.', label="setosa")
-    plt.plot(df["petal_length"][versicolor:virginica], df["petal_width"][versicolor:virginica], '.', label="versicolor")
-    plt.plot(df["petal_length"][virginica:], df["petal_width"][virginica:], '.', label="virginica")
+    for label, group in df.groupby("species"):
+        plt.plot(group["petal_length"], group["petal_width"], '.', label=label)
 
 
     plt.legend()
@@ -154,6 +186,10 @@ def createScatterPlots():
     # the first parameter is the pandas dataframe, and the
     # second refers to the variables which are given distinct,
     # wait for it, HUES
+    # for information of seaborn.pairplot, see the documentation:
+    # https://seaborn.pydata.org/generated/seaborn.pairplot.html
+    # and also here for a good introduction:
+    # https://towardsdatascience.com/visualizing-data-with-pair-plots-in-python-f228cf529166
     sb.pairplot(data=df, hue="species")
     # we use matplotlit.pyplot to save the image to a file
     plt.savefig("plots/scatterPlots/scatterMatrix.png")
