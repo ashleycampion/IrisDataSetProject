@@ -1,6 +1,3 @@
-# an older version of this file can be found in the filesNotUsed
-# folder, createHistograms1.py
-
 # we want numpy for creating numpy arrays with linspace
 # method. Linspace can easily create arrays with steps
 # of floating point magnitudes, which will be helpful
@@ -10,39 +7,40 @@ import numpy as np
 import matplotlib.pyplot as plt
 # get the dataframe from the createDataFrame file
 from createDataFrame import df
-
-# interestingly, we don't actually need to import pandas here
+# we will use pandas groupby() function in the file, but
+# interestingly we don't actually need to import pandas here
 # because we will by using the dataframe imported above to
-# call the groupby function of pandas
+# call the groupby function.
 
 # this function will be called by the main analysis file
 def createHistograms():
 
-    # originally I created histograms for all of the variables.
+    # originally I created histograms for all of the variables
+    # (see createHistograms1.py in filesNotUsed folder).
     # However, as histograms only plot one variable, they are
     # really only useful when compared against each other.
     # Thus, I instead created one images with histograms for
     # each of the variables regardless of species. Next I created
-    # plots for the variables (this time saved to separate images),
-    # and plotted the variables separately for each species, but
+    # plots for the variables (this time saved to separate images)
+    # by plotting the variables separately for each species, but
     # including each of the three plots for each variable on the same
     # axis. This allows differences between the species to be more
     # easily compared. Finally I incorporated all of the four plots
-    # created in the last step into a single image, for even more
-    # comprehensive comparison.
+    # created in the last step into a single image, for even
+    # easier visual comparison.
 
     # to incorporate multiple axes on the one image, use the subplot
-    # method, the first paramater defines the number of axes
-    # vertically, the next horizontally, and the third parameter
+    # method. The first paramater defines the number of axes
+    # vertically, the next horizontally, and the third parameter (an integer)
     # defines what axes will be plotted next, where '1' refers to the
     # top left axis, '2' refers to the axis to the right of '1' (or below
-    # if there is no plot to the right) and on the last axis.
+    # if there is no plot to the right) and so on until the last (bottom right) axis.
     # see the documentation here:
     # https://matplotlib.org/3.2.1/api/_as_gen/matplotlib.pyplot.subplot.html
 
     # In the case of creating histograms for each of the
     # variables independent of species, I decided not to vary
-    #  the bins across the histograms. While this is not
+    # the bins across the histograms. While this is not
     # ideal in the sense that there will be a lot of "white
     # space" on some of the histograms, I think this is made up for
     # by the ease with which one can compare the histograms, i.e. one
@@ -51,10 +49,11 @@ def createHistograms():
     # 8 is the upper bound (virginica sepal length) and 0 is the lower
     # (setosa petal width). While bins of 0.25 width are probably the
     # most visually appealing, the setosa-petal values are clumped
-    # together so much that histograms with a width of 0.5 really aren"t
+    # together so much that bins with a width of 0.25 really aren"t
     # granular enough. Bins of 0.125 have been used instead.
 
     plt.subplot(2,2,1)
+    # linspace function was mentioned in lecture videos
     plt.hist(df["sepal_length"], bins=np.linspace(0,8,64))
     # we don"t want to label the x axis here, as it would
     # overlap with the plot under it
@@ -82,6 +81,9 @@ def createHistograms():
     # plt.xlabel("Width (cm)")
     # plt.ylabel("Occurences")
     plt.yticks([0,10,20])
+    # grids go well with histograms. I think due to histograms' blocky
+    # nature, the grid isn't as distracting as in the case of scatter
+    # plots for example.
     plt.grid()
     plt.title("Overall Sepal Width")
 
@@ -102,7 +104,9 @@ def createHistograms():
     plt.title("Overall Petal Width")
 
     # To avoid the titles of the bottom plots and the x axis labels
-    # of the upper plots from overlapping.
+    # of the upper plots from overlapping, call the tigh_layout()
+    # function. For documentation, see here:
+    # https://matplotlib.org/3.1.3/tutorials/intermediate/tight_layout_guide.html
     plt.tight_layout()
     # save it to a file in the plots/histogram folder
     plt.savefig("plots/histograms/allSpeciesHistograms.png")
@@ -123,21 +127,27 @@ def createHistograms():
     # hist function. Because we are concerned here with comparing
     # the species against each other on the same axes, there is less
     # need to have the xticks and yticks and bins the same across
-    # all axes, so we can just not specify the ticks and have 10
-    # bins for each plot.
+    # all axes, so we can leave the ticks unspecified, and specify
+    # 10 bins for each plot.
     # for alphaframe keyword argument of legend() see here:
     # https://matplotlib.org/3.2.1/api/_as_gen/matplotlib.pyplot.legend.html
     # for alpha see here:
     # http://www.learningaboutelectronics.com/Articles/How-to-change-the-transparency-of-a-graph-plot-in-matplotlib-with-Python.php
 
     # one can actually call the hist() method with the result of a groupby() call,
-    # assign the list of values grouped by to the labels keyword argument,
+    # assign the list of values grouped-by to the labels keyword argument,
     # and the hist will create plots for each of the groups! This
-    # doesn't seem possible with the plot() method, perhaps because
-    # plot() requires two arguments, and so one would have to both
+    # doesn't seem possible when making scatter plots, perhaps because
+    # plot() in that case requires two arguments, and so one would have to both
     # call the plot() method with one groupby() result, and then include
     # another groupby() result as the first parameter to the plot() method,
-    # which doesn't intuitively make sense.
+    # which doesn't intuitively make sense, and apparently doesn't
+    # make sense to pyplot, as I haven't been able to make that work.
+
+    # Note that it is possible to create multiple plots with the one call
+    # to hist() because the array-like parameter that is plotted can
+    # actually be 2D, in which each column is a dataset, as explained here:
+    # https://matplotlib.org/3.2.1/api/_as_gen/matplotlib.pyplot.hist.html
 
     # to get a list of the species, we can call the unique() method
     # on the array-like object df.species. For more on unique() see:
@@ -180,6 +190,7 @@ def createHistograms():
     plt.savefig("plots/histograms/petalWidth.png")
     plt.close()
 
+    # now we include the above four axes on the one image with subplotting
     plt.subplot(2,2,1)
     df.groupby("species")["sepal_length"].hist(bins=10, alpha=0.5, label=labels)
     plt.title("SepalLength")
