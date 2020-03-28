@@ -1,6 +1,8 @@
 # for creating the actual scatter plots we want matplotlib.pyplot
 import matplotlib.pyplot as plt
 
+import seaborn as sb
+
 # get the dataframe from the createDataFrame file
 from createDataFrame import df
 # import the indices that will allow us create separate plots
@@ -31,7 +33,7 @@ def createScatterPlots():
     # and is quicker, as demonstrated here:
     # https://pythonmatplotlibtips.blogspot.com/2018/01/compare-pltplot-and-pltscatter-in-speed-python-matplotlib.html
 
-    # species vs other variable plots
+    # species vs other-variables plots
 
     # for the third parameter to the plot() function, we use '.'
     # to create a scatter plot, i.e. with dots rather than lines
@@ -69,13 +71,15 @@ def createScatterPlots():
     plt.savefig("plots/scatterPlots/speciesPetalWidth.png")
     plt.close()
 
-    # Sepal length plots
+    # Sepal-length plots
 
     # we add a label here to distinguish between each of the species
     plt.plot(df["sepal_length"][:versicolor], df["sepal_width"][:versicolor], '.', label="setosa")
     plt.plot(df["sepal_length"][versicolor:virginica], df["sepal_width"][versicolor:virginica], '.', label="versicolor")
     plt.plot(df["sepal_length"][virginica:], df["sepal_width"][virginica:], '.', label="virginica")
 
+    # we add a legend to distinguish between the species, as they
+    # are included on the same plot
     plt.legend()
     plt.xlabel("Sepal Length (cm)")
     plt.ylabel("Sepal Width (cm)")
@@ -105,7 +109,7 @@ def createScatterPlots():
     plt.savefig("plots/scatterPlots/sepalLengthPetalWidth.png")
     plt.close()
 
-    # remaining sepal width plots
+    # remaining sepal-width plots
 
     plt.plot(df["sepal_width"][:versicolor], df["petal_length"][:versicolor], '.', label="setosa")
     plt.plot(df["sepal_width"][versicolor:virginica], df["petal_length"][versicolor:virginica], '.', label="versicolor")
@@ -129,7 +133,7 @@ def createScatterPlots():
     plt.savefig("plots/scatterPlots/sepalWidthPetalWidth.png")
     plt.close()
 
-    # remaining petal length widths
+    # remaining petal-length plots
 
     plt.plot(df["petal_length"][:versicolor], df["petal_width"][:versicolor], '.', label="setosa")
     plt.plot(df["petal_length"][versicolor:virginica], df["petal_width"][versicolor:virginica], '.', label="versicolor")
@@ -142,3 +146,14 @@ def createScatterPlots():
     plt.title("Petal Length vs. Petal Width")
     plt.savefig("plots/scatterPlots/petalLengthPetalWidth.png")
     plt.close()
+
+
+    # it is hard to resist using seaborn to create a matrix of
+    # the above plots on a single image file
+    # the following code uses the pairplot() function, where
+    # the first parameter is the pandas dataframe, and the
+    # second refers to the variables which are given distinct,
+    # wait for it, HUES
+    sb.pairplot(data=df, hue="species")
+    # we use matplotlit.pyplot to save the image to a file
+    plt.savefig("plots/scatterPlots/scatterMatrix.png")
