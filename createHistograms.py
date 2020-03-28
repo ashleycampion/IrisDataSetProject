@@ -217,7 +217,7 @@ def createHistograms():
     # Windows systems, i.e. with '\' as the path separator.
     # see here for the use of raw string:
     # https://stackoverflow.com/questions/4415259/convert-regular-python-string-to-raw-string
-    print(r"Histograms of the Iris dataset have have been created and saved to the the 'plots\histograms' directory.")
+    print(r"Histograms of the Iris dataset have have been created and saved to the 'plots\histograms' directory.")
 
 
 
