@@ -129,6 +129,7 @@ def createHistograms():
     # need to have the xticks and yticks and bins the same across
     # all axes, so we can leave the ticks unspecified, and specify
     # 10 bins for each plot.
+    plt.grid()
     # for alphaframe keyword argument of legend() see here:
     # https://matplotlib.org/3.2.1/api/_as_gen/matplotlib.pyplot.legend.html
     # for alpha see here:
@@ -143,11 +144,15 @@ def createHistograms():
     # another groupby() result as the first parameter to the plot() method,
     # which doesn't intuitively make sense, and apparently doesn't
     # make sense to pyplot, as I haven't been able to make that work.
-
     # Note that it is possible to create multiple plots with the one call
     # to hist() because the array-like parameter that is plotted can
     # actually be 2D, in which each column is a dataset, as explained here:
     # https://matplotlib.org/3.2.1/api/_as_gen/matplotlib.pyplot.hist.html
+
+    # However, I have not chosen to do this, but instead have used a for loop
+    # to iterate through the groups, each time labeling the resulting
+    # plot appropriately. This allows one to more intuitively (I think)
+    # superimpose the plots onto each other and create a legend.
 
     # to get a list of the species, we can call the unique() method
     # on the array-like object df.species. For more on unique() see:
@@ -155,65 +160,77 @@ def createHistograms():
     labels = df.species.unique()
 
     # Sepal Length for each species
-    df.groupby("species")["sepal_length"].hist(bins=10, alpha=0.5, label=labels)
+    for label, group in df.groupby("species"):
+        plt.hist(group["sepal_length"], bins=10, alpha=0.5, label=label)
     plt.title("Sepal Length")
     plt.xlabel("Length (cm)")
     plt.ylabel("Occurences")
+    plt.grid()
     plt.legend()
     plt.savefig("plots/histograms/sepalLength.png")
     plt.close()
 
     # Sepal Width for each species
-    df.groupby("species")["sepal_width"].hist(bins=10, alpha=0.5, label=labels)
+    for label, group in df.groupby("species"):
+        plt.hist(group["sepal_width"], bins=10, alpha=0.5, label=label)
     plt.title("Sepal Width")
     plt.xlabel("Width (cm)")
     plt.ylabel("Occurences")
+    plt.grid()
     plt.legend()
     plt.savefig("plots/histograms/sepalWidth.png")
     plt.close()
 
     # Petal Length for each species
-    df.groupby("species")["petal_length"].hist(bins=10, alpha=0.5, label=labels)
+    for label, group in df.groupby("species"):
+        plt.hist(group["petal_length"], bins=10, alpha=0.5, label=label)
     plt.title("Petal Length")
     plt.xlabel("Length (cm)")
     plt.ylabel("Occurences")
+    plt.grid()
     plt.legend()
     plt.savefig("plots/histograms/petalLength.png")
     plt.close()
 
     # Petal Width for each species
-    df.groupby("species")["petal_width"].hist(bins=10, alpha=0.5, label=labels)
+    for label, group in df.groupby("species"):
+        plt.hist(group["petal_width"], bins=10, alpha=0.5, label=label)
     plt.title("Petal Width")
     plt.xlabel("Width (cm)")
     plt.ylabel("Occurences")
+    plt.grid()
     plt.legend()
     plt.savefig("plots/histograms/petalWidth.png")
     plt.close()
 
     # now we include the above four axes on the one image with subplotting
     plt.subplot(2,2,1)
-    df.groupby("species")["sepal_length"].hist(bins=10, alpha=0.5, label=labels)
+    for label, group in df.groupby("species"):
+        plt.hist(group["sepal_length"], bins=10, alpha=0.5, label=label)
     plt.title("SepalLength")
     #plt.xlabel("Length (cm)")
     plt.ylabel("Occurences")
     plt.legend(framealpha=0.5)
 
     plt.subplot(2,2,2)
-    df.groupby("species")["sepal_width"].hist(bins=10, alpha=0.5, label=labels)
+    for label, group in df.groupby("species"):
+        plt.hist(group["sepal_width"], bins=10, alpha=0.5, label=label)
     plt.title("SepalWidth")
     #plt.xlabel("Width (cm)")
     #plt.ylabel("Occurences")
     plt.legend(framealpha=0.5)
 
     plt.subplot(2,2,3)
-    df.groupby("species")["petal_length"].hist(bins=10, alpha=0.5, label=labels)
+    for label, group in df.groupby("species"):
+        plt.hist(group["petal_length"], bins=10, alpha=0.5, label=label)
     plt.title("PetalLength")
     plt.xlabel("Length (cm)")
     plt.ylabel("Occurences")
     plt.legend(framealpha=0.5)
 
     plt.subplot(2,2,4)
-    df.groupby("species")["petal_width"].hist(bins=10, alpha=0.5, label=labels)
+    for label, group in df.groupby("species"):
+        plt.hist(group["petal_width"], bins=10, alpha=0.5, label=label)
     plt.title("PetalWidth")
     plt.xlabel("Width (cm)")
     #plt.ylabel("Occurences")
