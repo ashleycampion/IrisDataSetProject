@@ -11,13 +11,8 @@ import seaborn as sb
 
 # get the dataframe from the createDataFrame file
 from createDataFrame import df
-# import the indices that will allow us create separate plots
-# for each of the species (for more on how this is achieved
-# see comments in createDataFrame file)
-#from createDataFrame import versicolor
-#from createDataFrame import virginica
 
-# this function will be called by the main analysis file
+# this function will be called by the main analysis.py file
 def createScatterPlots():
 
     # there is really no reason when creating scatter plots
@@ -39,13 +34,12 @@ def createScatterPlots():
     # and is quicker, as demonstrated here:
     # https://pythonmatplotlibtips.blogspot.com/2018/01/compare-pltplot-and-pltscatter-in-speed-python-matplotlib.html
 
-    # I have not included the grid to these scatter plots, as
+    # I have not included the grid for these scatter plots, as
     # I think it is distracting.
 
     # to plot each of the species against the other variable
     # really isn't very interesting; I have only included
     # these plots here for completeness.
-    # species vs other-variables plots
 
     # for the third parameter to the plot() function, we use '.'
     # to create a scatter plot, i.e. with dots rather than lines
@@ -83,11 +77,8 @@ def createScatterPlots():
     plt.savefig("plots/scatterPlots/speciesPetalWidth.png")
     plt.close()
 
-
-
     # these plots plot sepal-length against the other variables in turn,
     # colouring the points according to the species
-    # Sepal-length plots
 
     # previously I had created custom functions to slice the species-array
     # so that I could plot each species separately. However, I realised
@@ -95,7 +86,7 @@ def createScatterPlots():
     # cleaner. For the older version, see createScatterPlots2.py in the
     # filesNotUsed folder
 
-    # groupby works here basically by working on a dataframe object and taking
+    # groupby works here basically by being called on a dataframe object and taking
     # as a parameter a column name of that dataframe. Then for every unique
     # value in that column, it creates distinct dataframe objects, so that
     # in this case, we get a dataframe object for each of the iris species.
@@ -111,12 +102,13 @@ def createScatterPlots():
     # be distinguishable by colour.
 
 
-    # we add a label here to distinguish between each of the species
     for label, group in df.groupby("species"):
         plt.plot(group["sepal_length"], group["sepal_width"], '.', label="setosa")
 
     # we add a legend to distinguish between the species, as they
-    # are included on the same plot
+    # are included on the same plot. We do not need to include the
+    # label parameter, as we have already defined the labels in the
+    # plot() function itself.
     plt.legend()
     plt.xlabel("Sepal Length (cm)")
     plt.ylabel("Sepal Width (cm)")
@@ -166,11 +158,8 @@ def createScatterPlots():
     plt.savefig("plots/scatterPlots/sepalWidthPetalWidth.png")
     plt.close()
 
-    # remaining petal-length plots
-
     for label, group in df.groupby("species"):
         plt.plot(group["petal_length"], group["petal_width"], '.', label=label)
-
 
     plt.legend()
     plt.xlabel("Petal Length (cm)")
@@ -179,13 +168,13 @@ def createScatterPlots():
     plt.savefig("plots/scatterPlots/petalLengthPetalWidth.png")
     plt.close()
 
-
     # it is hard to resist using seaborn to create a matrix of
     # the above plots on a single image file
     # the following code uses the pairplot() function, where
     # the first parameter is the pandas dataframe, and the
     # second refers to the variables which are given distinct,
-    # wait for it, HUES
+    # wait for it, HUES. There are many more optional variables,
+    # but the default values work fine here
     # for information of seaborn.pairplot, see the documentation:
     # https://seaborn.pydata.org/generated/seaborn.pairplot.html
     # and also here for a good introduction:
@@ -200,6 +189,9 @@ def createScatterPlots():
     # https://stackoverflow.com/questions/4415259/convert-regular-python-string-to-raw-string
     print(r"Scatter plots of the Iris dataset have have been created and saved to the 'plots\scatterPlots' directory.")
 
-
+# if this is run as a script, we should call the
+# createHistograms() function, as that is what
+# someone would expect to happen should they choose
+# to run this rile on its own
 if __name__ == '__main__':
     createScatterPlots()
