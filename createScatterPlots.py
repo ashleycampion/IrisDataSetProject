@@ -100,10 +100,14 @@ def createScatterPlots():
     # value-variable for the actual plotting of the species in question. If
     # we then include these on the same pair of axes, the species will
     # be distinguishable by colour.
+    # for documentation see:
+    # https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html
+    # there is also a nice explanation here:
+    #
 
 
     for label, group in df.groupby("species"):
-        plt.plot(group["sepal_length"], group["sepal_width"], '.', label="setosa")
+        plt.plot(group["sepal_length"], group["sepal_width"], '.', label="label")
 
     # we add a legend to distinguish between the species, as they
     # are included on the same plot. We do not need to include the
