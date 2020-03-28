@@ -107,13 +107,13 @@ def createScatterPlots():
 
 
     for label, group in df.groupby("species"):
-        plt.plot(group["sepal_length"], group["sepal_width"], '.', label="label")
+        plt.plot(group["sepal_length"], group["sepal_width"], '.', label=label)
 
     # we add a legend to distinguish between the species, as they
     # are included on the same plot. We do not need to include the
     # label parameter, as we have already defined the labels in the
     # plot() function itself.
-    plt.legend()
+    plt.legend(framealpha=0.5)
     plt.xlabel("Sepal Length (cm)")
     plt.ylabel("Sepal Width (cm)")
     plt.title("Sepal Length vs. Sepal Width")
@@ -123,7 +123,7 @@ def createScatterPlots():
     for label, group in df.groupby("species"):
         plt.plot(group["sepal_length"], group["petal_length"], '.', label=label)
 
-    plt.legend()
+    plt.legend(framealpha=0.5)
     plt.xlabel("Sepal Length (cm)")
     plt.ylabel("Petal Length (cm)")
     plt.title("Sepal Length vs. Petal Length")
@@ -133,7 +133,7 @@ def createScatterPlots():
     for label, group in df.groupby("species"):
         plt.plot(group["sepal_length"], group["petal_width"], '.', label=label)
 
-    plt.legend()
+    plt.legend(framealpha=0.5)
     plt.xlabel("Sepal Length (cm)")
     plt.ylabel("Petal Width (cm)")
     plt.title("Sepal Length vs. Petal Width")
@@ -145,7 +145,7 @@ def createScatterPlots():
         plt.plot(group["sepal_width"], group["sepal_length"], '.', label=label)
 
 
-    plt.legend()
+    plt.legend(framealpha=0.5)
     plt.xlabel("Sepal Width (cm)")
     plt.ylabel("Petal Length (cm)")
     plt.title("Sepal Width vs. Sepal Length")
@@ -155,7 +155,7 @@ def createScatterPlots():
     for label, group in df.groupby("species"):
         plt.plot(group["sepal_width"], group["petal_width"], '.', label=label)
 
-    plt.legend()
+    plt.legend(framealpha=0.5)
     plt.xlabel("Sepal Width (cm)")
     plt.ylabel("Petal Width (cm)")
     plt.title("Sepal Width vs. Petal Width")
@@ -165,7 +165,7 @@ def createScatterPlots():
     for label, group in df.groupby("species"):
         plt.plot(group["petal_length"], group["petal_width"], '.', label=label)
 
-    plt.legend()
+    plt.legend(framealpha=0.5)
     plt.xlabel("Petal Length (cm)")
     plt.ylabel("Petal Width (cm)")
     plt.title("Petal Length vs. Petal Width")
