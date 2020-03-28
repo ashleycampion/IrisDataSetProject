@@ -13,7 +13,7 @@ def createSummaryStatistics():
     versicolorSummary.to_csv("summaryStatistics/versicolorSummaryStats.csv")
     virginicaSummary.to_csv("summaryStatistics/virgnicaSummaryStats.csv")
 
-    print("Summary statistics for each species have been written to csv files in the summaryStatistics folder.")
+    print("Summary statistics for each species have been written to csv files in the 'summaryStatistics' folder.")
 
 
 
