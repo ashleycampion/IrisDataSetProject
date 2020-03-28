@@ -4,7 +4,7 @@ from createScatterPlots import createScatterPlots
 
 
 def main():
-    #createSummaries()
+    # createSummaries()
     createHistograms()
     createScatterPlots()
 
