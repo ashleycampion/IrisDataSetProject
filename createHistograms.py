@@ -10,11 +10,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 # get the dataframe from the createDataFrame file
 from createDataFrame import df
-# import the indices that will allow us create separate plots
-# for each of the species (for more on how this is achieved
-# see comments in createDataFrame file)
-from createDataFrame import versicolor
-from createDataFrame import virginica
+
+# interestingly, we don't actually need to import pandas here
+# because we will by using the dataframe imported above to
+# call the groupby function of pandas
 
 # this function will be called by the main analysis file
 def createHistograms():
@@ -213,3 +212,12 @@ def createHistograms():
 
     plt.savefig("plots/histograms/overallHistograms.png")
     plt.close()
+
+
+
+# if this is run as a script, we should call the
+# createHistograms() function, as that is what
+# someone would expect to happen should they choose
+# to run this rile on its own
+if __name__ == '__main__':
+    createHistograms()
