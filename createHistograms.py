@@ -1,7 +1,10 @@
+# an older version of this file can be found in the filesNotUsed
+# folder, createHistograms1.py
+
 # we want numpy for creating numpy arrays with linspace
 # method. Linspace can easily create arrays with steps
-# of floating point magnitudes, which will be needed
-# to specify the bins for the histograms.
+# of floating point magnitudes, which will be helpful
+# for specifying the bins for the histograms.
 import numpy as np
 # for creating the actual histograms we want matplotlib.pyplot
 import matplotlib.pyplot as plt
@@ -16,30 +19,45 @@ from createDataFrame import virginica
 # this function will be called by the main analysis file
 def createHistograms():
 
-    # first create histograms for each variable except species
-    # where all species are lumped together
+    # originally I created histograms for all of the variables.
+    # However, as histograms only plot one variable, they are
+    # really only useful when compared against each other.
+    # Thus, I instead created one images with histograms for
+    # each of the variables regardless of species. Next I created
+    # plots for the variables (this time saved to separate images),
+    # and plotted the variables separately for each species, but
+    # including each of the three plots for each variable on the same
+    # axis. This allows differences between the species to be more
+    # easily compared. Finally I incorporated all of the four plots
+    # created in the last step into a single image, for even more
+    # comprehensive comparison.
 
-    # the steps for creating the histograms are the same for each
-    # variable plotted, so I will annotate the process only once.
-    # First plot the histogram with the appropriate array. The second
-    # paramater here specifies the width and range of the bins. I have
-    # decided not to vary this across the histograms. While this
-    # is not ideal in the sense that there will be a lot of 'white
-    # space' on most of the histograms, I think this is made up for
+    # to incorporate multiple axes on the one image, use the subplot
+    # method, the first paramater defines the number of axes
+    # vertically, the next horizontally, and the third parameter
+    # defines what axes will be plotted next, where '1' refers to the
+    # top left axis, '2' refers to the axis to the right of '1' (or below
+    # if there is no plot to the right) and on the last axis.
+    # see the documentation here:
+    # https://matplotlib.org/3.2.1/api/_as_gen/matplotlib.pyplot.subplot.html
+
+    # In the case of creating histograms for each of the
+    # variables independent of species, I decided not to vary
+    #  the bins across the histograms. While this is not
+    # ideal in the sense that there will be a lot of "white
+    # space" on some of the histograms, I think this is made up for
     # by the ease with which one can compare the histograms, i.e. one
     # does not have to factor in the range of the bins but can compare
     # the variables and species purely by looking at the plots.
     # 8 is the upper bound (virginica sepal length) and 0 is the lower
     # (setosa petal width). While bins of 0.25 width are probably the
     # most visually appealing, the setosa-petal values are clumped
-    # together so much that histograms with a width of 0.5 really aren't
+    # together so much that histograms with a width of 0.5 really aren"t
     # granular enough. Bins of 0.125 have been used instead.
-    # but the setosa petal lengths and widths
 
     plt.subplot(2,2,1)
-
     plt.hist(df["sepal_length"], bins=np.linspace(0,8,64))
-    # we don't want to label the x axis here, as it would
+    # we don"t want to label the x axis here, as it would
     # overlap with the plot under it
     # plt.xlabel("Length (cm)")
     # include the label for the y axis
@@ -47,11 +65,12 @@ def createHistograms():
     # we want the xticks and yticks to be the same across
     # all the subplots. The xticks will be the same because
     # the bins are the same, the yticks need to be explicitly
-    # defined. We don't want things to get too messy, so ticks
+    # defined. We don"t want things to get too messy, so ticks
     # of 0, 10 and 20 should suffice.
     plt.yticks([0,10,20])
 
     # give the plot its title
+    plt.grid()
     plt.title("Overall Sepal Length")
 
     # as we are creating subplots all on the one file, we do not
@@ -59,11 +78,12 @@ def createHistograms():
 
     plt.subplot(2,2,2)
     plt.hist(df["sepal_width"], bins=np.linspace(0,8,64))
-    # we don't either of the labels here, and they would overlap with
-    # the other plots' axes anyway
+    # we don"t either of the labels here, and they would overlap with
+    # the other plots" axes anyway
     # plt.xlabel("Width (cm)")
     # plt.ylabel("Occurences")
     plt.yticks([0,10,20])
+    plt.grid()
     plt.title("Overall Sepal Width")
 
     plt.subplot(2,2,3)
@@ -71,6 +91,7 @@ def createHistograms():
     plt.xlabel("Length (cm)")
     plt.ylabel("Occurences")
     plt.yticks([0,10,20])
+    plt.grid()
     plt.title("Overall Petal Length")
 
     plt.subplot(2,2,4)
@@ -78,6 +99,7 @@ def createHistograms():
     plt.xlabel("Width (cm)")
     # plt.ylabel("Occurences")
     plt.yticks([0,10,20])
+    plt.grid()
     plt.title("Overall Petal Width")
 
     # To avoid the titles of the bottom plots and the x axis labels
@@ -89,94 +111,93 @@ def createHistograms():
     # superimposed on top of this one
     plt.close()
 
-    # setosa
-    plt.hist(df["sepal_length"][:versicolor], bins=np.linspace(0,8,64))
-    plt.xlabel("Sepal Length (cm)")
-    plt.ylabel("Occurences")
-    plt.title("Setosa Sepal Length")
-    plt.savefig("plots/histograms/setosaSepalLength.png")
-    plt.close()
 
-    plt.hist(df["sepal_width"][:versicolor], bins=np.linspace(0,8,64))
-    plt.xlabel("Sepal Width (cm)")
-    plt.ylabel("Occurences")
-    plt.title("Setosa Sepal Width")
-    plt.savefig("plots/histograms/setosaSepalWidth.png")
-    plt.close()
-
-    plt.hist(df["petal_length"][:versicolor], bins=np.linspace(0,8,64))
-    plt.xlabel("Petal Length (cm)")
-    plt.ylabel("Occurences")
-    plt.title("Setosa Petal Length")
-    plt.savefig("plots/histograms/setosaPetalLength.png")
-    plt.close()
-
-    plt.hist(df["petal_width"][:versicolor], bins=np.linspace(0,8,64))
-    plt.xlabel("Petal Width (cm)")
-    plt.ylabel("Occurences")
-    plt.title("Setosa Petal Width")
-    plt.savefig("plots/histograms/setosaPetalWidth.png")
-    plt.close()
-
-    # versicolor
-    plt.hist(df["sepal_length"][versicolor:virginica], bins=np.linspace(0,8,64))
-    plt.xlabel("Sepal Length (cm)")
-    plt.ylabel("Occurences")
-    plt.title("Versicolor Sepal Length")
-    plt.savefig("plots/histograms/versicolorSepalLength.png")
-    plt.close()
-
-    plt.hist(df["sepal_width"][versicolor:virginica], bins=np.linspace(0,8,64))
-    plt.xlabel("Sepal Width (cm)")
-    plt.ylabel("Occurences")
-    plt.title("Versicolor Sepal Width")
-    plt.savefig("plots/histograms/versicolorSepalWidth.png")
-    plt.close()
-
-    plt.hist(df["petal_length"][versicolor:virginica], bins=np.linspace(0,8,64))
-    plt.xlabel("Petal Length (cm)")
-    plt.ylabel("Occurences")
-    plt.title("Versicolor Petal Length")
-    plt.savefig("plots/histograms/versicolorPetalLength.png")
-    plt.close()
-
-    plt.hist(df["petal_width"][versicolor:virginica], bins=np.linspace(0,8,64))
-    plt.xlabel("Petal Width (cm)")
-    plt.ylabel("Occurences")
-    plt.title("Versicolor Petal Width")
-    plt.savefig("plots/histograms/versicolorPetalWidth.png")
-    plt.close()
-
-    # virginica
-    plt.hist(df["sepal_length"][virginica:], bins=np.linspace(0,8,64))
-    plt.xlabel("Sepal Length (cm)")
-    plt.ylabel("Occurences")
-    plt.title("Virginica Sepal Length")
-    plt.savefig("plots/histograms/virginicaSepalLength.png")
-    plt.close()
-
-    plt.hist(df["sepal_width"][virginica:], bins=np.linspace(0,8,64))
-    plt.xlabel("Sepal Width (cm)")
-    plt.ylabel("Occurences")
-    plt.title("Virginica Sepal Width")
-    plt.savefig("plots/histograms/virginicaSepalWidth.png")
-    plt.close()
-
-    plt.hist(df["petal_length"][virginica:], bins=np.linspace(0,8,64))
-    plt.xlabel("Petal Length (cm)")
-    plt.ylabel("Occurences")
-    plt.title("Virginica Petal Length")
-    plt.savefig("plots/histograms/virginicaPetalLength.png")
-    plt.close()
-
-    plt.hist(df["petal_width"][virginica:], bins=np.linspace(0,8,64))
-    plt.xlabel("Petal Width (cm)")
-    plt.ylabel("Occurences")
-    plt.title("Virginica Petal Width")
-    plt.savefig("plots/histograms/virginicaPetalWidth.png")
-    plt.close()
+    # when plotting multiple plots on the same axes, the easiest
+    # way is to use the groupby function in pandas. The use of this
+    # is explained in more detail in the createScatterPlots.py file.
+    # Here, it basically allows us to create separate histograms
+    # for each of the species, and then show them on the same
+    # axes. Because we have a lot of data on each axis now,
+    # we want to make the legend semi-transpart with the
+    # alphaframe keyword argument, and the plots themselves
+    # semi-transparent with the alpha keword argument of the
+    # hist function. Because we are concerned here with comparing
+    # the species against each other on the same axes, there is less
+    # need to have the xticks and yticks and bins the same across
+    # all axes, so we can just not specify the ticks and have 10
+    # bins for each plot.
+    # for alphaframe keyword argument of legend() see here:
+    # https://matplotlib.org/3.2.1/api/_as_gen/matplotlib.pyplot.legend.html
+    # for alpha see here:
+    # http://www.learningaboutelectronics.com/Articles/How-to-change-the-transparency-of-a-graph-plot-in-matplotlib-with-Python.php
 
     labels = df.species.unique()
 
+    # Sepal Length for each species
+    df.groupby("species")["sepal_length"].hist(bins=10, alpha=0.5)
+    plt.title("Sepal Length")
+    plt.xlabel("Length (cm)")
+    plt.ylabel("Occurences")
+    plt.legend(labels)
+    plt.savefig("plots/histograms/sepalLength.png")
+    plt.close()
 
+    # Sepal Width for each species
+    df.groupby("species")["sepal_width"].hist(bins=10, alpha=0.5)
+    plt.title("Sepal Width")
+    plt.xlabel("Width (cm)")
+    plt.ylabel("Occurences")
+    plt.legend(labels)
+    plt.savefig("plots/histograms/sepalWidth.png")
+    plt.close()
 
+    # Petal Length for each species
+    df.groupby("species")["petal_length"].hist(bins=10, alpha=0.5)
+    plt.title("Petal Length")
+    plt.xlabel("Length (cm)")
+    plt.ylabel("Occurences")
+    plt.legend(labels)
+    plt.savefig("plots/histograms/petalLength.png")
+    plt.close()
+
+    # Petal Width for each species
+    df.groupby("species")["petal_width"].hist(bins=10, alpha=0.5)
+    plt.title("Petal Width")
+    plt.xlabel("Width (cm)")
+    plt.ylabel("Occurences")
+    plt.legend(labels)
+    plt.savefig("plots/histograms/petalWidth.png")
+    plt.close()
+
+    plt.subplot(2,2,1)
+    df.groupby("species")["sepal_length"].hist(bins=10, alpha=0.5)
+    plt.title("SepalLength")
+    #plt.xlabel("Length (cm)")
+    plt.ylabel("Occurences")
+    plt.legend((labels), framealpha=0.5)
+
+    plt.subplot(2,2,2)
+    df.groupby("species")["sepal_width"].hist(bins=10, alpha=0.5)
+    plt.title("SepalWidth")
+    #plt.xlabel("Width (cm)")
+    #plt.ylabel("Occurences")
+    plt.legend((labels), framealpha=0.5)
+
+    plt.subplot(2,2,3)
+    df.groupby("species")["petal_length"].hist(bins=10, alpha=0.5)
+    plt.title("PetalLength")
+    plt.xlabel("Length (cm)")
+    plt.ylabel("Occurences")
+    plt.legend((labels), framealpha=0.5)
+
+    plt.subplot(2,2,4)
+    df.groupby("species")["petal_width"].hist(bins=10, alpha=0.5)
+    plt.title("PetalWidth")
+    plt.xlabel("Width (cm)")
+    #plt.ylabel("Occurences")
+    plt.legend((labels), framealpha=0.5)
+
+    plt.tight_layout()
+
+    plt.savefig("plots/histograms/overallHistograms.png")
+    plt.close()
