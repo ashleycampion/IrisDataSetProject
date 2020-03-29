@@ -148,6 +148,8 @@ def createHistograms():
     # to hist() because the array-like parameter that is plotted can
     # actually be 2D, in which each column is a dataset, as explained here:
     # https://matplotlib.org/3.2.1/api/_as_gen/matplotlib.pyplot.hist.html
+    # there is also a very nice explanation here
+    # https://www.tutorialspoint.com/python_pandas/python_pandas_groupby.htm
 
     # However, I have not chosen to do this, but instead have used a for loop
     # to iterate through the groups, each time labeling the resulting
