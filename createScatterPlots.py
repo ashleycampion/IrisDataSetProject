@@ -102,8 +102,10 @@ def createScatterPlots():
     # be distinguishable by colour.
     # for documentation see:
     # https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html
-    # there is also a nice explanation here:
-    #
+    # and as always, real python is your friend:
+    # https://realpython.com/pandas-groupby/
+    # this resources provided me the most quickly comprehensible info:
+    # https://www.tutorialspoint.com/python_pandas/python_pandas_groupby.htm
 
 
     for label, group in df.groupby("species"):
