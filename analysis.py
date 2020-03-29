@@ -3,15 +3,17 @@
 # all from a central location.
 
 from verifyIntegrityOfDataSet import verifyIntegrityOfDataSet
-from createSummaries import createSummaries
+from createSummaryStatistics import createSummaryStatistics
 from createHistograms import createHistograms
+from createBoxplots import createBoxplots
 from createScatterPlots import createScatterPlots
 
 
 def main():
     verifyIntegrityOfDataSet()
-    createSummaries()
+    createSummaryStatistics()
     createHistograms()
+    createBoxplots()
     createScatterPlots()
 
 
