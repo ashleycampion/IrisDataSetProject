@@ -53,7 +53,7 @@ def createBoxplots():
     # Windows systems, i.e. with '\' as the path separator.
     # see here for the use of raw string:
     # https://stackoverflow.com/questions/4415259/convert-regular-python-string-to-raw-string
-    print(r"Boxplots of the Iris dataset overlayed with swarm plots have have been created and saved to the 'plots\\boxPlots' directory.")
+    print(r"Boxplots of the Iris dataset overlayed with swarm plots have have been created and saved to the 'plots\boxPlots' directory.")
 
 # if this is run as a script, we should call the
 # createBoxplots() function, as that is what
