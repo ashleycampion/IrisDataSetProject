@@ -16,6 +16,7 @@ To download this repository, click on the green 'Clone or download' button near 
 Python 3.7.4 was used to create the scripts in this repository (download it [here](https://www.python.org/downloads/)), and any version of Python 3 can run the scripts.
 
 ## Files in this Repository
+* a 'verifyIntegrityOfDataset' file to do just that
 * a 'createDataFrame' file that creates a pandas dataframe based on the irisDataSet file
 * a 'createHistograms' file that saves histograms for to the plots\histograms folder
 * a 'createBoxplots' file that saves boxplots overlayed with swarm plots to the plots\boxplots folder
@@ -25,7 +26,7 @@ Python 3.7.4 was used to create the scripts in this repository (download it [her
 
 ## Why is Fisher's Iris Dataset Still Relevant?
 
-# Analysis of the Dataset
+# **Analysis of the Dataset**
 
 ## Conceptualizing the Dataset
 ## Histograms
