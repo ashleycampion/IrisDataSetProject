@@ -12,8 +12,33 @@ from createDataFrame import df
 # because we will by using the dataframe imported above to
 # call the groupby function.
 
+# we will use the os module to create the
+# the directory to store the files to
+import os
+
 # this function will be called by the main analysis file
 def createHistograms():
+
+    # I adapted the code for creating a directory
+    # if it doesn't already exist from here:
+    # https://stackoverflow.com/questions/11373610/save-matplotlib-file-to-a-directory
+    # first we get the absolute path of the current directory
+    # by calling the dirname() method on the os module's path
+    # field with a parameter of the current filename
+    # (represented by the 'dunder' or 'magic' __file__
+    # variable that is built into Python).
+    scriptDir = os.path.dirname(__file__)
+    # we then create the path of the new directory by calling
+    # the join() method on the os module's path field with two
+    # parameter, the first being the current directory's path, and the
+    # second being the subdirectory we want to add to it.
+    plotDir = os.path.join(scriptDir, 'plots/histograms/')
+    # we then check if the directory we want to create already
+    # exists, and only if it doesn't exist do we invoke the os
+    # module's makedirs() method to create it.
+    if not os.path.isdir(plotDir):
+        os.makedirs(plotDir)
+
 
     # originally I created histograms for all of the variables
     # (see createHistograms1.py in filesNotUsed folder).
@@ -109,7 +134,7 @@ def createHistograms():
     # https://matplotlib.org/3.1.3/tutorials/intermediate/tight_layout_guide.html
     plt.tight_layout()
     # save it to a file in the plots/histogram folder
-    plt.savefig("plots/histograms/allSpeciesHistograms.png")
+    plt.savefig(plotDir + "allSpeciesHistograms.png")
     # and close the plot so that the next plot is not
     # superimposed on top of this one
     plt.close()
@@ -169,7 +194,7 @@ def createHistograms():
     plt.ylabel("Occurences")
     plt.grid()
     plt.legend()
-    plt.savefig("plots/histograms/sepalLength.png")
+    plt.savefig(plotDir + "sepalLength.png")
     plt.close()
 
     # Sepal Width for each species
@@ -180,7 +205,7 @@ def createHistograms():
     plt.ylabel("Occurences")
     plt.grid()
     plt.legend()
-    plt.savefig("plots/histograms/sepalWidth.png")
+    plt.savefig(plotDir + "sepalWidth.png")
     plt.close()
 
     # Petal Length for each species
@@ -191,7 +216,7 @@ def createHistograms():
     plt.ylabel("Occurences")
     plt.grid()
     plt.legend()
-    plt.savefig("plots/histograms/petalLength.png")
+    plt.savefig(plotDir + "petalLength.png")
     plt.close()
 
     # Petal Width for each species
@@ -202,7 +227,7 @@ def createHistograms():
     plt.ylabel("Occurences")
     plt.grid()
     plt.legend()
-    plt.savefig("plots/histograms/petalWidth.png")
+    plt.savefig(plotDir + "petalWidth.png")
     plt.close()
 
     # now we include the above four axes on the one image with subplotting
@@ -240,7 +265,7 @@ def createHistograms():
 
     plt.tight_layout()
 
-    plt.savefig("plots/histograms/overallHistograms.png")
+    plt.savefig(plotDir + "overallHistograms.png")
     plt.close()
 
     # we use a raw string here to accurately depict the file path on
