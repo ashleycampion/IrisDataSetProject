@@ -4,8 +4,8 @@
 1. [Housekeeping](#housekeeping)
     * [Files in this Repository](#files-in-this-repository)
     * [How to Download this Repository](#how-to-download-this-repository)
-    * [What is Needed to Run the Python Scripts] (#what-is-needed-to-run-the-python-scripts)
-    * [How to Run the Python Scripts] (*how-to-run-the-python-scripts)
+    * [What is Needed to Run the Python Scripts](#what-is-needed-to-run-the-python-scripts)
+    * [How to Run the Python Scripts](#how-to-run-the-python-scripts)
 1. [Introduction to the Dataset](#introduction-to-the-dataset)
     * [What is the Iris Dataset?](#what-is-the-iris-dataset?)
     * [Why is Fisher's Iris Dataset Still Relevant?](#why-is-fisher's-iris-dataset-still-relevant?)
@@ -15,9 +15,9 @@
     * [Box Plots](#box-plots)
     * [Scatter Plots](#scatter-plots)
     * [Parallel Coordinates Plots](#parallel-coordinates-plot)
-    * [Linear Regression](*linear-regression)
+    * [Linear Regression](#linear-regression)
 
-## Housekeeping
+# Housekeeping
 
 ## Python Files in this Repository
 * an 'analysis' file which is the main application script and which imports and runs the functions in the other files
@@ -29,25 +29,26 @@
 * a 'createSummaryStatistics' file that saves summary statistics for each species to a csv file in the summaryStatistics folder
 * a 'verifyIntegrityOfDataset' file to do just that
 
-### How to Download this Repository
+## How to Download this Repository
 Click on the green 'Clone or download' button near the top right of this page, and then select 'Download ZIP'. You will then need to unzip the downloaded file. You can download 7-zip [here](https://www.7-zip.org/download.html).
 
-### What is Needed to Run the Python Scripts
+## What is Needed to Run the Python Scripts
 Python 3.7.4 was used to create the scripts in this repository (download it [here](https://www.python.org/downloads/)). Detailed instructions on how to download and install the latest version of Python are available [here](https://realpython.com/installing-python/). Any version of Python 3 can run the scripts. You can also download Python by downloading the Python distribution, Anaconda. You can download Anaconda [here](https://www.anaconda.com/distribution/), and you will find instructions on how to download and install Anaconda for Windows [here](https://docs.anaconda.com/anaconda/install/windows/).
 
-### How to Run the Python Scripts
+## How to Run the Python Scripts
 See the section 'How to Run Python Scripts Using the Command-Line' [here](https://realpython.com/run-python-scripts/).
 
-## Introduction to the Dataset
+# Introduction to the Dataset
 
-### What is the Iris Dataset
+## What is the Iris Dataset
 
-### Why is Fisher's Iris Dataset Still Relevant?
+## Why is Fisher's Iris Dataset Still Relevant?
 
-## **Analysis of the Dataset**
+# **Analysis of the Dataset**
 
-### Conceptualizing the Dataset
-### Histograms
-### Box Plots
-### Scatter Plots
-### Linear Regression
+## Conceptualizing the Dataset
+## Histograms
+## Box Plots
+## Scatter Plots
+## Parallel Coordinates
+## Linear Regression
