@@ -12,8 +12,32 @@ import seaborn as sb
 # get the dataframe from the createDataFrame file
 from createDataFrame import df
 
+# we will use the os module to create the
+# the directory to store the files to
+import os
+
 # this function will be called by the main analysis.py file
 def createScatterPlots():
+
+    # I adapted the code for creating a directory
+    # if it doesn't already exist from here:
+    # https://stackoverflow.com/questions/11373610/save-matplotlib-file-to-a-directory
+    # first we get the absolute path of the current directory
+    # by calling the dirname() method on the os module's path
+    # field with a parameter of the current filename
+    # (represented by the 'dunder' or 'magic' __file__
+    # variable that is built into Python).
+    scriptDir = os.path.dirname(__file__)
+    # we then create the path of the new directory by calling
+    # the join() method on the os module's path field with two
+    # parameter, the first being the current directory's path, and the
+    # second being the subdirectory we want to add to it.
+    plotDir = os.path.join(scriptDir, 'plots/scatterPlots/')
+    # we then check if the directory we want to create already
+    # exists, and only if it doesn't exist do we invoke the os
+    # module's makedirs() method to create it.
+    if not os.path.isdir(plotDir):
+        os.makedirs(plotDir)
 
     # there is really no reason when creating scatter plots
     # based on the iris dataset not to distinguish between
@@ -51,7 +75,7 @@ def createScatterPlots():
     # title
     plt.title("Species vs. Sepal Length")
     # save in plots/scatterPlots folder
-    plt.savefig("plots/scatterPlots/speciesSepalLength.png")
+    plt.savefig(plotDir + "speciesSepalLength.png")
     # close the plot so that the next plot is not
     # superimposed on top of this one
     plt.close()
@@ -60,21 +84,21 @@ def createScatterPlots():
     plt.xlabel("Species")
     plt.ylabel("Sepal Width (cm)")
     plt.title("Species vs. Sepal Width")
-    plt.savefig("plots/scatterPlots/speciesSepalWidth.png")
+    plt.savefig(plotDir + "speciesSepalWidth.png")
     plt.close()
 
     plt.plot(df["species"], df["petal_length"], ".")
     plt.xlabel("Species")
     plt.ylabel("Petal Length (cm)")
     plt.title("Species vs. Petal Length")
-    plt.savefig("plots/scatterPlots/speciesPetalLength.png")
+    plt.savefig(plotDir + "speciesPetalLength.png")
     plt.close()
 
     plt.plot(df["species"], df["petal_width"], ".")
     plt.xlabel("Species")
     plt.ylabel("PetalWidth (cm)")
     plt.title("Species vs. PetalWidth")
-    plt.savefig("plots/scatterPlots/speciesPetalWidth.png")
+    plt.savefig(plotDir + "speciesPetalWidth.png")
     plt.close()
 
     # these plots plot sepal-length against the other variables in turn,
@@ -121,7 +145,7 @@ def createScatterPlots():
     plt.xlabel("Sepal Length (cm)")
     plt.ylabel("Sepal Width (cm)")
     plt.title("Sepal Length vs. Sepal Width")
-    plt.savefig("plots/scatterPlots/sepalLengthSepalWidth.png")
+    plt.savefig(plotDir + "sepalLengthSepalWidth.png")
     plt.close()
 
     for label, group in df.groupby("species"):
@@ -131,7 +155,7 @@ def createScatterPlots():
     plt.xlabel("Sepal Length (cm)")
     plt.ylabel("Petal Length (cm)")
     plt.title("Sepal Length vs. Petal Length")
-    plt.savefig("plots/scatterPlots/sepalLengthPetalLength.png")
+    plt.savefig(plotDir + "sepalLengthPetalLength.png")
     plt.close()
 
     for label, group in df.groupby("species"):
@@ -141,7 +165,7 @@ def createScatterPlots():
     plt.xlabel("Sepal Length (cm)")
     plt.ylabel("Petal Width (cm)")
     plt.title("Sepal Length vs. Petal Width")
-    plt.savefig("plots/scatterPlots/sepalLengthPetalWidth.png")
+    plt.savefig(plotDir + "sepalLengthPetalWidth.png")
     plt.close()
 
     # remaining sepal-width plots
@@ -153,7 +177,7 @@ def createScatterPlots():
     plt.xlabel("Sepal Width (cm)")
     plt.ylabel("Petal Length (cm)")
     plt.title("Sepal Width vs. Sepal Length")
-    plt.savefig("plots/scatterPlots/sepalWidthPetalLength.png")
+    plt.savefig(plotDir + "sepalWidthPetalLength.png")
     plt.close()
 
     for label, group in df.groupby("species"):
@@ -163,7 +187,7 @@ def createScatterPlots():
     plt.xlabel("Sepal Width (cm)")
     plt.ylabel("Petal Width (cm)")
     plt.title("Sepal Width vs. Petal Width")
-    plt.savefig("plots/scatterPlots/sepalWidthPetalWidth.png")
+    plt.savefig(plotDir + "sepalWidthPetalWidth.png")
     plt.close()
 
     for label, group in df.groupby("species"):
@@ -173,7 +197,7 @@ def createScatterPlots():
     plt.xlabel("Petal Length (cm)")
     plt.ylabel("Petal Width (cm)")
     plt.title("Petal Length vs. Petal Width")
-    plt.savefig("plots/scatterPlots/petalLengthPetalWidth.png")
+    plt.savefig(plotDir + "petalLengthPetalWidth.png")
     plt.close()
 
     # it is hard to resist using seaborn to create a matrix of
@@ -189,7 +213,7 @@ def createScatterPlots():
     # https://towardsdatascience.com/visualizing-data-with-pair-plots-in-python-f228cf529166
     sb.pairplot(data=df, hue="species")
     # we use matplotlit.pyplot to save the image to a file
-    plt.savefig("plots/scatterPlots/scatterMatrix.png")
+    plt.savefig(plotDir + "scatterMatrix.png")
 
     # we use a raw string here to accurately depict the file path on
     # Windows systems, i.e. with '\' as the path separator.
