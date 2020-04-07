@@ -3,7 +3,7 @@
 
 ## Table of Contents
 1. [Housekeeping](#housekeeping)
-    * [Files in this Repository](#files-in-this-repository)
+    * [Python Files in this Repository](#files-in-this-repository)
     * [How to Download this Repository](#how-to-download-this-repository)
     * [What is Needed to Run the Python Scripts](#what-is-needed-to-run-the-python-scripts)
     * [How to Run the Python Scripts](#how-to-run-the-python-scripts)
