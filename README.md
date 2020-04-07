@@ -48,12 +48,16 @@ See the section 'How to Run Python Scripts Using the Command-Line' [here](https:
 ## What is the Iris Dataset
 
 From Wikipedia:
-> The Iris flower data set or Fisher's Iris data set is a [multivariate](#multivariate) (these blue links will take you to a definition in the appendix section below) data set introduced by the British statistician and biologist Ronald Fisher in his 1936 paper *The use of multiple measurements in taxonomic problems as an example of [linear discriminant analysis](#linear-indiscriminate-analysis).
+> The Iris flower data set or Fisher's Iris data set is a [multivariate](#multivariate) (these blue links will take you to a definition in the appendix section below) data set introduced by the British statistician and biologist Ronald Fisher in his 1936 paper *The use of multiple measurements in taxonomic problems as an example of [linear discriminant analysis](#linear-indiscriminate-analysis)*.
 > The data set consists of 50 samples from each of three species of Iris (Iris setosa, Iris virginica and Iris versicolor). Four features were measured from each sample: the length and the width of the sepals and petals, in centimeters. Based on the combination of these four features, Fisher developed a linear discriminant model to distinguish the species from each other. [1]
 
 
 ## Why is the Iris Dataset Still Relevant?
-
+The Iris Dataset remains relevant for many reasons:
+* Its analysis by Fisher was a foundational moment in the history of data analytics, particularly in relation to the development of [linear discriminant analysis](#linear-indiscriminate-analysis).
+* It is well suited to being used as an educational tool in data analysis: the sample size is small at 150 flowers; the data is of that of everyday life (a common flower rather than some deep sea flora); the variables are not intimidatingly scientific (e.g. petal length); and the measurements are easily imaginable (a few centimeters).
+* It can be used to explain the difference between [supervised](#supervised-learning) and [unsupervised learning](#unsupervised-learning) techniques in machine learning. This will be expanded on [below](#metro-map-of-the-dataset).
+* Consisting of three species of the Iris flower, two of which are not immediately distinguishable based on the measurements obtained, the Iris dataset has often been used to test [statistical classification](#statistical-classification) techniques in machine learning, i.e. how to teach a program to categorize an object based on its attributes.
 
 # **Analysis of the Dataset**
 
@@ -63,7 +67,7 @@ From Wikipedia:
 ## Scatter Plots
 ## Parallel Coordinates
 ## Linear Regression
-
+## Metro-map of the Dataset
 
 
 # Appendix
@@ -77,10 +81,12 @@ From Wikipedia:
     <dd>Linear discriminant analysis (LDA), normal discriminant analysis (NDA), or discriminant function analysis is a generalization of Fisher's linear discriminant, a method used in statistics, pattern recognition, and machine learning to find a <a href="#linear combination">linear combination</a> of features that characterizes or separates two or more classes of objects or events [3].</dd>
     <dt><a id='Multivariate'>Multivariate</a></dt>
     <dd>Multivariant refers to the property of having multiple variables. Hence a <em>multivariate dataset</em> is a dataset with multiple variables, and <em>multivariate statistics</em> is the statistics of multivariate datasets.</dd>
-    <dt></dt>
-    <dd></dd>
-    <dt></dt>
-    <dd></dd>
+    <dt><a id="Statistical Classification"></a>Statistical Classification</dt>
+    <dd>In machine learning and statistics, classification is the problem of identifying to which of a set of categories (sub-populations) a new observation belongs, on the basis of a training set of data containing observations (or instances) whose category membership is known. [7]</dd>
+    <dt><a id="Supervised learning">Supervised learning</a></dt>
+    <dd>Supervised learning is the machine learning task of learning a function that maps an input to an output based on example input-output pairs. It infers a function from labeled training data. This in contrast to <a href="#unsupervised learning">unsupervised learning</a> that does not have the luxury of data that is labelled [5].</dd>
+    <dt><a id="Unsupervised learning">Unsupervised learning</a></dt>
+    <dd>Unsupervised learning is a type of machine learning that looks for previously undetected patterns in a data set with no pre-existing labels and with a minimum of human supervision. This in contrast to <a href="#supervised learning">supervised learning</a> that usually makes use of human-labeled data. [6]</dd>
     <dt></dt>
     <dd></dd>
     <dt></dt>
@@ -91,6 +97,15 @@ From Wikipedia:
 
 # References
 1 https://en.wikipedia.org/wiki/Iris_flower_data_set
+
 2 https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+
 3 https://en.wikipedia.org/wiki/Linear_discriminant_analysis
+
 4 https://en.wikipedia.org/wiki/Linear_combination
+
+5 https://en.wikipedia.org/wiki/Supervised_learning
+
+6 https://en.wikipedia.org/wiki/Unsupervised_learning
+
+7 https://en.wikipedia.org/wiki/Statistical_classification
