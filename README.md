@@ -71,12 +71,12 @@ From Wikipedia:
 ## Definition of Key Terms
 
 <dl>
-    <dt><a name='Linear Combination'></a>Linear Combination</dt>
+    <dt><a id='Linear Combination'></a>Linear Combination</dt>
     <dd>In mathematics, a linear combination is an expression constructed from a set of terms by multiplying each term by a constant and adding the results (e.g. a linear combination of x and y would be any expression of the form ax + by, where a and b are constants) [4].</dd>
-    <dt><a name='Linear Discriminate Analysis'></a>Linear Discriminate Analysis</dt>
-    <dd>Linear discriminant analysis (LDA), normal discriminant analysis (NDA), or discriminant function analysis is a generalization of Fisher's linear discriminant, a method used in statistics, pattern recognition, and machine learning to find a [linear combination](#linear-combination) of features that characterizes or separates two or more classes of objects or events [3].</dd>
-    <dt><a name='Multivariate'>Multivariate</a></dt>
-    <dd>Refers to the property of having multiple variables. Hence a <em>multivariate dataset</em> is a dataset with multiple variables, and <em>multivariate statistics</em> is the statistics of multivariate datasets.</dd>
+    <dt><a id='Linear Discriminate Analysis'></a>Linear Discriminate Analysis</dt>
+    <dd>Linear discriminant analysis (LDA), normal discriminant analysis (NDA), or discriminant function analysis is a generalization of Fisher's linear discriminant, a method used in statistics, pattern recognition, and machine learning to find a <a href="#linear combination">linear combination</a> of features that characterizes or separates two or more classes of objects or events [3].</dd>
+    <dt><a id='Multivariate'>Multivariate</a></dt>
+    <dd>Multivariant refers to the property of having multiple variables. Hence a <em>multivariate dataset</em> is a dataset with multiple variables, and <em>multivariate statistics</em> is the statistics of multivariate datasets.</dd>
     <dt></dt>
     <dd></dd>
     <dt></dt>
