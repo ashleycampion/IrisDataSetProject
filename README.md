@@ -62,6 +62,10 @@ The Iris Dataset remains relevant because:
 # **Analysis of the Dataset**
 
 ## Conceptualizing the Dataset
+While it's all very well to say that the dataset consists of three species of iris flowers and their petal and sepal lengths and width, it is important to have an understanding of what the data, for lack of a better word, *means*. This can be achieved by conceptualizing the relationships between the variables in the dataset; and doing this will bring one a good part of the way towards understanding what the dataset can actually be used for.
+
+In a sense we have already done a certain amount of conceptualizing: although the three species of flower are represented as nothing more than variables in the dataset, no different from petal length, for example, we have already been referring to them as something more than *just* a variable, as a *special* kind of variable, as it were.
+
 <div align="center">
     <img src="./filesNotUsed/visualizationOfVariableRelationships.png" alt="Visualization Of Variable Relationships" title="Visualization Of Variable Relationships")>
 </div>
@@ -72,7 +76,7 @@ The Iris Dataset remains relevant because:
 ## Scatter Plots
 ## Parallel Coordinates
 ## Linear Regression
-## Metro-map of the Dataset
+## Metro-map
 
 
 # Appendix
