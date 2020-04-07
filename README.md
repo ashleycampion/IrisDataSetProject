@@ -53,7 +53,7 @@ From Wikipedia:
 
 
 ## Why is the Iris Dataset Still Relevant?
-The Iris Dataset remains relevant for many reasons:
+The Iris Dataset remains relevant because:
 * Its analysis by Fisher was a foundational moment in the history of data analytics, particularly in relation to the development of [linear discriminant analysis](#linear-indiscriminate-analysis).
 * It is well suited to being used as an educational tool in data analysis: the sample size is small at 150 flowers; the data is of that of everyday life (a common flower rather than some deep sea flora); the variables are not intimidatingly scientific (e.g. petal length); and the measurements are easily imaginable (a few centimeters).
 * It can be used to explain the difference between [supervised](#supervised-learning) and [unsupervised learning](#unsupervised-learning) techniques in machine learning. This will be expanded on [below](#metro-map-of-the-dataset).
@@ -62,6 +62,8 @@ The Iris Dataset remains relevant for many reasons:
 # **Analysis of the Dataset**
 
 ## Conceptualizing the Dataset
+![Visualization Of Variable Relationships](filesNotUsed\visualizationOfVariableRelationships.png "Visualization Of Variable Relationships")
+
 ## Histograms
 ## Box Plots
 ## Scatter Plots
