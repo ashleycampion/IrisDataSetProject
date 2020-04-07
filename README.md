@@ -17,7 +17,9 @@
     * [Scatter Plots](#scatter-plots)
     * [Parallel Coordinates Plots](#parallel-coordinates-plot)
     * [Linear Regression](#linear-regression)
-
+1. [Appendix](#appendix)
+    * [Definitions of Key Terms](#definition-of-key-terms)
+1. [References](#references)
 
 # Housekeeping
 
@@ -42,11 +44,13 @@ See the section 'How to Run Python Scripts Using the Command-Line' [here](https:
 
 
 # Introduction to the Dataset
-From Wikipedia:
-> The Iris flower data set or Fisher's Iris data set is a multivariate data set introduced by the British statistician and biologist Ronald Fisher in his 1936 paper *The use of multiple measurements in taxonomic problems as an example of linear discriminant analysis*.
-> The data set consists of 50 samples from each of three species of Iris (Iris setosa, Iris virginica and Iris versicolor). Four features were measured from each sample: the length and the width of the sepals and petals, in centimeters. Based on the combination of these four features, Fisher developed a linear discriminant model to distinguish the species from each other.
 
 ## What is the Iris Dataset
+
+From Wikipedia:
+> The Iris flower data set or Fisher's Iris data set is a [multivariate](#Multivariate) data set introduced by the British statistician and biologist Ronald Fisher in his 1936 paper *The use of multiple measurements in taxonomic problems as an example of linear discriminant analysis*.
+> The data set consists of 50 samples from each of three species of Iris (Iris setosa, Iris virginica and Iris versicolor). Four features were measured from each sample: the length and the width of the sepals and petals, in centimeters. Based on the combination of these four features, Fisher developed a linear discriminant model to distinguish the species from each other. [1]
+
 
 ## Why is the Iris Dataset Still Relevant?
 
@@ -59,3 +63,33 @@ From Wikipedia:
 ## Scatter Plots
 ## Parallel Coordinates
 ## Linear Regression
+
+
+
+# Appendix
+
+## Definition of Key Terms
+
+<dl>
+  <dt>Multivariate</dt>
+  <dd>Refers to the property of having multiple variables. Hence a *multivariate dataset* is a dataset with multiple variables, and *multivariate statistics* is the statistics of multivariate datasets.</dd>
+
+  <dt></dt>
+  <dd></dd>
+
+  <dt></dt>
+  <dd></dd>
+
+  <dt></dt>
+  <dd></dd>
+
+  <dt></dt>
+  <dd></dd>
+
+  <dt></dt>
+  <dd></dd>
+</dl>
+
+# References
+1 https://en.wikipedia.org/wiki/Iris_flower_data_set
+2 https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
