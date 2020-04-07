@@ -1,4 +1,5 @@
-# Programming and Scripting Project: Analysis of Fisher's Iris dataset
+# Programming and Scripting Project
+# Analysis of Fisher's Iris Dataset
 
 ## Table of Contents
 1. [Housekeeping](#housekeeping)
@@ -16,6 +17,7 @@
     * [Scatter Plots](#scatter-plots)
     * [Parallel Coordinates Plots](#parallel-coordinates-plot)
     * [Linear Regression](#linear-regression)
+
 
 # Housekeeping
 
@@ -38,11 +40,13 @@ Python 3.7.4 was used to create the scripts in this repository (download it [her
 ## How to Run the Python Scripts
 See the section 'How to Run Python Scripts Using the Command-Line' [here](https://realpython.com/run-python-scripts/).
 
+
 # Introduction to the Dataset
 
 ## What is the Iris Dataset
 
 ## Why is Fisher's Iris Dataset Still Relevant?
+
 
 # **Analysis of the Dataset**
 
