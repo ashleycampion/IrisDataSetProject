@@ -62,7 +62,7 @@ The Iris Dataset remains relevant because:
 # **Analysis of the Dataset**
 
 ## Conceptualizing the Dataset
-![Visualization Of Variable Relationships](filesNotUsed\visualizationOfVariableRelationships.png "Visualization Of Variable Relationships")
+![Visualization Of Variable Relationships](./filesNotUsed/visualizationOfVariableRelationships.png "Visualization Of Variable Relationships")
 
 ## Histograms
 ## Box Plots
