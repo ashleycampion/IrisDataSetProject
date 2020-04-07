@@ -51,7 +51,11 @@ def createParallelCoordinates():
     # of the file and save the plot to this path.
     plt.savefig(plotDir + "parallelCoordinates.png")
 
-
+    # we use a raw string here to accurately depict the file path on
+    # Windows systems, i.e. with '\' as the path separator.
+    # see here for the use of raw string:
+    # https://stackoverflow.com/questions/4415259/convert-regular-python-string-to-raw-string
+    print(r"A parallel coorindates plot of the Iris dataset has been created and saved to the 'plots\parallelCoordinates' directory.")
 
 
 if __name__ == '__main__':
