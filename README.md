@@ -48,7 +48,7 @@ See the section 'How to Run Python Scripts Using the Command-Line' [here](https:
 ## What is the Iris Dataset
 
 From Wikipedia:
-> The Iris flower data set or Fisher's Iris data set is a [multivariate](#multivariate) data set introduced by the British statistician and biologist Ronald Fisher in his 1936 paper *The use of multiple measurements in taxonomic problems as an example of linear discriminant analysis*.
+> The Iris flower data set or Fisher's Iris data set is a [multivariate](#multivariate) (these blue links will take you to a definition in the appendix section below) data set introduced by the British statistician and biologist Ronald Fisher in his 1936 paper *The use of multiple measurements in taxonomic problems as an example of [linear discriminant analysis](#linear-indiscriminate-analysis).
 > The data set consists of 50 samples from each of three species of Iris (Iris setosa, Iris virginica and Iris versicolor). Four features were measured from each sample: the length and the width of the sepals and petals, in centimeters. Based on the combination of these four features, Fisher developed a linear discriminant model to distinguish the species from each other. [1]
 
 
@@ -71,25 +71,33 @@ From Wikipedia:
 ## Definition of Key Terms
 
 <dl>
-  <dt><a name='multivariate'>Multivariate</a></dt>
-  <dd>Refers to the property of having multiple variables. Hence a *multivariate dataset* is a dataset with multiple variables, and *multivariate statistics* is the statistics of multivariate datasets.</dd>
+    <dt><a name='Linear Combination'></a>Linear Combination</dt>
+    <dd>In mathematics, a linear combination is an expression constructed from a set of terms by multiplying each term by a constant and adding the results (e.g. a linear combination of x and y would be any expression of the form ax + by, where a and b are constants) [4].</dd>
 
-  <dt></dt>
-  <dd></dd>
+    <dt><a name='Linear Discriminate Analysis'></a>Linear Discriminate Analysis</dt>
+    <dd>Linear discriminant analysis (LDA), normal discriminant analysis (NDA), or discriminant function analysis is a generalization of Fisher's linear discriminant, a method used in statistics, pattern recognition, and machine learning to find a [linear combination](#linear-combination) of features that characterizes or separates two or more classes of objects or events [3].</dd>
 
-  <dt></dt>
-  <dd></dd>
+    <dt><a name='Multivariate'>Multivariate</a></dt>
+    <dd>Refers to the property of having multiple variables. Hence a <em>multivariate dataset</em> is a dataset with multiple variables, and <em>multivariate statistics</em> is the statistics of multivariate datasets.</dd>
 
-  <dt></dt>
-  <dd></dd>
+    <dt></dt>
+    <dd></dd>
 
-  <dt></dt>
-  <dd></dd>
+    <dt></dt>
+    <dd></dd>
 
-  <dt></dt>
-  <dd></dd>
+    <dt></dt>
+    <dd></dd>
+
+    <dt></dt>
+    <dd></dd>
+
+    <dt></dt>
+    <dd></dd>
 </dl>
 
 # References
 1 https://en.wikipedia.org/wiki/Iris_flower_data_set
 2 https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+3 https://en.wikipedia.org/wiki/Linear_discriminant_analysis
+4 https://en.wikipedia.org/wiki/Linear_combination
