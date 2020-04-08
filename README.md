@@ -76,37 +76,37 @@ The differentiation made in Object Oriented Programming between 'Is-a' and 'Has-
 ## Histograms
 
 <div align="center">
-    <img src="./filesNotUsed/plots/histograms/allSpeciesHistograms.png" alt="Histogram without Distinguishing Species" title="Histogram without Distinguishing Species")>
+    <img src="./plots/histograms/allSpeciesHistograms.png" alt="Histogram without Distinguishing Species" title="Histogram without Distinguishing Species")>
 </div>
 
 <div align="center">
-    <img src="./filesNotUsed/plots/histograms/overallHistograms.png" alt="Histogram with Species Distinguished" title="Histogram with Species Distinguished")>
+    <img src="./plots/histograms/overallHistograms.png" alt="Histogram with Species Distinguished" title="Histogram with Species Distinguished")>
 </div>
 
 ## Box Plots
 
 <div align="center">
-    <img src="./filesNotUsed/boxPlots/sepalLength.png" alt="Box Plot for Species vs. Sepal Length" title="Box Plot for Species vs. Sepal Length")>
+    <img src="./boxPlots/sepalLength.png" alt="Box Plot for Species vs. Sepal Length" title="Box Plot for Species vs. Sepal Length")>
 </div>
 
 ## Scatter Plots
 
 <div align="center">
-    <img src="./filesNotUsed/scatterPlots/petalLengthPetalWidth.png" alt="Scatter Plot of Petal Length vs. Petal Width Grouped by Species" title="Scatter Plot of Petal Length vs. Petal Width Grouped by Species")>
+    <img src="./scatterPlots/petalLengthPetalWidth.png" alt="Scatter Plot of Petal Length vs. Petal Width Grouped by Species" title="Scatter Plot of Petal Length vs. Petal Width Grouped by Species")>
 </div>
 
 <div align="center">
-    <img src="./filesNotUsed/scatterPlots/sepalWidthPetalWidth.png" alt="Scatter Plot of Sepal Width vs. Petal Width Grouped by Species" title="Scatter Plot of Sepal Width vs. Petal Width Grouped by Species")>
+    <img src="./scatterPlots/sepalWidthPetalWidth.png" alt="Scatter Plot of Sepal Width vs. Petal Width Grouped by Species" title="Scatter Plot of Sepal Width vs. Petal Width Grouped by Species")>
 </div>
 
 <div align="center">
-    <img src="./filesNotUsed/scatterPlots/scatterMatrix.png" alt="Pair Plot Grouped by Species" title="Pair Plot Grouped by Species")>
+    <img src="./scatterPlots/scatterMatrix.png" alt="Pair Plot Grouped by Species" title="Pair Plot Grouped by Species")>
 </div>
 
 ## Parallel Coordinates
 
 <div align="center">
-    <img src="./filesNotUsed/plots/parallelCoordinates/parallelCoordinates.png" alt="Paralel Coordinates Plot" title="Paralel Coordinates Plot")>
+    <img src="./plots/parallelCoordinates/parallelCoordinates.png" alt="Parallel Coordinates Plot" title="Parallel Coordinates Plot")>
 </div>
 
 ## Linear Regression
