@@ -43,7 +43,7 @@ def createBoxPlots():
     # we assign the boxplot to a variable, and then use
     # that to call the set_title method
     plot = sb.boxplot(y="sepal_length", x="species", data=df, width=0.5)
-    plot.set_title("Species vs. Petal Width")
+    plot.set_title("Species vs. Sepal Length")
     # overlay a swarm plot, specifying the color of the dots
     # as black, and making them somewhat transparent.
     plot = sb.swarmplot(y="sepal_length", x="species", data=df, color="black", alpha=0.75)
