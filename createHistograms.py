@@ -92,8 +92,8 @@ def createHistograms():
     # of 0, 10 and 20 should suffice.
     plt.yticks([0,10,20])
 
-    # give the plot its title
     plt.grid()
+    # give the plot its title
     plt.title("Overall Sepal Length")
 
     # as we are creating subplots all on the one file, we do not
@@ -154,7 +154,7 @@ def createHistograms():
     # need to have the xticks and yticks and bins the same across
     # all axes, so we can leave the ticks unspecified, and specify
     # 10 bins for each plot.
-    plt.grid()
+
     # for alphaframe keyword argument of legend() see here:
     # https://matplotlib.org/3.2.1/api/_as_gen/matplotlib.pyplot.legend.html
     # for alpha see here:
@@ -238,6 +238,7 @@ def createHistograms():
     #plt.xlabel("Length (cm)")
     plt.ylabel("Occurences")
     plt.legend(framealpha=0.5)
+    plt.grid()
 
     plt.subplot(2,2,2)
     for label, group in df.groupby("species"):
@@ -246,6 +247,7 @@ def createHistograms():
     #plt.xlabel("Width (cm)")
     #plt.ylabel("Occurences")
     plt.legend(framealpha=0.5)
+    plt.grid()
 
     plt.subplot(2,2,3)
     for label, group in df.groupby("species"):
@@ -254,6 +256,7 @@ def createHistograms():
     plt.xlabel("Length (cm)")
     plt.ylabel("Occurences")
     plt.legend(framealpha=0.5)
+    plt.grid()
 
     plt.subplot(2,2,4)
     for label, group in df.groupby("species"):
@@ -263,6 +266,7 @@ def createHistograms():
     #plt.ylabel("Occurences")
     plt.legend(framealpha=0.5)
 
+    plt.grid()
     plt.tight_layout()
 
     plt.savefig(plotDir + "overallHistograms.png")
