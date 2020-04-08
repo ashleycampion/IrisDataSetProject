@@ -62,9 +62,11 @@ The Iris Dataset remains relevant because:
 # **Analysis of the Dataset**
 
 ## Conceptualizing the Dataset
-While it's all very well to say that the dataset consists of three species of iris flowers and their petal and sepal lengths and width, it is important to have an understanding of what the data, for lack of a better word, *means*. This can be achieved by conceptualizing the relationships between the variables in the dataset; and doing this will bring one a good part of the way towards understanding what the dataset can actually be used for.
+While it's all very well to say that the dataset consists of three species of iris flowers and their petal and sepal length and width, it is also important to have an understanding of what the data, for lack of a better word, *means*. This can be achieved by conceptualizing the relationships between the variables in the dataset; and doing this will bring one a good part of the way towards understanding what the dataset can actually be used for.
 
-In a sense we have already done a certain amount of conceptualizing: although the three species of flower are represented as nothing more than variables in the dataset, no different from petal length, for example, we have already been referring to them as something more than *just* a variable, as a *special* kind of variable, as it were.
+In a sense we have done a certain amount of conceptualizing already: although the three species of flower are represented as nothing more than variables in the dataset - no different from petal length, for example - we have already been referring to them as something more than *just* a variable, as a *special* kind of variable, as it were.
+
+The differentiation made in Object Oriented Programming between 'Is-a' and 'Has-a' relationships effectively captures the difference between the species variable and the other variables in the dataset.
 
 <div align="center">
     <img src="./filesNotUsed/visualizationOfVariableRelationships.png" alt="Visualization Of Variable Relationships" title="Visualization Of Variable Relationships")>
@@ -72,9 +74,41 @@ In a sense we have already done a certain amount of conceptualizing: although th
 
 
 ## Histograms
+
+<div align="center">
+    <img src="./filesNotUsed/plots/histograms/allSpeciesHistograms.png" alt="Histogram without Distinguishing Species" title="Histogram without Distinguishing Species")>
+</div>
+
+<div align="center">
+    <img src="./filesNotUsed/plots/histograms/overallHistograms.png" alt="Histogram with Species Distinguished" title="Histogram with Species Distinguished")>
+</div>
+
 ## Box Plots
+
+<div align="center">
+    <img src="./filesNotUsed/boxPlots/sepalLength.png" alt="Box Plot for Species vs. Sepal Length" title="Box Plot for Species vs. Sepal Length")>
+</div>
+
 ## Scatter Plots
+
+<div align="center">
+    <img src="./filesNotUsed/scatterPlots/petalLengthPetalWidth.png" alt="Scatter Plot of Petal Length vs. Petal Width Grouped by Species" title="Scatter Plot of Petal Length vs. Petal Width Grouped by Species")>
+</div>
+
+<div align="center">
+    <img src="./filesNotUsed/scatterPlots/sepalWidthPetalWidth.png" alt="Scatter Plot of Sepal Width vs. Petal Width Grouped by Species" title="Scatter Plot of Sepal Width vs. Petal Width Grouped by Species")>
+</div>
+
+<div align="center">
+    <img src="./filesNotUsed/scatterPlots/scatterMatrix.png" alt="Pair Plot Grouped by Species" title="Pair Plot Grouped by Species")>
+</div>
+
 ## Parallel Coordinates
+
+<div align="center">
+    <img src="./filesNotUsed/plots/parallelCoordinates/parallelCoordinates.png" alt="Paralel Coordinates Plot" title="Paralel Coordinates Plot")>
+</div>
+
 ## Linear Regression
 ## Metro-map
 
