@@ -62,7 +62,7 @@ The Iris Dataset remains relevant because:
 # **Analysis of the Dataset**
 
 ## Conceptualizing the Dataset
-While it's all very well to say that the dataset consists of three species of iris flowers and their petal and sepal length and width, it is also important to have an understanding of what the data, for lack of a better word, *means*. This can be achieved by conceptualizing the relationships between the variables in the dataset; and doing this will bring one a good part of the way towards understanding what the dataset can actually be used for.
+While it's all very well to say that the dataset consists of three species of iris flowers and their petal and sepal lengths and widths, it is also important to have an understanding of what the data, for lack of a better word, *means*. This can be achieved by conceptualizing the relationships between the variables in the dataset; and doing this will bring one a good part of the way towards understanding what the dataset can actually be used for.
 
 In a sense we have done a certain amount of conceptualizing already: although the three species of flower are represented as nothing more than variables in the dataset - no different from petal length, for example - we have already been referring to them as something more than *just* a variable, as a *special* kind of variable, as it were.
 
@@ -72,8 +72,9 @@ The differentiation made in Object Oriented Programming between 'Is-a' and 'Has-
     <img src="./filesNotUsed/visualizationOfVariableRelationships.png" alt="Visualization Of Variable Relationships" title="Visualization Of Variable Relationships")>
 </div>
 
+
 What does this mean then for our analysis of the dataset? Well, we could probably guess that it would be interesting to compare the species against each other, and indeed that this would likely be much more interesting than looking at the dataset as a whole without distinguishing between the species.
-Already the 'anchor' question that any analysis of the dataset is likely to confront arises: can the species be distinguished purely based on their respective sepal and petal lengths and widths? And this is exactly where the machine learning analyses of the dataset begin: could a program be taught to determine the species of a an iris flower based on its sepal and petal length and width?
+Already the 'anchor' question that any analysis of the dataset is likely to confront arises: can the species be distinguished purely based on their respective sepal and petal lengths and widths? And this is exactly where the machine learning analyses of the dataset begin: could a program be taught to determine the species of an iris flower based on its sepal and petal length and width?
 But we are jumping the gun here, and while it is important to come into any dataset primed with questions, there is only so far one can get without getting one's hands dirty with the data.
 
 ## Histograms
@@ -112,6 +113,8 @@ I have chosen to show the box plots for sepal and petal lengths - with the speci
 </div>
 
 ## Scatter Plots
+
+Finally, we can actually begin to touch the individual data points and get to grips with the grime of the iris flower. Scatter plots allow us to move on from looking at variables in isolation to looking at the relationships between them. While histograms and box plots can tell us if the species' variables have differing or similar ranges of values, they cannot tell us if there is any relationship between the variables - whether or not, for example, irises with long petals also tend to have wide petals. And with that we have our first scatter plot, and perhaps the most visually appealing plot of the iris dataset:
 
 <div align="center">
     <img src="./plots/scatterPlots/petalLengthPetalWidth.png" alt="Scatter Plot of Petal Length vs. Petal Width Grouped by Species" title="Scatter Plot of Petal Length vs. Petal Width Grouped by Species")>
