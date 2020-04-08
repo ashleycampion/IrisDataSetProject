@@ -94,9 +94,14 @@ In the case of the second group (histograms for each of the variables where the 
 </div>
 
 Clearly, the second group of histograms are much more interesting. The first group only show us that the variables have different ranges of values; but this difference is of course to be expected. The plots in the second group on the other hand can at least show us where there are differences between the species themselves. We can see that the species differ much in their respective petal lengths and widths, whereas there is much overlap in terms of their sepal lengths and widths.
-We can also see that the setosa species' are much more easily distinguished than the versicolor and virginica species. This is where the histograms stop talking to us, however.
+We can also see that the setosas are much more distinguishable than the versicolors and virginicas, which both have overlapping ranges of variable values. This is where the histograms stop talking to us, however.
 
 ## Box Plots
+
+Box plots are perhaps the natural progression from histograms. Like histograms they show the *spread* of each variables values; unlike histograms, however, they only distinguish between the quartiles. While they thus give us a less granular perspective than histograms, it can often be particularly interesting to see how the ranges of values in each quartile differ. Generally one would expect the ranges of values in the first and fourth quartiles to be greater than those of the second third, as is the case in [normal distributions](#normal-distribution).
+Box plots can be interesting then if they should that a variable does *not* have a normal distribution. As it turns, the variables *do* have normal distributions, so to make these box plots more bearable, I have superimposed swarm plots onto them, which offer the granularity that box plots lack.
+
+I have chosen to show the box plots for sepal and petal lengths - with the species distinguished - because at least these are somewhat interesting to compare: the ranges of values for sepal length is far greater than for petal length, and the narrow range of values for setosa petal length contrasts with all the other ranges. As to what this means exactly - well, there are more interesting question to be dwelt on below.
 
 <div align="center">
     <img src="./plots/boxPlots/sepalLength.png" alt="Box Plot for Species vs. Sepal Length" title="Box Plot for Species vs. Sepal Length")>
@@ -141,14 +146,14 @@ We can also see that the setosa species' are much more easily distinguished than
     <dd>Linear discriminant analysis (LDA), normal discriminant analysis (NDA), or discriminant function analysis is a generalization of Fisher's linear discriminant, a method used in statistics, pattern recognition, and machine learning to find a <a href="#linear combination">linear combination</a> of features that characterizes or separates two or more classes of objects or events [3].</dd>
     <dt><a id='Multivariate'>Multivariate</a></dt>
     <dd>Multivariant refers to the property of having multiple variables. Hence a <em>multivariate dataset</em> is a dataset with multiple variables, and <em>multivariate statistics</em> is the statistics of multivariate datasets.</dd>
+    <dt><a id="Normal Distribution"></a>Normal Distribution</dt>
+    <dd>A normal distribution is an arrangement of a data set in which most values cluster in the middle of the range and the rest taper off symmetrically toward either extreme [8]. Note, however, that while all normal distributions are bell curves, not all bell curves are normal distributions. Normal distributions are "normal" because according to the central limit theorem, under some conditions the average of many samples (observations) of a random variable with finite mean and variance is itself a random variable whose distribution converges to a normal distribution as the number of samples increases.</dd>
     <dt><a id="Statistical Classification"></a>Statistical Classification</dt>
     <dd>In machine learning and statistics, classification is the problem of identifying to which of a set of categories (sub-populations) a new observation belongs, on the basis of a training set of data containing observations (or instances) whose category membership is known. [7]</dd>
     <dt><a id="Supervised learning">Supervised learning</a></dt>
     <dd>Supervised learning is the machine learning task of learning a function that maps an input to an output based on example input-output pairs. It infers a function from labeled training data. This in contrast to <a href="#unsupervised learning">unsupervised learning</a> that does not have the luxury of data that is labelled [5].</dd>
     <dt><a id="Unsupervised learning">Unsupervised learning</a></dt>
     <dd>Unsupervised learning is a type of machine learning that looks for previously undetected patterns in a data set with no pre-existing labels and with a minimum of human supervision. This in contrast to <a href="#supervised learning">supervised learning</a> that usually makes use of human-labeled data. [6]</dd>
-    <dt></dt>
-    <dd></dd>
     <dt></dt>
     <dd></dd>
     <dt></dt>
@@ -169,3 +174,5 @@ We can also see that the setosa species' are much more easily distinguished than
 6 https://en.wikipedia.org/wiki/Unsupervised_learning
 
 7 https://en.wikipedia.org/wiki/Statistical_classification
+
+8 https://www.tutorialspoint.com/statistics/normal_distribution.htm
