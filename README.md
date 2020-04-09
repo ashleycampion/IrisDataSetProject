@@ -120,19 +120,39 @@ Finally, we can actually begin to touch the individual data points and get to gr
     <img src="./plots/scatterPlots/petalLengthPetalWidth.png" alt="Scatter Plot of Petal Length vs. Petal Width Grouped by Species" title="Scatter Plot of Petal Length vs. Petal Width Grouped by Species")>
 </div>
 
+Of course, while such a scatter plot is satisfying to look at, in a certain sense it is not very interesting. Clearly, for all three species, as petal length increases so too does petal width. It is the *clearly* here that makes the plot not all that interesting. Indeed, the species are even clearly distinguished in this plot, with only a small overlap in versicolors with long and wide petals and virginicas with short and thin petals.
+This is the plot that a data analyst should in many ways dread; it is so easy to  interpret that it does away with the need for the kind of sophisticated analysis that supposedly only data analysts can provide...
+
+We should look at a more ambiguous plot, then - enter sepal width versus petal width:
 <div align="center">
     <img src="./plots/scatterPlots/sepalWidthPetalWidth.png" alt="Scatter Plot of Sepal Width vs. Petal Width Grouped by Species" title="Scatter Plot of Sepal Width vs. Petal Width Grouped by Species")>
 </div>
+
+Okay, so there are clearly still some trends here. Versicolors and virginicas' sepal widths visibly tend to increase with their petal widths, but other than that? There doesn't appear to be any relationship between setosa sepal and petal width, and the versicolors and virginicas appear to be indistinguishable in terms of their sepal widths.
+But this is just where our first interesting questions appears: will it be at all possible to distinguish the versicolors and the virginicas based on their sepal and petal lengths and widths?
+Apart from asking this question, are querying the plots with are eyes to hedge an answer, as well as finding such clena correlations as in the plot of petal length versus petal width, the scatter plots can't reveal much more to us. The next step would be to look at each of the possible scatter plots and see how distinguishable the species are in them as well as if the variables are correlated with each other. Hence, the we arrive at the infamous pair plot / scatter matrix:
 
 <div align="center">
     <img src="./plots/scatterPlots/scatterMatrix.png" alt="Pair Plot Grouped by Species" title="Pair Plot Grouped by Species")>
 </div>
 
+Looking at all of the scatter plots in such a matrix makes it very easy to see at a glance the relationships between the species and between the sepal and petal lengths and widths of each of the species. We can see that in many cases there doesn't appear to be a strong correlation between the lengths and widths, while in other cases it appears there are. Likewise we can very clearly see that the setosas seem to live in a world of their own.
+What is perhaps most intriguing is how the virginicas almost appear as extensions of the versicolors: in many of the plots their variables appear to correlated in the same way with the only difference being that the virginicas' variables' values are greater - if one didn't know that they were indeed different species, one would be forgiven for assuming that they were in fact the same species, with the virginicas accounting for the third and fourth quartiles of values and the versicolor the first and second.
+But again, while this is all very interesting, there is only so much one can do with the plots. In effect even the scatter plots are not that grimy after all; in order to really get into the muck of the dataset one has to engage with the false gods of mathematics.
+
 ## Parallel Coordinates
+
+Before taking the diving into the realm of unforgiving functions, there is one last plot that is worth having a look at.
+
+The parallel coordinates plot is hands down, no question, absolutement, god-forgive-you-if-you-doubt-it the most beautiful of plots of the iris data set. I mean just look at it:
 
 <div align="center">
     <img src="./plots/parallelCoordinates/parallelCoordinates.png" alt="Parallel Coordinates Plot" title="Parallel Coordinates Plot")>
 </div>
+
+The parallel coordinates plot is quite simply revelatory. Where all the other plots tease us with tit-bits of truth, this fellow reveals to us the truth himself. And there is a reason for this: the parallel coordinates plot contains every single bit of data in the iris dataset - nothing is left out.
+
+Okay, so the enthusiasm must be a little overbearing, but nonetheless, at a mere glance at this plot one can see how similar the versicolors and virginicas are to each other, and just how different they are both from the setosas. They both follow a zigzag pattern, with the virginicas' variables have higher values, particularly in the case of the sepal and petal lengths. Contrast this with the poor setosa, that only has a simpering decline to show for itself.
 
 ## Linear Regression
 ## Metro-map
@@ -152,11 +172,11 @@ Finally, we can actually begin to touch the individual data points and get to gr
     <dt><a id="Normal Distribution"></a>Normal Distribution</dt>
     <dd>A normal distribution is an arrangement of a data set in which most values cluster in the middle of the range and the rest taper off symmetrically toward either extreme [8]. Note, however, that while all normal distributions are bell curves, not all bell curves are normal distributions. Normal distributions are "normal" because according to the central limit theorem, under some conditions the average of many samples (observations) of a random variable with finite mean and variance is itself a random variable whose distribution converges to a normal distribution as the number of samples increases.</dd>
     <dt><a id="Statistical Classification"></a>Statistical Classification</dt>
-    <dd>In machine learning and statistics, classification is the problem of identifying to which of a set of categories (sub-populations) a new observation belongs, on the basis of a training set of data containing observations (or instances) whose category membership is known. [7]</dd>
+    <dd>In machine learning and statistics, classification is the problem of identifying to which of a set of categories (sub-populations) a new observation belongs, on the basis of a training set of data containing observations (or instances) whose category membership is known [7].</dd>
     <dt><a id="Supervised learning">Supervised learning</a></dt>
     <dd>Supervised learning is the machine learning task of learning a function that maps an input to an output based on example input-output pairs. It infers a function from labeled training data. This in contrast to <a href="#unsupervised learning">unsupervised learning</a> that does not have the luxury of data that is labelled [5].</dd>
     <dt><a id="Unsupervised learning">Unsupervised learning</a></dt>
-    <dd>Unsupervised learning is a type of machine learning that looks for previously undetected patterns in a data set with no pre-existing labels and with a minimum of human supervision. This in contrast to <a href="#supervised learning">supervised learning</a> that usually makes use of human-labeled data. [6]</dd>
+    <dd>Unsupervised learning is a type of machine learning that looks for previously undetected patterns in a data set with no pre-existing labels and with a minimum of human supervision. This in contrast to <a href="#supervised learning">supervised learning</a> that usually makes use of human-labeled data [6].</dd>
     <dt></dt>
     <dd></dd>
     <dt></dt>
