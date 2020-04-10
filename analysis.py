@@ -5,17 +5,18 @@
 from verifyIntegrityOfDataSet import verifyIntegrityOfDataSet
 from createSummaryStatistics import createSummaryStatistics
 from createHistograms import createHistograms
-from createBoxplots import createBoxplots
+from createBoxPlots import createBoxPlots
 from createScatterPlots import createScatterPlots
+from createLDAScatterPlot import createLDAScatterPlot
 
 
 def main():
     verifyIntegrityOfDataSet()
     createSummaryStatistics()
     createHistograms()
-    createBoxplots()
+    createBoxPlots()
     createScatterPlots()
-
+    createLDAScatterPlot()
 
 if __name__ == '__main__':
         main()
