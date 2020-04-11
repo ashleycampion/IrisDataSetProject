@@ -61,45 +61,6 @@ def createScatterPlots():
     # I have not included the grid for these scatter plots, as
     # I think it is distracting.
 
-    # to plot each of the species against the other variable
-    # really isn't very interesting; I have only included
-    # these plots here for completeness.
-
-    # for the third parameter to the plot() function, we use '.'
-    # to create a scatter plot, i.e. with dots rather than lines
-    plt.plot(df["species"], df["sepal_length"], ".")
-    # x label
-    plt.xlabel("Species")
-    # y label
-    plt.ylabel("Sepal Length (cm)")
-    # title
-    plt.title("Species vs. Sepal Length")
-    # save in plots/scatterPlots folder
-    plt.savefig(plotDir + "speciesSepalLength.png")
-    # close the plot so that the next plot is not
-    # superimposed on top of this one
-    plt.close()
-
-    plt.plot(df["species"], df["sepal_width"], ".")
-    plt.xlabel("Species")
-    plt.ylabel("Sepal Width (cm)")
-    plt.title("Species vs. Sepal Width")
-    plt.savefig(plotDir + "speciesSepalWidth.png")
-    plt.close()
-
-    plt.plot(df["species"], df["petal_length"], ".")
-    plt.xlabel("Species")
-    plt.ylabel("Petal Length (cm)")
-    plt.title("Species vs. Petal Length")
-    plt.savefig(plotDir + "speciesPetalLength.png")
-    plt.close()
-
-    plt.plot(df["species"], df["petal_width"], ".")
-    plt.xlabel("Species")
-    plt.ylabel("PetalWidth (cm)")
-    plt.title("Species vs. PetalWidth")
-    plt.savefig(plotDir + "speciesPetalWidth.png")
-    plt.close()
 
     # these plots plot sepal-length against the other variables in turn,
     # colouring the points according to the species
@@ -133,6 +94,8 @@ def createScatterPlots():
 
 
     for label, group in df.groupby("species"):
+        # for the third parameter to the plot() function, we use '.'
+        # to create a scatter plot, i.e. with dots rather than lines
         plt.plot(group["sepal_length"], group["sepal_width"], '.', label=label)
 
     # we add a legend to distinguish between the species, as they
@@ -146,6 +109,8 @@ def createScatterPlots():
     plt.ylabel("Sepal Width (cm)")
     plt.title("Sepal Length vs. Sepal Width")
     plt.savefig(plotDir + "sepalLengthSepalWidth.png")
+    # close the plot so that the next plot is not
+    # superimposed on top of this one
     plt.close()
 
     for label, group in df.groupby("species"):
