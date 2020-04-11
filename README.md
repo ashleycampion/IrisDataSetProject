@@ -53,8 +53,8 @@ This analysis of the Iris Dataset has the following structure:
 * The dataset is described
 * The data is conceptualized and questions about the dataset are formulated based on this conceptualization
 * The data is plotted, and rudementary visual analyses of the data are undertaken based on the plots
-* The relationships between the variables in the dataset are analysed with [linear regression](*linear-regression) techniques
-* [Statistical classification](#statistical-classification) of the data is undertaken using [supervised learning](*supervised-learning) techniques
+* The relationships between the variables in the dataset are analysed with [linear regression](#linear-regression) techniques
+* [Statistical classification](#statistical-classification) of the data is undertaken using [supervised learning](#supervised-learning) techniques
 
 ## What is the Iris Dataset
 
@@ -65,9 +65,9 @@ From Wikipedia:
 
 ## Why is the Iris Dataset Still Relevant?
 The Iris Dataset remains relevant because:
-* Its analysis by Fisher was a foundational moment in the history of data analytics, particularly in relation to the development of <a id="linear discriminant analysis">linear discriminant analysis</a> .
+* Its analysis by Fisher was a foundational moment in the history of data analytics, particularly in relation to the development of [linear discriminant analysis](#linear-indiscriminate-analysis).
 * It is well suited to being used as an educational tool in data analysis: the sample size is small at 150 flowers; the data is of that of everyday life (a common flower rather than some deep sea flora); the variables are not intimidatingly scientific (e.g. petal length); and the measurements are easily imaginable (a few centimeters).
-* It can be used to explain the difference between <a id="supervised learning">supervised learning</a> and <a id="unsupervised learning">unsupervised learning</a> techniques in machine learning. This will be expanded on [below](#metro-map-of-the-dataset).
+* It can be used to explain the difference between [supervised](#supervised-learning) and [unsupervised learning](#unsupervised-learning) techniques in machine learning. This will be expanded on [below](#metro-map-of-the-dataset).
 * Consisting of three species of the Iris flower, two of which are not immediately distinguishable based on the measurements obtained, the Iris dataset has often been used to test [statistical classification](#statistical-classification) techniques in machine learning, i.e. how to teach a program to categorize an object based on its attributes.
 
 # **Analysis of the Dataset**
@@ -193,11 +193,11 @@ Okay, so enough with the teacherly enthusiasm, but nonetheless, one must admit t
 
 <dl>
     <dt><a id="Discriminant"></a>Discriminant</dt>
-    <dd>Discriminant is not a standard term in data analysis, probably because it is a standard term in mathematics and thus there would be room for confusion. But it is useful to understand the 'discriminate' part of <a id="#linear discriminant analysis">linear discriminate analysis</a>. Basically, a discriminant can be thought of as a property (variable) of an object that allows us to determine what class that object belongs to, i.e. we can discriminate between classes based solely on the discriminatn variable (in the case of the Iris Dataset, the three species are the classes). A perfect discriminant would be such that by looking at the value of the discriminat for each object in a dataset we would be able to separate the objects accurately into their different classes. Of course, the 'ready-made' variables of data-sets (such as the iris dataset's petal lengths) are rarely reliable discriminants. In practice, variables have to be <em>combined</em> to produce an accurate discriminant. For more on how this is achieved, please see <a id="#linear combination">linear combination</a>, and for additional context, <a id="#linear discriminant analysis">linear discriminant analysis.</a> </dd>
+    <dd>Discriminant is not a standard term in data analysis, probably because it is a standard term in mathematics and thus there would be room for confusion. But it is useful to understand the 'discriminate' part of <a href="#linear discriminant analysis">linear discriminate analysis</a>. Basically, a discriminant can be thought of as a property (variable) of an object that allows us to determine what class that object belongs to, i.e. we can discriminate between classes based solely on the discriminatn variable (in the case of the Iris Dataset, the three species are the classes). A perfect discriminant would be such that by looking at the value of the discriminat for each object in a dataset we would be able to separate the objects accurately into their different classes. Of course, the 'ready-made' variables of data-sets (such as the iris dataset's petal lengths) are rarely reliable discriminants. In practice, variables have to be <em>combined</em> to produce an accurate discriminant. For more on how this is achieved, please see <a href="#linear combination">linear combination</a>, and for additional context, <a href="#linear discriminant analysis">linear discriminant analysis.</a> </dd>
     <dt><a id='Linear Combination'></a>Linear Combination</dt>
-    <dd>(Please first read the definition of <a id="#discriminant">discriminant</a>.) In mathematics, a linear combination is an expression constructed from a set of terms by multiplying each term by a constant and adding the results (e.g. a linear combination of x and y would be any expression of the form ax + by, where a and b are constants) [4].</dd>
+    <dd>(Please first read the definition of <a href="#discriminant">discriminant</a>.) In mathematics, a linear combination is an expression constructed from a set of terms by multiplying each term by a constant and adding the results (e.g. a linear combination of x and y would be any expression of the form ax + by, where a and b are constants) [4].</dd>
     <dt><a id='Linear Discriminate Analysis'></a>Linear Discriminate Analysis</dt>
-    <dd>(Please first read the definitions of <a id="#discriminant">discriminant</a> and <a id="#linear combination">linear combination</a>.) Linear discriminant analysis (LDA), normal discriminant analysis (NDA), or discriminant function analysis is a generalization of Fisher's linear discriminant, a method used in statistics, pattern recognition, and machine learning to find a <a id="#linear combination">linear combination</a> of features that characterizes or separates two or more classes of objects or events [3].</dd>
+    <dd>(Please first read the definitions of <a href="#discriminant">discriminant</a> and <a href="#linear combination">linear combination</a>.) Linear discriminant analysis (LDA), normal discriminant analysis (NDA), or discriminant function analysis is a generalization of Fisher's linear discriminant, a method used in statistics, pattern recognition, and machine learning to find a <a href="#linear combination">linear combination</a> of features that characterizes or separates two or more classes of objects or events [3].</dd>
     <dt><a id='Multivariate'>Multivariate</a></dt>
     <dd>Multivariant refers to the property of having multiple variables. Hence a <em>multivariate dataset</em> is a dataset with multiple variables, and <em>multivariate statistics</em> is the statistics of multivariate datasets.</dd>
     <dt><a id="Normal Distribution"></a>Normal Distribution</dt>
@@ -205,9 +205,9 @@ Okay, so enough with the teacherly enthusiasm, but nonetheless, one must admit t
     <dt><a id="Statistical Classification"></a>Statistical Classification</dt>
     <dd>In machine learning and statistics, classification is the problem of identifying to which of a set of categories (sub-populations) a new observation belongs, on the basis of a training set of data containing observations (or instances) whose category membership is known [7].</dd>
     <dt><a id="Supervised learning">Supervised learning</a></dt>
-    <dd>Supervised learning is the machine learning task of learning a function that maps an input to an output based on example input-output pairs. It infers a function from labeled training data. This in contrast to <a id="#unsupervised learning">unsupervised learning</a> that does not have the luxury of data that is labelled [5].</dd>
+    <dd>Supervised learning is the machine learning task of learning a function that maps an input to an output based on example input-output pairs. It infers a function from labeled training data. This in contrast to <a href="#unsupervised learning">unsupervised learning</a> that does not have the luxury of data that is labelled [5].</dd>
     <dt><a id="Unsupervised learning">Unsupervised learning</a></dt>
-    <dd>Unsupervised learning is a type of machine learning that looks for previously undetected patterns in a data set with no pre-existing labels and with a minimum of human supervision. This in contrast to <a id="#supervised learning">supervised learning</a> that usually makes use of human-labeled data [6].</dd>
+    <dd>Unsupervised learning is a type of machine learning that looks for previously undetected patterns in a data set with no pre-existing labels and with a minimum of human supervision. This in contrast to <a href="#supervised learning">supervised learning</a> that usually makes use of human-labeled data [6].</dd>
     <dt></dt>
     <dd></dd>
     <dt></dt>
