@@ -183,6 +183,11 @@ Okay, so enough with the teacherly enthusiasm, but nonetheless, one must admit t
 
 ### Linear Discriminant Analysis of the Dataset
 
+Linear discriminant analysis (LDA), normal discriminant analysis (NDA), or discriminant function analysis is a  a method used in statistics, pattern recognition, and machine learning to find a linear combination of features that characterizes, i.e. is capable of discriminating between, two or more classes of objects or events [3] (in the case of the Iris dataset we are looking to discriminate between the species).
+In mathematics, a linear combination is an expression constructed from a set of terms by multiplying each term by a constant and adding the results (e.g. a linear combination of x and y would be any expression of the form ax + by, where a and b are constants) [4].
+How exactly linear combinations are come upon by LDA is beyond the scope of this repository, so instead we can simply think of the results of LDA as <a href="#discriminants">discriminants</a>.
+It is helpful when understanding what exactly linear discriminate analysis achieves to compare the resulting linear discriminant with the variable in the dataset best able to discriminate between the species, which from the plots above would appear to be petal width.
+
 <div align="center">
     <img src="./plots/LDA/LDAScatterPlot.png" alt="LDA of Iris Dataset" title="LDA of Iris Dataset")>
 </div>
@@ -190,6 +195,9 @@ Okay, so enough with the teacherly enthusiasm, but nonetheless, one must admit t
 <div align="center">
     <img src="./plots/scatterPlots/petalWidthsepalLength.png" alt="Petal Width vs. Sepal Length" title="Petal Width vs. Sepal Length")>
 </div>
+
+We can see quite clearly that the first linear discriminant (LD1) is better at distinguishing between the species than petal width. Both can successfully distinguish between the setosas, but whereas in the case of petal width, there are several versicolor values that are greater than several virginicas, in the case of LD1 the only overlap between the species is one versicolor value that is greater than six virginicas (there is perhaps one other versicolor value that is greater than one other viriginica).
+
 
 ### Finding the Best Classification Algorithm
 
@@ -205,7 +213,7 @@ Okay, so enough with the teacherly enthusiasm, but nonetheless, one must admit t
     <dt><a id='Linear Combination'></a>Linear Combination</dt>
     <dd>(Please first read the definition of <a href="#discriminant">discriminant</a>.) In mathematics, a linear combination is an expression constructed from a set of terms by multiplying each term by a constant and adding the results (e.g. a linear combination of x and y would be any expression of the form ax + by, where a and b are constants) [4].</dd>
     <dt><a id='Linear Discriminate Analysis'></a>Linear Discriminate Analysis</dt>
-    <dd>(Please first read the definitions of <a href="#discriminant">discriminant</a> and <a href="#linear combination">linear combination</a>.) Linear discriminant analysis (LDA), normal discriminant analysis (NDA), or discriminant function analysis is a generalization of Fisher's linear discriminant, a method used in statistics, pattern recognition, and machine learning to find a <a href="#linear combination">linear combination</a> of features that characterizes or separates two or more classes of objects or events [3].</dd>
+    <dd>(Please first read the definitions of <a href="#discriminant">discriminant</a> and <a href="#linear combination">linear combination</a>.) Linear discriminant analysis (LDA), normal discriminant analysis (NDA), or discriminant function analysis is a  a method used in statistics, pattern recognition, and machine learning to find a linear combination of features that characterizes, i.e. is capable of discriminating between, two or more classes of objects or events [3].</dd>
     <dt><a id="Linear Regression"></a>Linear Regression</dt>
     <dd>In statistics, linear regression is a linear approach to modeling the relationship between a scalar response (or dependent variable) and one or more explanatory variables (or independent variables). The case of one explanatory variable is called simple linear regression. For more than one explanatory variable, the process is called multiple linear regression. [9]</dd>
     <dt><a id='Multivariate'>Multivariate</a></dt>
