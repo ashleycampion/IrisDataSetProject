@@ -54,7 +54,7 @@ This analysis of the Iris Dataset has the following structure:
 * The data is conceptualized and questions about the dataset are formulated based on this conceptualization
 * The data is plotted, and rudementary visual analyses of the data are undertaken based on the plots
 * The relationships between the variables in the dataset are analysed with [linear regression](#linear-regression) techniques
-* [Statistical classification](#statistical-classification) of the data is undertaken using [supervised learning](#supervised-learning) techniques
+* [Statistical classification](#statistical classification) of the data is undertaken using [supervised learning](#supervised learning) techniques
 
 ## What is the Iris Dataset
 
@@ -65,9 +65,9 @@ From Wikipedia:
 
 ## Why is the Iris Dataset Still Relevant?
 The Iris Dataset remains relevant because:
-* Its analysis by Fisher was a foundational moment in the history of data analytics, particularly in relation to the development of [linear discriminant analysis](#linear-indiscriminate-analysis).
+* Its analysis by Fisher was a foundational moment in the history of data analytics, particularly in relation to the development of [linear discriminant analysis](#linear discriminate analysis).
 * It is well suited to being used as an educational tool in data analysis: the sample size is small at 150 flowers; the data is of that of everyday life (a common flower rather than some deep sea flora); the variables are not intimidatingly scientific (e.g. petal length); and the measurements are easily imaginable (a few centimeters).
-* It can be used to explain the difference between [supervised](#supervised-learning) and [unsupervised learning](#unsupervised-learning) techniques in machine learning. This will be expanded on [below](#metro-map-of-the-dataset).
+* It can be used to explain the basic difference between [supervised](#supervised learning) and [unsupervised learning](#unsupervised-learning) techniques in machine learning.
 * Consisting of three species of the Iris flower, two of which are not immediately distinguishable based on the measurements obtained, the Iris dataset has often been used to test [statistical classification](#statistical-classification) techniques in machine learning, i.e. how to teach a program to categorize an object based on its attributes.
 
 # **Analysis of the Dataset**
@@ -193,7 +193,7 @@ Okay, so enough with the teacherly enthusiasm, but nonetheless, one must admit t
 
 <dl>
     <dt><a id="Discriminant"></a>Discriminant</dt>
-    <dd>Discriminant is not a standard term in data analysis, probably because it is a standard term in mathematics and thus there would be room for confusion. But it is useful to understand the 'discriminate' part of <a href="#linear discriminant analysis">linear discriminate analysis</a>. Basically, a discriminant can be thought of as a property (variable) of an object that allows us to determine what class that object belongs to, i.e. we can discriminate between classes based solely on the discriminatn variable (in the case of the Iris Dataset, the three species are the classes). A perfect discriminant would be such that by looking at the value of the discriminat for each object in a dataset we would be able to separate the objects accurately into their different classes. Of course, the 'ready-made' variables of data-sets (such as the iris dataset's petal lengths) are rarely reliable discriminants. In practice, variables have to be <em>combined</em> to produce an accurate discriminant. For more on how this is achieved, please see <a href="#linear combination">linear combination</a>, and for additional context, <a href="#linear-discriminate-analysis">linear discriminant analysis.</a> </dd>
+    <dd>Discriminant is not a standard term in data analysis, probably because it is a standard term in mathematics and thus there would be room for confusion. But it is useful to understand the 'discriminate' part of <a href="#linear discriminant analysis">linear discriminate analysis</a>. Basically, a discriminant can be thought of as a property (variable) of an object that allows us to determine what class that object belongs to, i.e. we can discriminate between classes based solely on the discriminatn variable (in the case of the Iris Dataset, the three species are the classes). A perfect discriminant would be such that by looking at the value of the discriminat for each object in a dataset we would be able to separate the objects accurately into their different classes. Of course, the 'ready-made' variables of data-sets (such as the iris dataset's petal lengths) are rarely reliable discriminants. In practice, variables have to be <em>combined</em> to produce an accurate discriminant. For more on how this is achieved, please see <a href="#linear combination">linear combination</a>, and for additional context, <a href="#linear discriminate analysis">linear discriminate analysis.</a> </dd>
     <dt><a id='Linear Combination'></a>Linear Combination</dt>
     <dd>(Please first read the definition of <a href="#discriminant">discriminant</a>.) In mathematics, a linear combination is an expression constructed from a set of terms by multiplying each term by a constant and adding the results (e.g. a linear combination of x and y would be any expression of the form ax + by, where a and b are constants) [4].</dd>
     <dt><a id='Linear Discriminate Analysis'></a>Linear Discriminate Analysis</dt>
