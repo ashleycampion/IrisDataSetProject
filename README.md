@@ -7,7 +7,7 @@
     * [How to Download this Repository](#how-to-download-this-repository)
     * [What is Needed to Run the Python Scripts](#what-is-needed-to-run-the-python-scripts)
     * [How to Run the Python Scripts](#how-to-run-the-python-scripts)
-1. [Introduction to the Dataset](#introduction-to-the-dataset)
+1. [Introduction](#introduction)
     * [What is the Iris Dataset?](#what-is-the-iris-dataset?)
     * [Why is the Iris Dataset Still Relevant?](#why-is-the-iris-dataset-still-relevant?)
 1. [Analysis of the Dataset](#analysis-of-the-data-set)
@@ -48,7 +48,14 @@ Python 3.7.4 was used to create the scripts in this repository (download it [her
 See the section 'How to Run Python Scripts Using the Command-Line' [here](https://realpython.com/run-python-scripts/).
 
 
-# Introduction to the Dataset
+# Introduction
+
+This analysis of the Iris Dataset has the following structure:
+    * The dataset is described
+    * The data is conceptualized and questions about the dataset are formulated based on this conceptualization
+    * The data is plotted, and rudementary visual analses of the data are undertaken based on the plots
+    * The relationships between the variables in the dataset are analysed with [linear regression](#linear-regression) techniques
+    * [Statistical classification](#statistical-classification-def) of the data is undertaken using [supervised learning](#supervised-learning) techniques
 
 ## What is the Iris Dataset
 
@@ -62,7 +69,7 @@ The Iris Dataset remains relevant because:
 * Its analysis by Fisher was a foundational moment in the history of data analytics, particularly in relation to the development of [linear discriminant analysis](#linear-indiscriminate-analysis).
 * It is well suited to being used as an educational tool in data analysis: the sample size is small at 150 flowers; the data is of that of everyday life (a common flower rather than some deep sea flora); the variables are not intimidatingly scientific (e.g. petal length); and the measurements are easily imaginable (a few centimeters).
 * It can be used to explain the difference between [supervised](#supervised-learning) and [unsupervised learning](#unsupervised-learning) techniques in machine learning. This will be expanded on [below](#metro-map-of-the-dataset).
-* Consisting of three species of the Iris flower, two of which are not immediately distinguishable based on the measurements obtained, the Iris dataset has often been used to test [statistical classification](#statistical-classification) techniques in machine learning, i.e. how to teach a program to categorize an object based on its attributes.
+* Consisting of three species of the Iris flower, two of which are not immediately distinguishable based on the measurements obtained, the Iris dataset has often been used to test [statistical classification](#statistical-classification-def) techniques in machine learning, i.e. how to teach a program to categorize an object based on its attributes.
 
 # **Analysis of the Dataset**
 
@@ -164,7 +171,7 @@ The parallel coordinates plot is hands down, no question, absolutement, god-forg
 
 The parallel coordinates plot is quite simply revelatory. Where all the other plots tease us with tit-bits of truth, this fellow reveals to us the truth himself. And there is a reason for this: the parallel coordinates plot contains every single bit of data in the iris dataset - nothing is left out.
 
-Okay, so the enthusiasm must be a little overbearing, but nonetheless, at a mere glance at this plot one can see how similar the versicolors and virginicas are to each other, and just how different they are both from the setosas. They both follow a zigzag pattern, with the virginicas' variables have higher values, particularly in the case of the sepal and petal lengths. Contrast this with the poor setosa, that only has a simpering decline to show for itself.
+Okay, so enough with the teacherly enthusiasm, but nonetheless, one must admit that at a mere glance at this plot one can see how similar the versicolors and virginicas are to each other, and just how different they are both from the setosas. They both follow a zigzag pattern, with the virginicas' variables having greater values, particularly in the case of the sepal and petal lengths. Contrast this with the poor setosa, that only has a simpering decline to show for itself.
 
 
 ## Finding Correlations
@@ -172,10 +179,14 @@ Okay, so the enthusiasm must be a little overbearing, but nonetheless, at a mere
 ### Linear Regression
 
 
+
 ## Statistical Classification
 
 ### Linear Discriminant Analysis
+
 ### Finding the Best Classification Algorithm
+
+
 
 # Appendix
 
@@ -183,16 +194,16 @@ Okay, so the enthusiasm must be a little overbearing, but nonetheless, at a mere
 
 <dl>
     <dt><a id="Discriminant"></a>Discriminant</dt>
-    <dd>Discriminant is not a standard term in data analysis, probably because it is a standard term in mathematics and thus there would be room for confusion. But it is useful to understand the 'discriminate' part of <a href="#linear discriminant analysis">linear discriminate analysis</a>. Basically, a discriminant can be thought of as a property (variable) of an object that allows us to determine what class that object belongs to, i.e. we can discriminate between classes based solely on the discriminatn variable (in the case of the Iris Dataset, the three species are the classes). A perfect discriminant would be such that by looking at the value of the discriminat for each object in a dataset we would be able to separate the objects accurately into their different classes. Of course, the 'ready-made' variables of data-sets (such as the iris dataset's petal lengths) are rarely reliable discriminants. In practice, variables have to be <em>combined</em> to produce an accurate discriminant. For more on how this is achieved, please see <a href="#linear combination">linear combination</a>, and for additional context, <a href="#linear discriminant analysis">linear discriminant analysis.</a> </dd>
+    <dd>Discriminant is not a standard term in data analysis, probably because it is a standard term in mathematics and thus there would be room for confusion. But it is useful to understand the 'discriminate' part of <a href="#linear discriminant analysis def">linear discriminate analysis</a>. Basically, a discriminant can be thought of as a property (variable) of an object that allows us to determine what class that object belongs to, i.e. we can discriminate between classes based solely on the discriminatn variable (in the case of the Iris Dataset, the three species are the classes). A perfect discriminant would be such that by looking at the value of the discriminat for each object in a dataset we would be able to separate the objects accurately into their different classes. Of course, the 'ready-made' variables of data-sets (such as the iris dataset's petal lengths) are rarely reliable discriminants. In practice, variables have to be <em>combined</em> to produce an accurate discriminant. For more on how this is achieved, please see <a href="#linear combination">linear combination</a>, and for additional context, <a href="#linear discriminant analysis def">linear discriminant analysis.</a> </dd>
     <dt><a id='Linear Combination'></a>Linear Combination</dt>
     <dd>(Please first read the definition of <a href="#discriminant">discriminant</a>.) In mathematics, a linear combination is an expression constructed from a set of terms by multiplying each term by a constant and adding the results (e.g. a linear combination of x and y would be any expression of the form ax + by, where a and b are constants) [4].</dd>
-    <dt><a id='Linear Discriminate Analysis'></a>Linear Discriminate Analysis</dt>
+    <dt><a id='Linear Discriminate Analysis def'></a>Linear Discriminate Analysis</dt>
     <dd>(Please first read the definitions of <a href="#discriminant">discriminant</a> and <a href="#linear combination">linear combination</a>.) Linear discriminant analysis (LDA), normal discriminant analysis (NDA), or discriminant function analysis is a generalization of Fisher's linear discriminant, a method used in statistics, pattern recognition, and machine learning to find a <a href="#linear combination">linear combination</a> of features that characterizes or separates two or more classes of objects or events [3].</dd>
     <dt><a id='Multivariate'>Multivariate</a></dt>
     <dd>Multivariant refers to the property of having multiple variables. Hence a <em>multivariate dataset</em> is a dataset with multiple variables, and <em>multivariate statistics</em> is the statistics of multivariate datasets.</dd>
     <dt><a id="Normal Distribution"></a>Normal Distribution</dt>
     <dd>A normal distribution is an arrangement of a data set in which most values cluster in the middle of the range and the rest taper off symmetrically toward either extreme [8]. Note, however, that while all normal distributions are bell curves, not all bell curves are normal distributions. Normal distributions are "normal" because according to the central limit theorem, under some conditions the average of many samples (observations) of a random variable with finite mean and variance is itself a random variable whose distribution converges to a normal distribution as the number of samples increases.</dd>
-    <dt><a id="Statistical Classification"></a>Statistical Classification</dt>
+    <dt><a id="Statistical Classification def"></a>Statistical Classification</dt>
     <dd>In machine learning and statistics, classification is the problem of identifying to which of a set of categories (sub-populations) a new observation belongs, on the basis of a training set of data containing observations (or instances) whose category membership is known [7].</dd>
     <dt><a id="Supervised learning">Supervised learning</a></dt>
     <dd>Supervised learning is the machine learning task of learning a function that maps an input to an output based on example input-output pairs. It infers a function from labeled training data. This in contrast to <a href="#unsupervised learning">unsupervised learning</a> that does not have the luxury of data that is labelled [5].</dd>
