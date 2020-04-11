@@ -49,7 +49,7 @@ See the section 'How to Run Python Scripts Using the Command-Line' [here](https:
 
 
 # Introduction
-This analysis of the Iris Dataset has the following structure:
+This ReadMe's analysis of the Iris Dataset is structured as follows:
 * The dataset is described
 * The data is conceptualized and questions about the dataset are formulated based on this conceptualization
 * The data is plotted, and rudementary visual analyses of the data are undertaken based on the plots
@@ -183,6 +183,14 @@ Okay, so enough with the teacherly enthusiasm, but nonetheless, one must admit t
 
 ### Linear Discriminant Analysis of the Dataset
 
+<div align="center">
+    <img src="./plots/LDAScatterPlot.png" alt="LDA of Iris Dataset" title="LDA of Iris Dataset")>
+</div>
+
+<div align="center">
+    <img src="./plots/scatterPlots/petalWidthsepalLength.png" alt="Petal Width vs. Sepal Length" title="Petal Width vs. Sepal Length")>
+</div>
+
 ### Finding the Best Classification Algorithm
 
 
@@ -198,6 +206,8 @@ Okay, so enough with the teacherly enthusiasm, but nonetheless, one must admit t
     <dd>(Please first read the definition of <a href="#discriminant">discriminant</a>.) In mathematics, a linear combination is an expression constructed from a set of terms by multiplying each term by a constant and adding the results (e.g. a linear combination of x and y would be any expression of the form ax + by, where a and b are constants) [4].</dd>
     <dt><a id='Linear Discriminate Analysis'></a>Linear Discriminate Analysis</dt>
     <dd>(Please first read the definitions of <a href="#discriminant">discriminant</a> and <a href="#linear combination">linear combination</a>.) Linear discriminant analysis (LDA), normal discriminant analysis (NDA), or discriminant function analysis is a generalization of Fisher's linear discriminant, a method used in statistics, pattern recognition, and machine learning to find a <a href="#linear combination">linear combination</a> of features that characterizes or separates two or more classes of objects or events [3].</dd>
+    <dt><a id="Linear Regression"></a>Linear Regression</dt>
+    <dd>In statistics, linear regression is a linear approach to modeling the relationship between a scalar response (or dependent variable) and one or more explanatory variables (or independent variables). The case of one explanatory variable is called simple linear regression. For more than one explanatory variable, the process is called multiple linear regression. [9]</dd>
     <dt><a id='Multivariate'>Multivariate</a></dt>
     <dd>Multivariant refers to the property of having multiple variables. Hence a <em>multivariate dataset</em> is a dataset with multiple variables, and <em>multivariate statistics</em> is the statistics of multivariate datasets.</dd>
     <dt><a id="Normal Distribution"></a>Normal Distribution</dt>
@@ -208,8 +218,7 @@ Okay, so enough with the teacherly enthusiasm, but nonetheless, one must admit t
     <dd>Supervised learning is the machine learning task of learning a function that maps an input to an output based on example input-output pairs. It infers a function from labeled training data. This in contrast to <a href="#unsupervised learning">unsupervised learning</a> that does not have the luxury of data that is labelled [5].</dd>
     <dt><a id="Unsupervised learning">Unsupervised learning</a></dt>
     <dd>Unsupervised learning is a type of machine learning that looks for previously undetected patterns in a data set with no pre-existing labels and with a minimum of human supervision. This in contrast to <a href="#supervised learning">supervised learning</a> that usually makes use of human-labeled data [6].</dd>
-    <dt></dt>
-    <dd></dd>
+
     <dt></dt>
     <dd></dd>
 </dl>
@@ -231,6 +240,6 @@ Okay, so enough with the teacherly enthusiasm, but nonetheless, one must admit t
 
 8 https://www.tutorialspoint.com/statistics/normal_distribution.htm
 
-
+9 https://en.wikipedia.org/wiki/Linear_regression
 
 https://sebastianraschka.com/Articles/2014_python_lda.html
