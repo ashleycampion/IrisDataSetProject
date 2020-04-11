@@ -53,22 +53,22 @@ This analysis of the Iris Dataset has the following structure:
 * The dataset is described
 * The data is conceptualized and questions about the dataset are formulated based on this conceptualization
 * The data is plotted, and rudementary visual analyses of the data are undertaken based on the plots
-* The relationships between the variables in the dataset are analysed with [linear regression](#linear-regression) techniques
-* <a href="#Statistical classification">Statistical classification</a> of the data is undertaken using <span><a href="#supervised learning">supervised learning</a></span> techniques
+* The relationships between the variables in the dataset are analysed with <a href="#linear regression">linear regression</a> techniques
+* <a href="#Statistical classification">Statistical classification</a> of the data is undertaken using <a href="#supervised learning">supervised learning</a> techniques
 
 ## What is the Iris Dataset
 
 From Wikipedia:
-> The Iris flower data set or Fisher's Iris data set is a [multivariate](#multivariate) (these blue links will take you to a definition in the appendix section below) data set introduced by the British statistician and biologist Ronald Fisher in his 1936 paper *The use of multiple measurements in taxonomic problems as an example of [linear discriminant analysis](#linear-indiscriminate-analysis)*.
+> The Iris flower data set or Fisher's Iris data set is a [multivariate](#multivariate) (these blue links will take you to a definition in the appendix section below) data set introduced by the British statistician and biologist Ronald Fisher in his 1936 paper *The use of multiple measurements in taxonomic problems as an example of <a href="#linear discriminate analysis">linear discriminate analysis</a>.
 > The data set consists of 50 samples from each of three species of Iris (Iris setosa, Iris virginica and Iris versicolor). Four features were measured from each sample: the length and the width of the sepals and petals, in centimeters. Based on the combination of these four features, Fisher developed a linear discriminant model to distinguish the species from each other. [1]
 
 
 ## Why is the Iris Dataset Still Relevant?
 The Iris Dataset remains relevant because:
-* Its analysis by Fisher was a foundational moment in the history of data analytics, particularly in relation to the development of [linear discriminant analysis](#linear discriminate analysis).
+* Its analysis by Fisher was a foundational moment in the history of data analytics, particularly in relation to the development of <a href="#linear discriminate analysis">linear discriminate analysis</a>.
 * It is well suited to being used as an educational tool in data analysis: the sample size is small at 150 flowers; the data is of that of everyday life (a common flower rather than some deep sea flora); the variables are not intimidatingly scientific (e.g. petal length); and the measurements are easily imaginable (a few centimeters).
-* It can be used to explain the basic difference between [supervised](#supervised learning) and [unsupervised learning](#unsupervised-learning) techniques in machine learning.
-* Consisting of three species of the Iris flower, two of which are not immediately distinguishable based on the measurements obtained, the Iris dataset has often been used to test [statistical classification](#statistical-classification) techniques in machine learning, i.e. how to teach a program to categorize an object based on its attributes.
+* It can be used to explain the basic difference between <a href="#supervised learning">supervised learning</a> and <a href="#unsupervised learning">unsupervised learning</a> techniques in machine learning.
+* Consisting of three species of the Iris flower, two of which are not immediately distinguishable based on the measurements obtained, the Iris dataset has often been used to test <a href="#statistical classification">statistical classification</a> techniques in machine learning, i.e. how to teach a program to categorize an object based on its attributes.
 
 # **Analysis of the Dataset**
 
@@ -112,7 +112,7 @@ We can also see that the setosas are much more distinguishable than the versicol
 
 ### Box Plots
 
-Box plots are perhaps the natural progression from histograms. Like histograms they show the *spread* of each variables values; unlike histograms, however, they only distinguish between the quartiles. While they thus give us a less granular perspective than histograms, it can often be particularly interesting to see how the ranges of values in each quartile differ. Generally one would expect the ranges of values in the first and fourth quartiles to be greater than those of the second third, as is the case in [normal distributions](#normal-distribution).
+Box plots are perhaps the natural progression from histograms. Like histograms they show the *spread* of each variables values; unlike histograms, however, they only distinguish between the quartiles. While they thus give us a less granular perspective than histograms, it can often be particularly interesting to see how the ranges of values in each quartile differ. Generally one would expect the ranges of values in the first and fourth quartiles to be greater than those of the second third, as is the case in <a href="#normal distribution">normal distribution</a>.
 Box plots can be interesting then if they should that a variable does *not* have a normal distribution. As it turns, the variables *do* have normal distributions, so to make these box plots more bearable, I have superimposed swarm plots onto them, which offer the granularity that box plots lack.
 
 I have chosen to show the box plots for sepal and petal lengths - with the species distinguished - because at least these are somewhat interesting to compare: the ranges of values for sepal length is far greater than for petal length, and the narrow range of values for setosa petal length contrasts with all the other ranges.
@@ -125,7 +125,7 @@ I have chosen to show the box plots for sepal and petal lengths - with the speci
     <img src="./plots/boxPlots/petalLength.png" alt="Box Plot for Species vs. Petal Length" title="Box Plot for Species vs. Petal Length")>
 </div>
 
-However, these box plots only tells us what the histograms have already told us: that of the four variables in the dataset petal length is likely to be the best [discriminant](#discriminat) for the species of an iris flower. As Jay-Z once said: 'on to the next one'.
+However, these box plots only tells us what the histograms have already told us: that of the four variables in the dataset petal length is likely to be the best <a href="#discriminant">discriminant</a> for the species of an iris flower. As Jay-Z once said: 'on to the next one'.
 
 ### Scatter Plots
 
