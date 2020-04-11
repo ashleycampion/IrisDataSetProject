@@ -18,10 +18,10 @@
         * [Scatter Plots](#scatter-plots)
         * [Parallel Coordinates Plots](#parallel-coordinates-plot)
     1. [Searching for Correlations](#searching-for-correlations)
-    * [Linear Regression](#linear-regression)
+    *  [Linear Regression](#linear-regression)
     1. [Basic Statistical Classification](#basic-statistical-classification)
-    * [Linear Discriminant Analysis](*linear-discriminate-analysis)
-    * [Finding the Best Classification Algorithm](#finding-the-best-classification-algorithm)
+    *  [Linear Discriminant Analysis](*linear-discriminate-analysis)
+    *  [Finding the Best Classification Algorithm](#finding-the-best-classification-algorithm)
 1. [Appendix](#appendix)
     * [Definitions of Key Terms](#definition-of-key-terms)
 1. [References](#references)
@@ -82,7 +82,9 @@ What does this mean then for our analysis of the dataset? Well, we could probabl
 Already the 'anchor' question that any analysis of the dataset is likely to confront arises: can the species be distinguished purely based on their respective sepal and petal lengths and widths? And this is exactly where the machine learning analyses of the dataset begin: could a program be taught to determine the species of an iris flower based on its sepal and petal length and width?
 But we are jumping the gun here, and while it is important to come into any dataset primed with questions, there is only so far one can get without getting one's hands dirty with the data.
 
-## Histograms
+## Plotting the Dataset
+
+### Histograms
 Ok, so plotting histograms doesn't exactly constitute getting one's hands dirty: histograms are by nature heavily sanitised. They are easy to read, but don't reveal much about anything. And yet histograms remain a nice entry point into any dataset; they give one a rough idea of how the values for each variable are spread out or clumped together.
 Because histograms are easy to read, there is more value in including four of them in the one image rather than separately - this way one can at least see how the spread of the variables compare against each other. I have included two groups of histograms here, one with species undistinguished, and one with them distinguished.
 
@@ -102,7 +104,7 @@ In the case of the second group (histograms for each of the variables where the 
 Clearly, the second group of histograms are much more interesting. The first group only show us that the variables have different ranges of values; but this difference is of course to be expected. The plots in the second group on the other hand can at least show us where there are differences between the species themselves. We can see that the species differ much in their respective petal lengths and widths, whereas there is much overlap in terms of their sepal lengths and widths.
 We can also see that the setosas are much more distinguishable than the versicolors and virginicas, which both have overlapping ranges of variable values. Indeed, based on the histogram for petal lengths, we could create a function to determine whether or not an iris flower was a setosa based on its petal length: if its petal length is less than 2.5 cm, then it is a setosa, if greater then it must be either a versicolor or a virginica. But once we have sucked dry that particularly clean division between the species, the histograms stop talking to us. Other plots will have to be probed.
 
-## Box Plots
+### Box Plots
 
 Box plots are perhaps the natural progression from histograms. Like histograms they show the *spread* of each variables values; unlike histograms, however, they only distinguish between the quartiles. While they thus give us a less granular perspective than histograms, it can often be particularly interesting to see how the ranges of values in each quartile differ. Generally one would expect the ranges of values in the first and fourth quartiles to be greater than those of the second third, as is the case in [normal distributions](#normal-distribution).
 Box plots can be interesting then if they should that a variable does *not* have a normal distribution. As it turns, the variables *do* have normal distributions, so to make these box plots more bearable, I have superimposed swarm plots onto them, which offer the granularity that box plots lack.
@@ -119,7 +121,7 @@ I have chosen to show the box plots for sepal and petal lengths - with the speci
 
 However, these box plots only tells us what the histograms have already told us: that of the four variables in the dataset petal length is likely to be the best [discriminant](#discriminat) for the species of an iris flower. As Jay-Z once said: 'on to the next one'.
 
-## Scatter Plots
+### Scatter Plots
 
 Finally, we can actually begin to touch the individual data points and get to grips with the grime of the irises. Scatter plots allow us to move on from looking at variables in isolation to looking at the relationships between them. While histograms and box plots can tell us if the species' variables have differing or similar ranges of values, they cannot tell us if there is any relationship between the variables - whether or not, for example, irises with long petals also tend to have wide petals. And with that we have our first scatter plot, and perhaps the most visually appealing plot of the iris dataset:
 
@@ -150,7 +152,7 @@ Looking at all of the scatter plots in such a matrix makes it very easy to see a
 What is perhaps most intriguing is how the virginicas almost appear as extensions of the versicolors: in many of the plots their variables appear to correlated in the same way with the only difference being that the virginicas' variables' values are greater - if one didn't know that they were indeed different species, one would be forgiven for assuming that they were in fact the same species, with the virginicas accounting for the third and fourth quartiles of values and the versicolor the first and second.
 But again, while this is all very interesting, there is only so much one can do with the plots. In effect even the scatter plots are not that grimy after all; in order to really get into the muck of the dataset one has to engage with the false gods of mathematics.
 
-## Parallel Coordinates
+### Parallel Coordinates
 
 Before taking the diving into the realm of unforgiving functions, there is one last plot that is worth having a look at.
 
@@ -165,11 +167,13 @@ The parallel coordinates plot is quite simply revelatory. Where all the other pl
 Okay, so the enthusiasm must be a little overbearing, but nonetheless, at a mere glance at this plot one can see how similar the versicolors and virginicas are to each other, and just how different they are both from the setosas. They both follow a zigzag pattern, with the virginicas' variables have higher values, particularly in the case of the sepal and petal lengths. Contrast this with the poor setosa, that only has a simpering decline to show for itself.
 
 
+##Searching for Correlations
+### Linear Regression
 
-## Linear Regression
 
-
-
+## Statistical Classification
+### Linear Discriminant Analysis
+### Finding the Best Classification Algorithm
 
 # Appendix
 
