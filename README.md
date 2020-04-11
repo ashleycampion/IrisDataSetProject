@@ -17,9 +17,9 @@
         * [Box Plots](#box-plots)
         * [Scatter Plots](#scatter-plots)
         * [Parallel Coordinates Plots](#parallel-coordinates-plot)
-    1. [Searching for Correlations](#searching-for-correlations)
+    1. [Finding Correlations](#finding-correlations)
         *  [Linear Regression](#linear-regression)
-    1. [Basic Statistical Classification](#basic-statistical-classification)
+    1. [Statistical Classification](#statistical-classification)
         *  [Linear Discriminant Analysis](*linear-discriminate-analysis)
         *  [Finding the Best Classification Algorithm](#finding-the-best-classification-algorithm)
 1. [Appendix](#appendix)
@@ -167,7 +167,7 @@ The parallel coordinates plot is quite simply revelatory. Where all the other pl
 Okay, so the enthusiasm must be a little overbearing, but nonetheless, at a mere glance at this plot one can see how similar the versicolors and virginicas are to each other, and just how different they are both from the setosas. They both follow a zigzag pattern, with the virginicas' variables have higher values, particularly in the case of the sepal and petal lengths. Contrast this with the poor setosa, that only has a simpering decline to show for itself.
 
 
-## Searching for Correlations
+## Finding Correlations
 
 ### Linear Regression
 
