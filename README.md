@@ -184,7 +184,7 @@ Okay, so enough with the teacherly enthusiasm, but nonetheless, one must admit t
 ### Linear Discriminant Analysis of the Dataset
 
 <div align="center">
-    <img src="./plots/LDAScatterPlot.png" alt="LDA of Iris Dataset" title="LDA of Iris Dataset")>
+    <img src="./plots/LDA/LDAScatterPlot.png" alt="LDA of Iris Dataset" title="LDA of Iris Dataset")>
 </div>
 
 <div align="center">
