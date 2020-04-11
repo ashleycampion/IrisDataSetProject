@@ -49,13 +49,12 @@ See the section 'How to Run Python Scripts Using the Command-Line' [here](https:
 
 
 # Introduction
-
 This analysis of the Iris Dataset has the following structure:
-    * The dataset is described
-    * The data is conceptualized and questions about the dataset are formulated based on this conceptualization
-    * The data is plotted, and rudementary visual analses of the data are undertaken based on the plots
-    * The relationships between the variables in the dataset are analysed with [linear regression](#linear-regression) techniques
-    * [Statistical classification](#statistical-classification) of the data is undertaken using [supervised learning](#supervised-learning) techniques
+* The dataset is described
+* The data is conceptualized and questions about the dataset are formulated based on this conceptualization
+* The data is plotted, and rudementary visual analyses of the data are undertaken based on the plots
+* The relationships between the variables in the dataset are analysed with [linear regression](*linear-regression) techniques
+* [Statistical classification](#statistical-classification) of the data is undertaken using [supervised learning](*supervised-learning) techniques
 
 ## What is the Iris Dataset
 
