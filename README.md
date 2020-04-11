@@ -54,7 +54,7 @@ This analysis of the Iris Dataset has the following structure:
 * The data is conceptualized and questions about the dataset are formulated based on this conceptualization
 * The data is plotted, and rudementary visual analyses of the data are undertaken based on the plots
 * The relationships between the variables in the dataset are analysed with [linear regression](#linear-regression) techniques
-* [Statistical classification](#statistical classification) of the data is undertaken using <div><a href="supervised learning">supervised learning</a></div> techniques
+* <a href="#Statistical classification">Statistical classification</a> of the data is undertaken using <span><a href="#supervised learning">supervised learning</a></span> techniques
 
 ## What is the Iris Dataset
 
