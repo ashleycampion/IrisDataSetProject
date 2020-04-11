@@ -92,7 +92,11 @@ def createScatterPlots():
     # this resources provided me the most quickly comprehensible info:
     # https://www.tutorialspoint.com/python_pandas/python_pandas_groupby.htm
 
-
+    # we want to hide the spines to make the plots cleaner
+    # (or at least I do!). The docs recommend that to do this
+    # you create a subplot and hide the spines from that, see here:
+    # https://matplotlib.org/examples/ticks_and_spines/spines_demo.html
+    ax = plt.subplot(1,1,1)
     for label, group in df.groupby("species"):
         # for the third parameter to the plot() function, we use '.'
         # to create a scatter plot, i.e. with dots rather than lines
@@ -108,11 +112,17 @@ def createScatterPlots():
     plt.xlabel("Sepal Length (cm)")
     plt.ylabel("Sepal Width (cm)")
     plt.title("Sepal Length vs. Sepal Width")
+    plt.grid()
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+    ax.spines["bottom"].set_visible(False)
+    ax.spines["left"].set_visible(False)
     plt.savefig(plotDir + "sepalLengthSepalWidth.png")
     # close the plot so that the next plot is not
     # superimposed on top of this one
     plt.close()
 
+    ax = plt.subplot(1,1,1)
     for label, group in df.groupby("species"):
         plt.plot(group["sepal_length"], group["petal_length"], '.', label=label)
 
@@ -120,9 +130,15 @@ def createScatterPlots():
     plt.xlabel("Sepal Length (cm)")
     plt.ylabel("Petal Length (cm)")
     plt.title("Sepal Length vs. Petal Length")
+    plt.grid()
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+    ax.spines["bottom"].set_visible(False)
+    ax.spines["left"].set_visible(False)
     plt.savefig(plotDir + "sepalLengthPetalLength.png")
     plt.close()
 
+    ax = plt.subplot(1,1,1)
     for label, group in df.groupby("species"):
         plt.plot(group["sepal_length"], group["petal_width"], '.', label=label)
 
@@ -130,10 +146,42 @@ def createScatterPlots():
     plt.xlabel("Sepal Length (cm)")
     plt.ylabel("Petal Width (cm)")
     plt.title("Sepal Length vs. Petal Width")
+    plt.grid()
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+    ax.spines["bottom"].set_visible(False)
+    ax.spines["left"].set_visible(False)
     plt.savefig(plotDir + "sepalLengthPetalWidth.png")
     plt.close()
 
+    # we want to plot the above plot with the axes reversed
+    # to compare with the LDA plot later, as sepal length vs.
+    # petal width arguably provides the best off-the-cuff
+    # differentiation between the species
+    ax = plt.subplot(1,1,1)
+    for label, group in df.groupby("species"):
+        plt.plot(group["petal_width"], group["sepal_length"], '.', label=label)
+
+    plt.legend(framealpha=0.5)
+    plt.xlabel("Petal Width (cm)")
+    plt.ylabel("Sepal Length (cm)")
+    plt.title("Petal Width vs. Sepal Length")
+    plt.grid()
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+    ax.spines["bottom"].set_visible(False)
+    ax.spines["left"].set_visible(False)
+    plt.savefig(plotDir + "petalWidthsepalLength.png")
+    plt.close()
+
+
+
+
+
+
+
     # remaining sepal-width plots
+    ax = plt.subplot(1,1,1)
     for label, group in df.groupby("species"):
         plt.plot(group["sepal_width"], group["sepal_length"], '.', label=label)
 
@@ -142,9 +190,15 @@ def createScatterPlots():
     plt.xlabel("Sepal Width (cm)")
     plt.ylabel("Petal Length (cm)")
     plt.title("Sepal Width vs. Sepal Length")
+    plt.grid()
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+    ax.spines["bottom"].set_visible(False)
+    ax.spines["left"].set_visible(False)
     plt.savefig(plotDir + "sepalWidthPetalLength.png")
     plt.close()
 
+    ax = plt.subplot(1,1,1)
     for label, group in df.groupby("species"):
         plt.plot(group["sepal_width"], group["petal_width"], '.', label=label)
 
@@ -152,8 +206,14 @@ def createScatterPlots():
     plt.xlabel("Sepal Width (cm)")
     plt.ylabel("Petal Width (cm)")
     plt.title("Sepal Width vs. Petal Width")
+    plt.grid()
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+    ax.spines["bottom"].set_visible(False)
+    ax.spines["left"].set_visible(False)
     plt.savefig(plotDir + "sepalWidthPetalWidth.png")
     plt.close()
+
 
     for label, group in df.groupby("species"):
         plt.plot(group["petal_length"], group["petal_width"], '.', label=label)
@@ -162,6 +222,11 @@ def createScatterPlots():
     plt.xlabel("Petal Length (cm)")
     plt.ylabel("Petal Width (cm)")
     plt.title("Petal Length vs. Petal Width")
+    plt.grid()
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+    ax.spines["bottom"].set_visible(False)
+    ax.spines["left"].set_visible(False)
     plt.savefig(plotDir + "petalLengthPetalWidth.png")
     plt.close()
 
