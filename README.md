@@ -11,13 +11,17 @@
     * [What is the Iris Dataset?](#what-is-the-iris-dataset?)
     * [Why is the Iris Dataset Still Relevant?](#why-is-the-iris-dataset-still-relevant?)
 1. [Analysis of the Dataset](#analysis-of-the-data-set)
-    * [Conceptualizing the Dataset](#conceptualizing-the-data-set)
-    * [Histograms](#histograms)
-    * [Box Plots](#box-plots)
-    * [Scatter Plots](#scatter-plots)
-    * [Parallel Coordinates Plots](#parallel-coordinates-plot)
-    * [Summary Statistics](#summary-statistics)
+    1. [Conceptualizing the Dataset](#conceptualizing-the-data-set)
+    1. [Plotting the Dataset](#plotting-the-dataset)
+        * [Histograms](#histograms)
+        * [Box Plots](#box-plots)
+        * [Scatter Plots](#scatter-plots)
+        * [Parallel Coordinates Plots](#parallel-coordinates-plot)
+    1. [Searching for Correlations](#searching-for-correlations)
     * [Linear Regression](#linear-regression)
+    1. [Basic Statistical Classification](#basic-statistical-classification)
+    * [Linear Discriminant Analysis](*linear-discriminate-analysis)
+    * [Finding the Best Classification Algorithm](#finding-the-best-classification-algorithm)
 1. [Appendix](#appendix)
     * [Definitions of Key Terms](#definition-of-key-terms)
 1. [References](#references)
@@ -113,7 +117,7 @@ I have chosen to show the box plots for sepal and petal lengths - with the speci
     <img src="./plots/boxPlots/petalLength.png" alt="Box Plot for Species vs. Petal Length" title="Box Plot for Species vs. Petal Length")>
 </div>
 
-However, these box plots only tells us what the histograms have already told us: that of the four variables in the dataset petal length is likely to be the best [discriminant](#discriminat) of the species of an iris flower. As Jay-Z once said: 'on to the next one'.
+However, these box plots only tells us what the histograms have already told us: that of the four variables in the dataset petal length is likely to be the best [discriminant](#discriminat) for the species of an iris flower. As Jay-Z once said: 'on to the next one'.
 
 ## Scatter Plots
 
@@ -161,10 +165,10 @@ The parallel coordinates plot is quite simply revelatory. Where all the other pl
 Okay, so the enthusiasm must be a little overbearing, but nonetheless, at a mere glance at this plot one can see how similar the versicolors and virginicas are to each other, and just how different they are both from the setosas. They both follow a zigzag pattern, with the virginicas' variables have higher values, particularly in the case of the sepal and petal lengths. Contrast this with the poor setosa, that only has a simpering decline to show for itself.
 
 
-## Summary Statistics
 
 ## Linear Regression
-## Metro-map
+
+
 
 
 # Appendix
