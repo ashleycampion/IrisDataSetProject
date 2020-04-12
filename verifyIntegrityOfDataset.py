@@ -3,7 +3,7 @@ import pandas as pd
 # import the dataframe of the dataset used in this project
 from createDataFrame import df
 
-def verifyIntegrityOfDataSet():
+def verifyIntegrityOfDataset():
 
     # get the url of known good source for the dataset
     # here I use a popular version of the dataset on Git Hub Gist
@@ -23,4 +23,4 @@ def verifyIntegrityOfDataSet():
 
 
 if __name__ == '__main__':
-    verifyIntegrityOfDataSet()
+    verifyIntegrityOfDataset()
