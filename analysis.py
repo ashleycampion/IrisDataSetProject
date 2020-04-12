@@ -2,22 +2,24 @@
 # on their own, by running this file one can run them
 # all from a central location.
 
-from verifyIntegrityOfDataSet import verifyIntegrityOfDataSet
+from verifyIntegrityOfDataset import verifyIntegrityOfDataset
 from createSummaryStatistics import createSummaryStatistics
 from createHistograms import createHistograms
 from createBoxPlots import createBoxPlots
 from createScatterPlots import createScatterPlots
 from dimensionalityReduction import createLDAScatterPlot
+from dimensionalityReduction import createPCAScatterPlot
 from dimensionalityReduction import homemadeDimensionalityReduction
 
 
 def main():
-    verifyIntegrityOfDataSet()
+    verifyIntegrityOfDataset()
     createSummaryStatistics()
     createHistograms()
     createBoxPlots()
     createScatterPlots()
     createLDAScatterPlot()
+    createPCAScatterPlot()
     homemadeDimensionalityReduction()
 
 if __name__ == '__main__':
