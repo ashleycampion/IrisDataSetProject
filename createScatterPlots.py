@@ -244,7 +244,7 @@ def createScatterPlots():
     sb.pairplot(data=df, hue="species")
     # we use matplotlit.pyplot to save the image to a file
     plt.savefig(plotDir + "scatterMatrix.png")
-
+    plt.close()
     # we use a raw string here to accurately depict the file path on
     # Windows systems, i.e. with '\' as the path separator.
     # see here for the use of raw string:
