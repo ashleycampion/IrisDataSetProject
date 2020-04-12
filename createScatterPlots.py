@@ -214,7 +214,7 @@ def createScatterPlots():
     plt.savefig(plotDir + "sepalWidthPetalWidth.png")
     plt.close()
 
-
+    ax = plt.subplot(1,1,1)
     for label, group in df.groupby("species"):
         plt.plot(group["petal_length"], group["petal_width"], '.', label=label)
 
