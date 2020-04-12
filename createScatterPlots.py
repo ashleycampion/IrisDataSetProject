@@ -90,7 +90,7 @@ def createScatterPlots():
     # and as always, real python is your friend:
     # https://realpython.com/pandas-groupby/
     # this resources provided me the most quickly comprehensible info:
-    # https://www.tutorialspoint.com/python_pandas/python_pandas_groupby.htm
+    # https://www.tutorialspoint.com/python_pandas/python_pandas_groupby.html
 
     # we want to hide the spines to make the plots cleaner
     # (or at least I do!). The docs recommend that to do this
@@ -195,7 +195,7 @@ def createScatterPlots():
     ax.spines["right"].set_visible(False)
     ax.spines["bottom"].set_visible(False)
     ax.spines["left"].set_visible(False)
-    plt.savefig(plotDir + "sepalWidthPetalLength.png")
+    plt.savefig(plotDir + "sepalWidthSepalLength.png")
     plt.close()
 
     ax = plt.subplot(1,1,1)
