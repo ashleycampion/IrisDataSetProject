@@ -185,18 +185,37 @@ Okay, so enough with the teacherly enthusiasm, but nonetheless, one must admit t
 
 Linear discriminant analysis (LDA), normal discriminant analysis (NDA), or discriminant function analysis is a  a method used in statistics, pattern recognition, and machine learning to find a linear combination of features that characterizes, i.e. is capable of discriminating between, two or more classes of objects or events [3] (in the case of the Iris dataset we are looking to discriminate between the species).
 In mathematics, a linear combination is an expression constructed from a set of terms by multiplying each term by a constant and adding the results (e.g. a linear combination of x and y would be any expression of the form ax + by, where a and b are constants) [4].
-How exactly linear combinations are come upon by LDA is beyond the scope of this repository, so instead we can simply think of the results of LDA as <a href="#discriminants">discriminants</a>.
-It is helpful when understanding what exactly linear discriminate analysis achieves to compare the resulting linear discriminant with the variable in the dataset best able to discriminate between the species, which from the plots above would appear to be petal width.
+However, how exactly linear combinations are come upon by LDA is beyond the scope of this repository, so instead we can simply think of the results of LDA as <a href="#discriminant">discriminants</a>.
 
-<div align="center">
-    <img src="./plots/LDA/LDAScatterPlot.png" alt="LDA of Iris Dataset" title="LDA of Iris Dataset")>
-</div>
+It is important to note that while LDA is often refered to as a kinf of dimensionality reduction, it is in reality much more than that. Dimensionality reduction simply consists in taking two or more dimension (i.e. properties of an object that once plotted each become an axis), and reducing them to a lesser amount of dimensions, typically one or two, *while retaining as much of the information contained in the original dimensions as possible*.
+The reason for doing this is that multi-dimensional data, for example four-dimensional data as in the case of the Iris dataset, is very different for humans to get their heads around. While a human mind reasonably well trained in pattern-finding can look at a 2D plot and *see* roughly what is going on, anything more than 2D presents a challenge. The solution to this is thus to reduce the three dimensions to two, such that minimal information is lost in this reduction and the human eye can more readily see patterns in the data.
+
+It is also important to note, however, that dimensionality reduction in itself if meaningless. One could easily, for example, take the variables of each flower in the Iris Dataset and sum them together, and one would have thus performed a dimensionality reduction. Of course, a dimension that consists in the sum of the original dimensions is unlikely to be meaningful. The question is thus, in cases can dimensionality reduction be meaningful? There are generally three cases:
+1. The first case is not of meaning, but of use. Reducing an object's dimensionality can make render it much less resource-intensive to include in computations. If one has a massive dataset of millions of objects with hundreds of dimensions each, reducing these dimensions would make it much more feasible to perform computations on the data.
+1. The second case is more clearly about meaning. As already said above, the human eye cannot grasp multi-dimensional data easily. By reducing the data's dimensionality to a more human-manageable number (generally 2D), there is a much greater change of one being able to see patterns in the data. The challenge here then is reducing the dimensions into a dimension that is still meaningful, and that leads us onto the third case.
+1. The third case is generally associated with machine learning, and in many ways it is a subcase of the second case. Essentially we want here to reduce the data to a dimension (or a small number of dimensions) that will make it possible to discriminate between the data or the classes in the dataset based on that (or those) dimensions. This dimension is what I (but not the literature at large) refer to in the case of class-discrimination as the <a href="#discriminant">discriminant</a>. Not that I distinguish here between dimensionality reductions intended to allow discrimination between the data and those intended to allow discrimination between the classes; there are different sets of algorithms for both of these tasks, the simplest being Principal Component Analysis (PCA) and Linear Discriminate Analysis (LDA) respecively.
+
+What you will notice about the three cases is that they extend each other in the order I have presented them, such that the third case is always at the same time an instance of the second and first cases, while the second case is not necessarily also an instance of the third case, and the first cases is not necessarily an instance of the second or third cases, i.e. one can perform a dimensionality reduction for computational-efficiency reasons (case on1) without finding a discriminant (case three), but one cannot find a discriminant without performing a dimensionality reduction that also happens to allow for more efficient computation of the data.
+
+LDA then, is an example of the third case where a discriminant is sought, so by necessity it is also a example of the first case. Note the LDA seeks a *linear* discriminant. The meaning of 'linear' is beyond the scope of this analysis.
+
+It is helpful when trying to understand what exactly LDA achieves to compare the results of LDA (i.e. the linear discriminants) with two other possible discriminants:
+1. The variable in the dataset best able to discriminate between the species, which from the plots above would appear to be petal width.
+1. A rudimentary 'homemade' attempt at reducing the flower's dimensions by weighting the dimensions in terms of their ability to allow us discriminate between the classes, i.e. petal width having the most weight, then petal length, and then the sepal values:
 
 <div align="center">
     <img src="./plots/scatterPlots/petalWidthsepalLength.png" alt="Petal Width vs. Sepal Length" title="Petal Width vs. Sepal Length")>
 </div>
 
-We can see quite clearly that the first linear discriminant (LD1) is better at distinguishing between the species than petal width. Both can successfully distinguish between the setosas, but whereas in the case of petal width, there are several versicolor values that are greater than several virginicas, in the case of LD1 the only overlap between the species is one versicolor value that is greater than six virginicas (there is perhaps one other versicolor value that is greater than one other viriginica).
+<div align="center">
+    <img src="./plots/dimensReduction/LDAScatterPlot.png" alt="LDA of Iris Dataset" title="LDA of Iris Dataset")>
+</div>
+
+<div align="center">
+    <img src="./plots/dimensReduction/homemadeDimensionalityReduction.png" alt="Homemade Dimensionality Reduction" title="Homemade Dimensionality Reduction")>
+</div>
+
+We can see quite clearly that the first linear discriminant (LD1) is better at distinguishing between the species than both petal width and our homemade attempt, which doesn't appear to be any better than petal width. In terms of petal width and the actual linear discriminat, both can successfully distinguish between the setosas, but whereas in the case of petal width, there are several versicolor values that are greater than several virginicas, in the case of LD1 the only overlap between the species is one versicolor value that is greater than six virginicas (there is perhaps one other versicolor value that is greater than one other viriginica).
 
 
 ### Finding the Best Classification Algorithm
@@ -209,7 +228,7 @@ We can see quite clearly that the first linear discriminant (LD1) is better at d
 
 <dl>
     <dt><a id="Discriminant"></a>Discriminant</dt>
-    <dd>Discriminant is not a standard term in data analysis, probably because it is a standard term in mathematics and thus there would be room for confusion. But it is useful to understand the 'discriminate' part of <a href="#linear discriminate analysis">linear discriminate analysis</a>. Basically, a discriminant can be thought of as a property (variable) of an object that allows us to determine what class that object belongs to, i.e. we can discriminate between classes based solely on the discriminatn variable (in the case of the Iris Dataset, the three species are the classes). A perfect discriminant would be such that by looking at the value of the discriminat for each object in a dataset we would be able to separate the objects accurately into their different classes. Of course, the 'ready-made' variables of data-sets (such as the iris dataset's petal lengths) are rarely reliable discriminants. In practice, variables have to be <em>combined</em> to produce an accurate discriminant. For more on how this is achieved, please see <a href="#linear combination">linear combination</a>, and for additional context, <a href="#linear discriminate analysis">linear discriminate analysis.</a> </dd>
+    <dd>Discriminant is not a standard term in data analysis, probably because it is a standard term in mathematics and thus there would be room for confusion. But it is useful to understand the 'discriminate' part of <a href="#linear discriminate analysis">linear discriminate analysis</a>. Basically, a discriminant can be thought of as a property (variable) of an object that allows us to determine what class that object belongs to, i.e. we can discriminate between classes based solely on the discriminatn variable (in the case of the Iris Dataset, the three species are the classes). A perfect discriminant would be such that by looking at the value of the discriminant for each object in a dataset we would be able to separate the objects accurately into their different classes. Of course, the 'ready-made' variables of data-sets (such as the iris dataset's petal lengths) are rarely reliable discriminants. In practice, variables have to be <em>combined</em> to produce an accurate discriminant. For more on how this is achieved, please see <a href="#linear combination">linear combination</a>, and for additional context, <a href="#linear discriminate analysis">linear discriminate analysis.</a> </dd>
     <dt><a id='Linear Combination'></a>Linear Combination</dt>
     <dd>(Please first read the definition of <a href="#discriminant">discriminant</a>.) In mathematics, a linear combination is an expression constructed from a set of terms by multiplying each term by a constant and adding the results (e.g. a linear combination of x and y would be any expression of the form ax + by, where a and b are constants) [4].</dd>
     <dt><a id='Linear Discriminate Analysis'></a>Linear Discriminate Analysis</dt>
@@ -250,4 +269,5 @@ We can see quite clearly that the first linear discriminant (LD1) is better at d
 
 9 https://en.wikipedia.org/wiki/Linear_regression
 
+10
 https://sebastianraschka.com/Articles/2014_python_lda.html
