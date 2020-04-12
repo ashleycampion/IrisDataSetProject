@@ -21,7 +21,6 @@
         *  [Using Linear Regression](#using-linear-regression)
     1. [Statistical Classification of the Data](#statistical-classification-of-the-data)
         *  [Linear Discriminant Analysis of the Dataset](*linear-discriminate-analysis-of-the-dataset)
-        *  [Finding the Best Classification Algorithm](#finding-the-best-classification-algorithm)
 1. [Appendix](#appendix)
     * [Definitions of Key Terms](#definition-of-key-terms)
 1. [References](#references)
@@ -36,6 +35,7 @@
 * a 'createParallelCoordinates' file that saves a parallel coordinates plot to the plots\parallelCoordinates folder
 * a 'createScatterPlots' file that saves scatter plots to the plots\scatterPlots folder
 * a 'createSummaryStatistics' file that saves summary statistics for each species to a csv file in the summaryStatistics folder
+* a 'dimensionalityReduction' file that performs various dimensionality reductions and saves the plotted results to files in the plots\dimensionalityReduction folder
 * a 'verifyIntegrityOfDataset' file to do just that
 
 ## How to Download this Repository
@@ -54,7 +54,7 @@ This ReadMe's analysis of the Iris Dataset is structured as follows:
 * The data is conceptualized and questions about the dataset are formulated based on this conceptualization
 * The data is plotted, and rudementary visual analyses of the data are undertaken based on the plots
 * The relationships between the variables in the dataset are analysed with <a href="#linear regression">linear regression</a> techniques
-* <a href="#Statistical classification">Statistical classification</a> of the data is undertaken using <a href="#supervised learning">supervised learning</a> techniques
+* <a href="#Statistical classification">Statistical classification</a> of the data is undertaken using a <a href="#supervised learning">supervised learning</a> technique, (<a href="#linear discriminate analysis">linear discriminate analysis</a>)
 
 ## What is the Iris Dataset
 
@@ -181,6 +181,8 @@ Okay, so enough with the teacherly enthusiasm, but nonetheless, one must admit t
 
 ## Statistical Classification of the Data
 
+As mentioned above, one of the reasons - if not *the* reasons - for the Iris dataset's continued popularity as an educational tool, is the fact that it was the dataset that Fisher worked with to develop <a href="#Linear Discriminate Analysis">Linear Discriminate Analysis</a> (LDA), which is a <a href="#statistical classification">statistical classification</a> technique.
+
 ### Linear Discriminant Analysis of the Dataset
 
 Linear discriminant analysis (LDA), normal discriminant analysis (NDA), or discriminant function analysis is a  a method used in statistics, pattern recognition, and machine learning to find a linear combination of features that characterizes, i.e. is capable of discriminating between, two or more classes of objects or events [3] (in the case of the Iris dataset we are looking to discriminate between the species).
@@ -222,9 +224,7 @@ It is helpful when trying to understand what exactly LDA achieves to compare the
 We can see quite clearly that the first linear discriminant (LD1) is better at distinguishing between the species than both petal width, our homemade attempt, and even PCA.
 Interestingly, the PCA appears to offer the worst results, and our homemade attempt doesn't appear to be any better than petal width. In terms of petal width and the actual linear discriminant, both can successfully distinguish between the setosas, but whereas in the case of petal width, there are several versicolor values that are greater than several virginicas, in the case of LD1 the only overlap between the species is one versicolor value that is greater than six virginicas (there is perhaps one other versicolor value that is greater than one other viriginica).
 
-
-### Finding the Best Classification Algorithm
-
+Clearly then, LDA is a good candidate for discriminating between the species, and thus also for teaching a machine how to determine what species an iris flower is based on its petal and sepal length and width. The better performance of LDA here in comparison to PCA also demonstrates the difference between supervised and unsupervised learning techniques. In a dataset such as this where the classes are already known, LDA, a supervised learning technique, generally outperforms unsupervised techniques such as PCA.
 
 
 # Appendix
@@ -257,24 +257,44 @@ Interestingly, the PCA appears to offer the worst results, and our homemade atte
 </dl>
 
 # References
-1 https://en.wikipedia.org/wiki/Iris_flower_data_set
+    1 https://en.wikipedia.org/wiki/Iris_flower_data_set
+    2 https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+    3 https://en.wikipedia.org/wiki/Linear_discriminant_analysis
+    4 https://en.wikipedia.org/wiki/Linear_combination
+    5 https://en.wikipedia.org/wiki/Supervised_learning
+    6 https://en.wikipedia.org/wiki/Unsupervised_learning
+    7 https://en.wikipedia.org/wiki/Statistical_classification
+    8 https://www.tutorialspoint.com/statistics/normal_distribution.htm
+    9 https://en.wikipedia.org/wiki/Linear_regression
+    10 https://en.wikipedia.org/wiki/Principal_component_analysis
 
-2 https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+Websites referenced in the python files:
 
-3 https://en.wikipedia.org/wiki/Linear_discriminant_analysis
-
-4 https://en.wikipedia.org/wiki/Linear_combination
-
-5 https://en.wikipedia.org/wiki/Supervised_learning
-
-6 https://en.wikipedia.org/wiki/Unsupervised_learning
-
-7 https://en.wikipedia.org/wiki/Statistical_classification
-
-8 https://www.tutorialspoint.com/statistics/normal_distribution.htm
-
-9 https://en.wikipedia.org/wiki/Linear_regression
-
-10 https://en.wikipedia.org/wiki/Principal_component_analysis
-
-https://sebastianraschka.com/Articles/2014_python_lda.html
+    https://sebastianraschka.com/Articles/2014_python_lda.html
+    https://medium.com/codebagng/basic-analysis-of-the-iris-data-set-using-python-2995618a6342
+    https://machinelearningmastery.com/k-fold-cross-validation/
+    https://riptutorial.com/scikit-learn/example/17296/cross-validation
+    https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.cross_val_score.html
+    https://medium.com/fintechexplained/what-are-eigenvalues-and-eigenvectors-a-must-know-concept-for-machine-learning-80d0fd330e47
+    https://scikit-learn.org/stable/auto_examples/decomposition/plot_pca_vs_lda.html
+    https://benalexkeen.com/feature-scaling-with-scikit-learn/
+    https://chrisalbon.com/machine_learning/feature_engineering/select_best_number_of_components_in_lda/
+    https://pythonmatplotlibtips.blogspot.com/2018/01/compare-pltplot-and-pltscatter-in-speed-python-matplotlib.html
+    https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html
+    https://realpython.com/pandas-groupby/
+    https://www.tutorialspoint.com/python_pandas/python_pandas_groupby.html
+    https://matplotlib.org/examples/ticks_and_spines/spines_demo.html
+    https://seaborn.pydata.org/generated/seaborn.pairplot.html
+    https://towardsdatascience.com/visualizing-data-with-pair-plots-in-python-f228cf529166
+    https://stackoverflow.com/questions/4415259/convert-regular-python-string-to-raw-string
+    https://stackoverflow.com/questions/11373610/save-matplotlib-file-to-a-directory
+    https://matplotlib.org/3.2.1/api/_as_gen/matplotlib.pyplot.subplot.html
+    https://matplotlib.org/3.1.3/tutorials/intermediate/tight_layout_guide.html
+    http://www.learningaboutelectronics.com/Articles/How-to-change-the-transparency-of-a-graph-plot-in-matplotlib-with-Python.php
+    https://www.tutorialspoint.com/python_pandas/python_pandas_groupby.htm
+    https://docs.scipy.org/doc/numpy/reference/generated/numpy.unique.html
+    https://stackoverflow.com/questions/4415259/convert-regular-python-string-to-raw-string
+    https://stackoverflow.com/questions/11373610/save-matplotlib-file-to-a-directory
+    https://stackoverflow.com/questions/57533954/how-to-close-seaborn-plots
+    https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.plotting.parallel_coordinates.html
+    https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html
