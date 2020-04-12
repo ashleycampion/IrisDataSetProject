@@ -37,7 +37,7 @@ if not os.path.isdir(plotDir):
 
 
 
-def createLDAScatterPlot(df, title):
+def createLDAScatterPlot():
 
     # the code for this is adapted from here:
     # # https://sebastianraschka.com/Articles/2014_python_lda.html
@@ -89,12 +89,12 @@ def createLDAScatterPlot(df, title):
                     alpha=0.5,
                     label=label)
 
-    plt.xlabel('LD1')
-    plt.ylabel('LD2')
+    plt.xlabel('LD 1')
+    plt.ylabel('LD 2')
 
     leg = plt.legend(loc='upper right', fancybox=True)
     leg.get_frame().set_alpha(0.5)
-    plt.title(title)
+    plt.title("Linear Discrimiate Analysis")
 
     # hide axis ticks, perhaps a bit excessive, but oh well
     plt.tick_params(axis="both", which="both", bottom="off", top="off",
@@ -115,7 +115,7 @@ def createLDAScatterPlot(df, title):
 
 
 
-def createPCAScatterPlot(df, title):
+def createPCAScatterPlot():
 
     # the code for this is adapted from here:
     # # https://sebastianraschka.com/Articles/2014_python_lda.html
@@ -144,12 +144,12 @@ def createPCAScatterPlot(df, title):
                     alpha=0.5,
                     label=label)
 
-    plt.xlabel('PC1')
-    plt.ylabel('PC2')
+    plt.xlabel('PC 1')
+    plt.ylabel('PC 2')
 
     leg = plt.legend(loc='upper right', fancybox=True)
     leg.get_frame().set_alpha(0.5)
-    plt.title(title)
+    plt.title("Principal Component Analysis")
 
     # hide axis ticks, perhaps a bit excessive, but oh well
     plt.tick_params(axis="both", which="both", bottom="off", top="off",
@@ -199,8 +199,8 @@ def homemadeDimensionalityReduction():
     print(r"A homemade dimensionality reduction for the Iris dataset has been created and saved to the 'plots\dimensionalityReduction' directory.")
 
 if __name__ == '__main__':
-    createLDAScatterPlot(df, "Linear Discriminant Analysis")
-    createPCAScatterPlot(df, "Principal Component Analysis")
+    createLDAScatterPlot()
+    createPCAScatterPlot()
     homemadeDimensionalityReduction()
 
 
