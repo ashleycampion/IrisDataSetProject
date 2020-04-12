@@ -199,23 +199,28 @@ What you will notice about the three cases is that they extend each other in the
 
 LDA then, is an example of the third case where a discriminant is sought, so by necessity it is also a example of the first case. Note the LDA seeks a *linear* discriminant. The meaning of 'linear' is beyond the scope of this analysis.
 
-It is helpful when trying to understand what exactly LDA achieves to compare the results of LDA (i.e. the linear discriminants) with two other possible discriminants:
+It is helpful when trying to understand what exactly LDA achieves to compare the results of LDA (i.e. the linear discriminants) with three other possible discriminants:
 1. The variable in the dataset best able to discriminate between the species, which from the plots above would appear to be petal width.
 1. A rudimentary 'homemade' attempt at reducing the flower's dimensions by weighting the dimensions in terms of their ability to allow us discriminate between the classes, i.e. petal width having the most weight, then petal length, and then the sepal values:
-
+1. The results of a Principal Component Analysis (PCA) of the dataset. PCA is similar to LDA except that instead of trying to create a dimension that maximizes the distance between the classes, it tries to create a dimension that maximizes the total distance between the data points themselves. Thus one might say that where LDA creates a class-discriminatn, PCA creates a data-discriminant.
 <div align="center">
     <img src="./plots/scatterPlots/petalWidthsepalLength.png" alt="Petal Width vs. Sepal Length" title="Petal Width vs. Sepal Length")>
 </div>
 
 <div align="center">
-    <img src="./plots/dimensReduction/LDAScatterPlot.png" alt="LDA of Iris Dataset" title="LDA of Iris Dataset")>
+    <img src="./plots/dimensionalityReduction/LDAScatterPlot.png" alt="LDA of Iris Dataset" title="LDA of Iris Dataset")>
 </div>
 
 <div align="center">
-    <img src="./plots/dimensReduction/homemadeDimensionalityReduction.png" alt="Homemade Dimensionality Reduction" title="Homemade Dimensionality Reduction")>
+    <img src="./plots/dimensionalityReduction/PCAScatterPlot.png" alt="LDA of Iris Dataset" title="LDA of Iris Dataset")>
 </div>
 
-We can see quite clearly that the first linear discriminant (LD1) is better at distinguishing between the species than both petal width and our homemade attempt, which doesn't appear to be any better than petal width. In terms of petal width and the actual linear discriminat, both can successfully distinguish between the setosas, but whereas in the case of petal width, there are several versicolor values that are greater than several virginicas, in the case of LD1 the only overlap between the species is one versicolor value that is greater than six virginicas (there is perhaps one other versicolor value that is greater than one other viriginica).
+<div align="center">
+    <img src="./plots/dimensionalityReduction/homemadeDimensionalityReduction.png" alt="Homemade Dimensionality Reduction" title="Homemade Dimensionality Reduction")>
+</div>
+
+We can see quite clearly that the first linear discriminant (LD1) is better at distinguishing between the species than both petal width, our homemade attempt, and even PCA.
+Interestingly, the PCA appears to offer the worst results, and our homemade attempt doesn't appear to be any better than petal width. In terms of petal width and the actual linear discriminant, both can successfully distinguish between the setosas, but whereas in the case of petal width, there are several versicolor values that are greater than several virginicas, in the case of LD1 the only overlap between the species is one versicolor value that is greater than six virginicas (there is perhaps one other versicolor value that is greater than one other viriginica).
 
 
 ### Finding the Best Classification Algorithm
