@@ -7,7 +7,8 @@ from createSummaryStatistics import createSummaryStatistics
 from createHistograms import createHistograms
 from createBoxPlots import createBoxPlots
 from createScatterPlots import createScatterPlots
-from createLDAScatterPlot import createLDAScatterPlot
+from dimensionalityReduction import createLDAScatterPlot
+from dimensionalityReduction import homemadeDimensionalityReduction
 
 
 def main():
@@ -17,6 +18,7 @@ def main():
     createBoxPlots()
     createScatterPlots()
     createLDAScatterPlot()
+    homemadeDimensionalityReduction()
 
 if __name__ == '__main__':
         main()
