@@ -73,37 +73,18 @@ def createLDAScatterPlot():
     # we now just plot these values as normal, using a scatter plot
     # so that the individual data points are distinguishable
     ax = plt.subplot(111)
-    # The zip() function returns a zip object, which is an iterator
-    # of tuples where the first item in each passed iterator is paired
-    # together, and then the second item in each passed iterator are paired
-    # together etc. If the passed iterators have different lengths, the
-    # iterator with the least items decides the length of the new iterator.
-    # see here: https://www.w3schools.com/python/ref_func_zip.asp
+    for label in ["setosa", "versicolor","virginica"]:
 
-    # because the groupby function can only be called on a DataFrame object,
-    # and here we have a numpy array, it is easier to loop through a list
-    # consisting of tuples that contain all the information we need to create
-    # the plots
-    for label,marker,color in zip(
-        ["setosa", "versicolor","virginica"],('^', 's', 'o'),('blue', 'red', 'green')):
-
-        plt.scatter(x= X_lda_sklearn[:,0][Y == label],
-                    y= X_lda_sklearn[:,1][Y == label],
-                    marker=marker,
-                    color=color,
-                    alpha=0.5,
+        plt.plot(X_lda_sklearn[:,0][Y == label],
+                    X_lda_sklearn[:,1][Y == label],
+                    '.',
                     label=label)
 
-    plt.xlabel('Linear Discriminant 1')
-    plt.ylabel('Linear Discriminant 2')
+    plt.xlabel('Linear Discriminate 1')
+    plt.ylabel('Linear Discriminate 2')
 
-    leg = plt.legend(loc='upper right', fancybox=True)
-    leg.get_frame().set_alpha(0.5)
+    plt.legend()
     plt.title("Linear Discriminate Analysis")
-
-    # hide axis ticks, perhaps a bit excessive, but oh well
-    plt.tick_params(axis="both", which="both", bottom="off", top="off",
-            labelbottom="on", left="off", right="off", labelleft="on")
 
     # remove axis spines, as they can be distracting
     ax.spines["top"].set_visible(False)
@@ -123,7 +104,7 @@ def createLDAScatterPlot():
 def createPCAScatterPlot():
 
     # the code for this is adapted from here:
-    # # https://sebastianraschka.com/Articles/2014_python_lda.html
+    # https://sebastianraschka.com/Articles/2014_python_lda.html
 
     # we want to split the dataset into the variables proper
     # and the classes, i.e. the species. dataframe.iloc[]
@@ -140,26 +121,18 @@ def createPCAScatterPlot():
     X_pca_sklearn = sklearn_pca.fit_transform(X, Y)
 
     ax = plt.subplot(111)
-    for label,marker,color in zip(
-        ["setosa", "versicolor","virginica"],('^', 's', 'o'),('blue', 'red', 'green')):
+    for label in ["setosa", "versicolor","virginica"]:
 
-        plt.scatter(x= X_pca_sklearn[:,0][Y == label],
-                    y= X_pca_sklearn[:,1][Y == label],
-                    marker=marker,
-                    color=color,
-                    alpha=0.5,
+        plt.plot(X_pca_sklearn[:,0][Y == label],
+                    X_pca_sklearn[:,1][Y == label],
+                    '.',
                     label=label)
 
     plt.xlabel('Principal Component 1')
     plt.ylabel('Principal Component 2')
 
-    leg = plt.legend(loc='upper right', fancybox=True)
-    leg.get_frame().set_alpha(0.5)
+    plt.legend()
     plt.title("Principal Component Analysis")
-
-    # hide axis ticks, perhaps a bit excessive, but oh well
-    plt.tick_params(axis="both", which="both", bottom="off", top="off",
-            labelbottom="on", left="off", right="off", labelleft="on")
 
     # remove axis spines, as they can be distracting
     ax.spines["top"].set_visible(False)
@@ -220,5 +193,3 @@ if __name__ == '__main__':
 # for feature scaling https://benalexkeen.com/feature-scaling-with-scikit-learn/
 
 # calculate components https://chrisalbon.com/machine_learning/feature_engineering/select_best_number_of_components_in_lda/
-
-
