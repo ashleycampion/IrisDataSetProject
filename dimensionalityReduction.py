@@ -89,12 +89,12 @@ def createLDAScatterPlot():
                     alpha=0.5,
                     label=label)
 
-    plt.xlabel('LD 1')
-    plt.ylabel('LD 2')
+    plt.xlabel('Linear Discriminant 1')
+    plt.ylabel('Linear Discriminant 2')
 
     leg = plt.legend(loc='upper right', fancybox=True)
     leg.get_frame().set_alpha(0.5)
-    plt.title("Linear Discrimiate Analysis")
+    plt.title("Linear Discriminate Analysis")
 
     # hide axis ticks, perhaps a bit excessive, but oh well
     plt.tick_params(axis="both", which="both", bottom="off", top="off",
@@ -144,8 +144,8 @@ def createPCAScatterPlot():
                     alpha=0.5,
                     label=label)
 
-    plt.xlabel('PC 1')
-    plt.ylabel('PC 2')
+    plt.xlabel('Principal Component 1')
+    plt.ylabel('Principal Component 2')
 
     leg = plt.legend(loc='upper right', fancybox=True)
     leg.get_frame().set_alpha(0.5)
