@@ -79,6 +79,11 @@ def createLDAScatterPlot():
     # together etc. If the passed iterators have different lengths, the
     # iterator with the least items decides the length of the new iterator.
     # see here: https://www.w3schools.com/python/ref_func_zip.asp
+
+    # because the groupby function can only be called on a DataFrame object,
+    # and here we have a numpy array, it is easier to loop through a list
+    # consisting of tuples that contain all the information we need to create
+    # the plots
     for label,marker,color in zip(
         ["setosa", "versicolor","virginica"],('^', 's', 'o'),('blue', 'red', 'green')):
 
@@ -133,6 +138,7 @@ def createPCAScatterPlot():
     sklearn_pca = PCA(n_components=2)
 
     X_pca_sklearn = sklearn_pca.fit_transform(X, Y)
+
     ax = plt.subplot(111)
     for label,marker,color in zip(
         ["setosa", "versicolor","virginica"],('^', 's', 'o'),('blue', 'red', 'green')):
