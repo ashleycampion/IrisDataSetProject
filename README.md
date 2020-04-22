@@ -52,7 +52,7 @@ See the section 'How to Run Python Scripts Using the Command-Line' [here](https:
 This ReadMe's analysis of the Iris Dataset is structured as follows:
 * The dataset is described
 * The data is conceptualized and questions about the dataset are formulated based on this conceptualization
-* The data is plotted, and rudementary visual analyses of the data are undertaken based on the plots
+* The data is plotted, and rudimentary visual analyses of the data are undertaken based on the plots
 * The relationships between the variables in the dataset are analysed with <a href="#linear regression">linear regression</a> techniques
 * <a href="#Statistical classification">Statistical classification</a> of the data is undertaken using a <a href="#supervised learning">supervised learning</a> technique, (<a href="#linear discriminate analysis">linear discriminate analysis</a>)
 
@@ -175,8 +175,16 @@ Okay, so enough with the teacherly enthusiasm, but nonetheless, one must admit t
 
 ## Finding Correlations Between the Variables
 
+A key component of data analysis is of course the determination of whether or not variables are correlated with each other, and while scatter plots are helpful for visually revealing correlations, in order to quantify correlations one needs to move beyond plots and use math to coerce a value from the data that would somehow represent the extent to which the variables are correlated.
+The mathematical technique for achieving the coercion is called *regression analysis*, although it might be more helpful to think of it as a *progression* analysis, i.e. how the variable-values progress with each other: if one variable increases/progresses what happens to the other?
+
 ### Using Linear Regression
 
+The most common kind of regression analysis is <a href="#linear regression">linear regression</a>, which tries to find a line (hence *linear* regression) that describes the relationship between the variables.
+
+It must in a sense remain an open question whether or not in order to perform data analysis to the best of his ability a data analyst needs to understands the mathematical basis of the tools he uses. Programming languages such as Python and R contain packages that allow one to perform complex mathematical manipulations simply by calling ready-made functions. For example, if we want use Python to create a line capable of representing the relationship between two variables, we can simply import the Pandas package and
+
+To better understand what is going on here, I find it helpful to dive into the mathematics. There is a nice, simple explanation of how to create a linear regression plot <a href="https://machinelearningmastery.com/implement-simple-linear-regression-scratch-python/">here</a>. I will be using some of the basic formulas given there. However, in order to calculate the calculate the covariance between variables, I will not use the approach given there but rather will manually calculate the covariance matrix, which has many uses in data analysis beyond linear regression and is thus useful to understand.
 
 
 ## Statistical Classification of the Data
@@ -210,15 +218,15 @@ It is helpful when trying to understand what exactly LDA achieves to compare the
 </div>
 
 <div align="center">
+    <img src="./plots/dimensionalityReduction/homemadeDimensionalityReduction.png" alt="Homemade Dimensionality Reduction" title="Homemade Dimensionality Reduction")>
+</div>
+
+<div align="center">
     <img src="./plots/dimensionalityReduction/LDAScatterPlot.png" alt="LDA of Iris Dataset" title="LDA of Iris Dataset")>
 </div>
 
 <div align="center">
     <img src="./plots/dimensionalityReduction/PCAScatterPlot.png" alt="LDA of Iris Dataset" title="LDA of Iris Dataset")>
-</div>
-
-<div align="center">
-    <img src="./plots/dimensionalityReduction/homemadeDimensionalityReduction.png" alt="Homemade Dimensionality Reduction" title="Homemade Dimensionality Reduction")>
 </div>
 
 We can see quite clearly that the first linear discriminant (LD1) is better at distinguishing between the species than both petal width, our homemade attempt, and even PCA.
@@ -267,6 +275,8 @@ Clearly then, LDA is a good candidate for discriminating between the species, an
     8 https://www.tutorialspoint.com/statistics/normal_distribution.htm
     9 https://en.wikipedia.org/wiki/Linear_regression
     10 https://en.wikipedia.org/wiki/Principal_component_analysis
+    11 https://machinelearningmastery.com/implement-simple-linear-regression-scratch-python/
+    12 Machine Learning, The Art and Science of Algorithms that Make Sense of Data by Peter Flach
 
 Websites referenced in the python files:
 
