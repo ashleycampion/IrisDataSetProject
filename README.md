@@ -90,13 +90,23 @@ But we are jumping the gun here, and while it is important to come into any data
 <br>
 <div align="center">
     Setosa Summary Statistics
+</div>
+<br>
+<div align="center">
     <img src="./summaryStatistics/setosaSummary.PNG" alt="Setosa Summary Statistics" title="Setosa Summary Statistics")>
 </div>
 <br>
 <br>
 <div align="center">
     Versicolor Summary Statistics
+</div>
+<br>
+<div align="center">
     <img src="./summaryStatistics/versicolorSummary.PNG" alt="Versicolor Summary Statistics" title="Versicolor Summary Statistics")>
+</div>
+<br>
+<div align="center">
+    Virginica Summary Statistics
 </div>
 <br>
 <br>
@@ -216,37 +226,43 @@ We will perform single linear regression analysis on petal length and petal widt
 <br>
 The script used to calculate the covariance is as follows
 <br>
+<br>
 <div align="center">
     <img src="./plots/linearRegression/calculateCovarianceMatrixScript.PNG" alt="covariance matrix" title="calculating the covariance matrix")>
 </div>
 <br>
+One first calcualtes the scatter matrix:
 <br>
 <div align="center">
     <img src="./plots/linearRegression/scatterMatrix.PNG" alt="scatter matrix" title="Scatter Matrix")>
 </div>
 <br>
+Followed by the covariance matrix:
 <br>
 <div align="center">
     <img src="./plots/linearRegression/covarianceMatrix.PNG" alt="covariance matrix" title="Covariance Matrix")>
 </div>
 <br>
+Which is closely followed by the correlation matrix:
 <br>
 <div align="center">
     <img src="./plots/linearRegression/correlationMatrix.png" alt="correlation matrix" title="Correlation Matrix")>
 </div>
 <br>
+And then finally the 'determination matrix':
 <br>
 <div align="center">
     <img src="./plots/linearRegression/determinationMatrix.PNG" alt="determination matrix" title="Determination Matrix")>
 </div>
 <br>
-Once the covarince matrix is calculated, it is straight forwared to calculate the regression coefficient (b1) and the y-intercept b0:
+Once the covarince matrix is calculated, it is straight forwared to calculate the regression coefficient (b1) and the y-intercept (b0):
+
 <br>
 <div align="center">
     <img src="./plots/linearRegression/plottingLinearRegression.PNG" alt="Plotting Linear Regression title="Plotting Linear Regression")>
 </div>
 <br>
-One thus gest the resulting plot:
+One thus the following plot is achieved:
 <br>
 <div align="center">
     <img src="./plots/linearRegression/linearRegressionPetalLengthPetalWidth.png" alt="Linear Regression of Petal Length and Petal Width title="Linear Regression of Petal Length and Petal Width")>
