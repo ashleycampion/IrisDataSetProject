@@ -87,6 +87,26 @@ The differentiation made in Object Oriented Programming between 'Is-a' and 'Has-
 What does this mean then for our analysis of the dataset? Well, we could probably guess that it would be interesting to compare the species against each other, and indeed that this would likely be much more interesting than looking at the dataset as a whole without distinguishing between the species.
 Already the 'anchor' question that any analysis of the dataset is likely to confront arises: can the species be distinguished purely based on their respective sepal and petal lengths and widths? And this is exactly where the machine learning analyses of the dataset begin: could a program be taught to determine the species of an iris flower based on its sepal and petal length and width?
 But we are jumping the gun here, and while it is important to come into any dataset primed with questions, there is only so far one can get without getting one's hands dirty with the data.
+<br>
+<div align="center">
+    Setosa Summary Statistics
+    <img src="./plots/linearRegression/setosaSummary.PNG" alt="Setosa Summary Statistics" title="Setosa Summary Statistics")>
+</div>
+<br>
+<br>
+<div align="center">
+    Versicolor Summary Statistics
+    <img src="./plots/linearRegression/versicolorSummary.PNG" alt="Versicolor Summary Statistics" title="Versicolor Summary Statistics")>
+</div>
+<br>
+<br>
+<div align="center">
+    Virginica Summary Statistics
+    <img src="./plots/linearRegression/virginicaSummary.PNG" alt="Virginica Summary Statistics" title="Virginica Summary Statistics")>
+</div>
+<br>
+
+Now wasn't that just supremely uninteresting. These kind of statistics simply don't lend themselves to analysis.
 
 ## Plotting the Dataset
 
@@ -176,7 +196,7 @@ Okay, so enough with the teacherly enthusiasm, but nonetheless, one must admit t
 ## Finding Correlations Between the Variables
 
 A key component of data analysis is of course the determination of whether or not variables are correlated with each other, and while scatter plots are helpful for visually revealing correlations, in order to quantify correlations one needs to move beyond plots and use math to coerce a value from the data that would somehow represent the extent to which the variables are correlated.
-The mathematical technique for achieving this coercion is called *regression analysis*, although it might be more helpful to think of it as a *progression* analysis, i.e. how the variable-values progress with each other: if one variable increases/progresses what happens to the other?
+One of the mathematical technique for achieving this coercion is called *regression analysis*, although it might be more helpful to think of it as a *progression* analysis, i.e. how the variable-values progress with each other: if one variable increases/progresses what happens to the other? Could one go so far as to say that one variable is dependent on another variable? This is what regression analysis is meant to achieve: an understanding of just how much an independent variable affects the value of a dependent variable.
 
 ### Using Linear Regression
 
@@ -184,16 +204,56 @@ The most common kind of regression analysis is <a href="#linear regression">line
 
 It must in a sense remain an open question whether or not in order to perform data analysis to the best of his ability a data analyst needs to understands the mathematical basis of the tools he uses. Programming languages such as Python and R contain packages that allow one to perform complex mathematical manipulations simply by calling ready-made functions. For example, if we want use Python to create a line capable of representing the relationship between two variables, we can simply import the Pandas package and
 
-To better understand what is going on here, I find it helpful to dive into the mathematics. There is a nice, simple explanation of how to create a linear regression plot <a href="https://machinelearningmastery.com/implement-simple-linear-regression-scratch-python/">here</a>. I will be using some of the basic formulas given there. However, in order to calculate the calculate the covariance between variables (a kep step in linear regression analysis), I will not use the approach given there but rather will manually calculate the covariance matrix, which has many uses in data analysis beyond linear regression and is thus useful to understand. Once the covariance matrix is calculated, calculating the coefficients of correlation and determination is easy.
+To better understand what is going on here, I find it helpful to dive into the mathematics. There is a nice, simple explanation of how to create a linear regression plot <a href="https://machinelearningmastery.com/implement-simple-linear-regression-scratch-python/">here</a>. The equation for the regression line is <em>y = b0 + b1 * x</em>, where *b0* is the y-intercept and *b1* is the slope of the line. *b1*, known as the regression coefficient, is defined as the <a href="#covariance">covariance</a> of the two variables divided by the variance of the explanatory/independent variable, i.e. its range. *b0* is defined as the regression coefficient multiplied by the mean of the independt variable, subtracted from the mean of the dependent variable. In order to calculate the covariance I will manually calculate the covariance matrix for all the variables, which has many uses in data analysis beyond linear regression and is thus useful to understand. Once the covariance matrix is calculated, we can also calculating the coefficients of <a href="#coefficient of correlation">correlation</a> and <a href="#coefficient of determination">determination</a>, which also provide insight into how the variables are related.
 
-We will also want to create the residual plot for each attempt at a linear regression plot. The residual plot consists of the explanatory variable values plotted against the magnitude of how much the actual dependent variables values differ from the predicted values (the 'residual' values). We want to make sure that there are no patterns in the residual plot, i.e. that the residuals are not in any way explained by the independent variables, such that their coefficient of determination is as close to zero as possible.
+We will also want to create the residual plot for each attempt at a linear regression plot. If the y variable value can be 'predicted' with the linear regression equation as *b0 + b1 * x*, then the residual value is the difference between the actual y value and the predicted y value, and as such the residual plot consists of the explanatory variable values plotted against the magnitude of how much the actual dependent variables values differ from the predicted values (the 'residual' values). We want to make sure that there are no patterns in the residual plot, i.e. that the residuals are not in any way explained by the independent variables, such that their coefficient of determination is as close to zero as possible.
 
-We will perform sinlge linear regression analysis on petal length and petal width without distinguishing between the species. The first step then is to calculate the covariance variance:
+We will perform single linear regression analysis on petal length and petal width without distinguishing between the species, as from the scatter plots above these appear to be the most closely correlated variables. The first step then is to calculate the variables' covariance, the steps of which are as follows:
 <br>
 <div align="center">
-    <img src="./plots/linearRegression/covarianceMatrix.png" alt="covariance matrix" title="calculating the covariance matrix")>
+    <img src="./plots/linearRegression/calculateCovarianceMatrix.PNG" alt="covariance matrix" title="calculating the covariance matrix")>
 </div>
 <br>
+The script used to calculate the covariance is as follows
+<br>
+<div align="center">
+    <img src="./plots/linearRegression/calculateCovarianceMatrixScript.PNG" alt="covariance matrix" title="calculating the covariance matrix")>
+</div>
+<br>
+<br>
+<div align="center">
+    <img src="./plots/linearRegression/scatterMatrix.PNG" alt="scatter matrix" title="Scatter Matrix")>
+</div>
+<br>
+<br>
+<div align="center">
+    <img src="./plots/linearRegression/covarianceMatrix.PNG" alt="covariance matrix" title="Covariance Matrix")>
+</div>
+<br>
+<br>
+<div align="center">
+    <img src="./plots/linearRegression/correlationMatrix.PNG" alt="correlation matrix" title="Correlation Matrix")>
+</div>
+<br>
+<br>
+<div align="center">
+    <img src="./plots/linearRegression/determinationMatrix.PNG" alt="determination matrix" title="Determination Matrix")>
+</div>
+<br>
+Once the covarince matrix is calculated, it is straight forwared to calculate the regression coefficient (b1) and the y-intercept b0:
+<br>
+<div align="center">
+    <img src="./plots/linearRegression/plottingLinearRegression.PNG" alt="Plotting Linear Regression title="Plotting Linear Regression")>
+</div>
+<br>
+One thus gest the resulting plot:
+<br>
+<div align="center">
+    <img src="./plots/linearRegression/linearRegressionPetalLengthPetalWidth.png" alt="Linear Regression of Petal Length and Petal Width title="Linear Regression of Petal Length and Petal Width")>
+</div>
+<br>
+
+
 
 ## Statistical Classification of the Data
 
@@ -251,9 +311,9 @@ Clearly then, LDA is a good candidate for discriminating between the species, an
     <dt><a id="Coefficient of determination">Coefficient of determination</dt>
     <dd>To understand the reason for the existence of the coefficient of determination () and how it is calculated it is best to first understand <a href="#covariance">covariance</a> and <a href="#correlation">correlation</a>. The coefficient of determination is calculated as the result of squaring the coefficient of correlation, *r*, and as such is is known as <em>R<sup>2</sup></em> (the difference between *r* and *R* is another matter). It has a value between zero and one, and that value multiplied by one hundred represents the percentage of the dependent variable's value that is determined by the explanatory variable. The coefficient of determination is particularly useful when performing multiple linear regression analysis, where the coefficient of correlation loses much of its intuitive meaning. For example, when trying to understand how height affects weight the correlation coefficient does quite well. However, if we want to understand how both height and age taken together affect weight, we are really finding out how a <a href="#linear combination">linear combination</a> of height and age affects weight, and it wouldn't make much intuitive sense to find the correlation coefficient in order to be able to say that as the linear combination increases so too does weight; it would make much more sense to find the coefficient of determination in order to be able to say that the linear combination oof height and age is capable of explaining whatever percentage of weight.</dd>
     <dt><a id= of height and weight affects "Correlation"></a>Correlation</dt>
-    <dd>Correlation is best understood as the result of a mathematical operation applied to variables <a href="#covariance">covariance</a>, namely dividing the covariance by the product of each of the variables' standard deviation. The result is called the correlation coefficient, *r*, which will always have a value of between negative and positive one, with zero meaning no correlation, one meaning perfect positive correlation, and negative one meaning perfect negative correlation. Importantly, if we square the correlation coefficient we get <a href="#coefficient of determination">the coefficient of determination</a></dd>
+    <dd>Correlation is best understood as the result of a mathematical operation applied to a variable's <a href="#covariance">covariance</a>, namely dividing the covariance by the product of each of the variables' standard deviation. The result is called the correlation coefficient, *r*, which will always have a value of between negative and positive one, with zero meaning no correlation, one meaning perfect positive correlation, and negative one meaning perfect negative correlation. Importantly, if we square the correlation coefficient we get <a href="#coefficient of determination">the coefficient of determination</a></dd>
     <dt><a id="Covariance"></a>Covariance</dt>
-    <dd>Covariance describes how two variables change with each other, more particulalry how a change in one variable (the independent variable) affects the other variable (the dependent variable). *cov(x, y) = 2* means that if x increases by one y should increase by two. *cov (y, x) = - 3* means that as y increases by one x should decrease by three. Note, however, that covariance is related to but different from <a href="#correlation"></dd>
+    <dd>Covariance describes how two variables change with each other, more particulalry how a change in one variable (the independent variable) affects the other variable (the dependent variable). Note, however, that the magnitude of the covariance does not really mean anything, it is only the sign that matters. *cov(x, y) = 2* does not at all mean that if x increases by one y should increase by two, it only means that as x increase y should also increase. A negative covariance means that as x increases y increases. In order to understand how tightly variables are related to each other one must calculate their <a href="#correlation"></dd>, whose magnitude, unlike that of covariance, *does* have significance.
     <dt><a id="Dimensionality Reduction"></a>Dimensionality Reduction</dt>
     <dd>Dimensionality reduction simply consists in taking two or more dimension (i.e. properties of an object that once plotted each become an axis), and reducing them to a lesser amount of dimensions, typically one or two, <em>while retaining as much of the information contained in the original dimensions as possible</em>.</dd>
     <dt><a id="Discriminant"></a>Discriminant</dt>
