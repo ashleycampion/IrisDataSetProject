@@ -90,19 +90,19 @@ But we are jumping the gun here, and while it is important to come into any data
 <br>
 <div align="center">
     Setosa Summary Statistics
-    <img src="./plots/linearRegression/setosaSummary.PNG" alt="Setosa Summary Statistics" title="Setosa Summary Statistics")>
+    <img src="./plots/summaryStatistics/setosaSummary.PNG" alt="Setosa Summary Statistics" title="Setosa Summary Statistics")>
 </div>
 <br>
 <br>
 <div align="center">
     Versicolor Summary Statistics
-    <img src="./plots/linearRegression/versicolorSummary.PNG" alt="Versicolor Summary Statistics" title="Versicolor Summary Statistics")>
+    <img src="./plots/summaryStatistics/versicolorSummary.PNG" alt="Versicolor Summary Statistics" title="Versicolor Summary Statistics")>
 </div>
 <br>
 <br>
 <div align="center">
     Virginica Summary Statistics
-    <img src="./plots/linearRegression/virginicaSummary.PNG" alt="Virginica Summary Statistics" title="Virginica Summary Statistics")>
+    <img src="./plots/summaryStatistics/virginicaSummary.PNG" alt="Virginica Summary Statistics" title="Virginica Summary Statistics")>
 </div>
 <br>
 
