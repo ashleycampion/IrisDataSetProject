@@ -88,6 +88,7 @@ What does this mean then for our analysis of the dataset? Well, we could probabl
 Already the 'anchor' question that any analysis of the dataset is likely to confront arises: can the species be distinguished purely based on their respective sepal and petal lengths and widths? And this is exactly where the machine learning analyses of the dataset begin: could a program be taught to determine the species of an iris flower based on its sepal and petal length and width?
 But we are jumping the gun here, and while it is important to come into any dataset primed with questions, there is only so far one can get without getting one's hands dirty with the data.
 <br>
+<br>
 <div align="center">
     Setosa Summary Statistics
 </div>
@@ -111,7 +112,6 @@ But we are jumping the gun here, and while it is important to come into any data
 <br>
 <br>
 <div align="center">
-    Virginica Summary Statistics
     <img src="./summaryStatistics/virginicaSummary.PNG" alt="Virginica Summary Statistics" title="Virginica Summary Statistics")>
 </div>
 <br>
@@ -255,21 +255,28 @@ And then finally the 'determination matrix':
     <img src="./plots/linearRegression/determinationMatrix.PNG" alt="determination matrix" title="Determination Matrix")>
 </div>
 <br>
-Once the covarince matrix is calculated, it is straight forwared to calculate the regression coefficient (b1) and the y-intercept (b0):
-
+Once the covariance matrix is calculated, it is straight forwared to calculate the regression coefficient (b1) and the y-intercept (b0):
+<br>
 <br>
 <div align="center">
     <img src="./plots/linearRegression/plottingLinearRegression.PNG" alt="Plotting Linear Regression title="Plotting Linear Regression")>
 </div>
 <br>
-One thus the following plot is achieved:
+And finally  the following linear regression plot is achieved:
 <br>
 <div align="center">
-    <img src="./plots/linearRegression/linearRegressionPetalLengthPetalWidth.png" alt="Linear Regression of Petal Length and Petal Width title="Linear Regression of Petal Length and Petal Width")>
+    <img src="./plots/linearRegression/linearRegressionPetalLengthPetalWidth.png" alt="Linear Regression of Petal Length and Petal Width" title="Linear Regression of Petal Length and Petal Width")>
 </div>
 <br>
 
+Along with the following residual plot:
+<br>
+<div align="center">
+    <img src="./plots/linearRegression/residualPlotPetalLengthPetalWidth.png" alt="Residual Plot of Petal Length and Petal Width" title="Residual Plot of Petal Length and Petal Width")>
+</div>
+<br>
 
+The above residual plot is perhaps the most fascinating of all those so far shown, precisely because of its ambiguity. We would like it to reveal no pattern, and yet for petal lengths of between five and six cm most of the residuals are negative, while for the rest of the petal lengths there appears to be a slight upward trend such that the larger the petal length the greater the residual. This does not mean that petal length and petal length are not correlated, but rather it suggests that there is some other factor that is determining petal width rather than petal length. It is interesting to note that if one looks at the scatter plot for petal length vs petal width, above, the only petal lengths of between five and six cm are virginicas, and the correlation between virginicas' petal lengths and widths appears to be by far the weakest, would lends credit to the idea that the is some other factor that determines an iris flower of 5-6 cm petal length's petal width than its petal length. This in itself shows the usefulness of residual plots.
 
 ## Statistical Classification of the Data
 
