@@ -276,7 +276,14 @@ Along with the following residual plot:
 </div>
 <br>
 
-The above residual plot is perhaps the most fascinating of all those so far shown, precisely because of its ambiguity. We would like it to reveal no pattern, and yet for petal lengths of between five and six cm most of the residuals are negative, while for the rest of the petal lengths there appears to be a slight upward trend such that the larger the petal length the greater the residual. This does not mean that petal length and petal length are not correlated, but rather it suggests that there is some other factor that is determining petal width rather than petal length. It is interesting to note that if one looks at the scatter plot for petal length vs petal width, above, the only petal lengths of between five and six cm are virginicas, and the correlation between virginicas' petal lengths and widths appears to be by far the weakest, would lends credit to the idea that the is some other factor that determines an iris flower of 5-6 cm petal length's petal width than its petal length. This in itself shows the usefulness of residual plots.
+The above residual plot is perhaps the most fascinating of all those so far shown, precisely because of its ambiguity. We would like it to reveal no pattern, and yet for petal lengths of between five and six cm most of the residuals are negative, while for the rest of the petal lengths there appears to be a slight upward trend such that the larger the petal length the greater the residual. This does not mean that petal length and petal length are not correlated, but rather it suggests that there is some other factor that is determining petal width rather than petal length. It is interesting to note that if one looks at the scatter plot for petal length vs petal width, above, the only petal lengths of between five and six cm are virginicas, and the correlation between virginicas' petal lengths and widths appears to be by far the weakest, would lends credit to the idea that the is some other factor that determines an iris flower of 5-6 cm petal length's petal width than its petal length. And of course it is the virginicas that account for those flowers, which tells us that linear regressions for each species would probably be more successful. It would be helpful then to compare the residual plot for the iris flowers altogether with the individual plots for the species:
+
+<br>
+<div align="center">
+    <img src="./plots/linearRegression/residualPlots.png" alt="Residual Plots" title="Residual Plots">
+</div>
+<br>
+There are clearly no significant patterns in any of the individual plots, which again tells us that in analyzing the iris dataset for correlations it would be more profitable to analyze the classes separately.
 
 ## Statistical Classification of the Data
 
@@ -327,8 +334,8 @@ Interestingly, the PCA appears to offer the worst results, and our homemade atte
 Clearly then, LDA is a good candidate for discriminating between the species, and thus also for teaching a machine how to determine what species an iris flower is based on its petal and sepal length and width. The better performance of LDA here in comparison to PCA also demonstrates the difference between supervised and unsupervised learning techniques. In a dataset such as this where the classes are already known, LDA, a supervised learning technique, generally outperforms unsupervised techniques such as PCA.
 
 How then does one perform linear discriminant analysis? Well, with Python packages, one just has to import and call the appropriate functions, but mathematically the steps are as follows:
-1. Calculate the within-class scatter matrix
-1. Calculate the between-class scatter matrix
+1. Calculate the within-class scatter matrix ( in PCA we would only calculate the scatter matrix regardless of class, but after the next step the process is the exact same).
+1. Calculate the between-class scatter matrix.
 1. Decompose the product of the inverse of the within-class matrix and the between-class matrix into its pairs of eigenvalues and eigenvectors. The most intuitive meaning of eigenvalues is that the total value of all the dataset's eigenvalues is capable of representing the variance of the datasets values, such that each eigenvalue is only capable of representing a portion of that variance. If we divide an eigenvalue by the total value of the eigenvalues the result is an eigenvalues 'explained variance,' which is the proportion (on a scale of 0-1) of the dataset's variables' variance that is explained by the eigenvector. This is referred to as η <sup>2</sup>, and is the equivalent of what in <a href="#linear regression">linear regression</a> is known as the <a href="#coefficient of determination">coefficient of determination</a> . We basically want to find particularly high-value eigenvalues whose corresponding eigenvectors will be capable of transforming the dataset to a lower dimension while still being able to representing a sufficiently large amount of the dataset's variables' variance. The eigenvectors are in effect the linear discriminants we are looking for.
 1. Once we have identified the highest eigenvalues we are interested in, we create a matrix with their corresponding eigenvectors and then multiply the dataset-matrix by this to achieve the dimensionality reduction to the linear discriminant we have chosen.
 More detailed explanation of how to complete each of these steps can be found in the comments of the python file, 'dimensionalityReduction.py'.
@@ -336,31 +343,31 @@ More detailed explanation of how to complete each of these steps can be found in
 One first calculates the within-class scatter matrix:
 <br>
 <div align="center">
-    <img src="./plots/scatterPlots/withinClassScatterMatrix.PNG" alt="Within-class Scatter Matrix" title="Within-class Scatter Matrix")>
+    <img src="./plots/scatterPlots/withinClassScatterMatrix.PNG" alt="Within-class Scatter Matrix" title="Within-class Scatter Matrix">
 </div>
 <br>
 Followed by the between-class scatter matrix
 <br>
 <div align="center">
-    <img src="./plots/dimensionalityReduction/betweenClassScatterMatrix.PNG" alt="Between-class Scatter Matrix" title="Between-class Scatter Matrix")>
+    <img src="./plots/dimensionalityReduction/betweenClassScatterMatrix.PNG" alt="Between-class Scatter Matrix" title="Between-class Scatter Matrix">
 </div>
 <br>
 Once the eigenvalues have been calculated, their 'explained variance' values should be calculated to determine which eigenvalues should be used.
 <br>
 <div align="center">
-    <img src="./plots/dimensionalityReduction/explainedVariance.PNG" alt="Explained Variance" title="Explained Variance")>
+    <img src="./plots/dimensionalityReduction/explainedVariance.PNG" alt="Explained Variance" title="Explained Variance">
 </div>
 <br>
 Once one has chosen the eigenvalues, one then creates a matrix from their eigenvectors that will transform the dataset:
 <br>
 <div align="center">
-    <img src="./plots/dimensionalityReduction/transformativeMatrix.PNG" alt="'Transformative' Matrix" title="'Transformative' Matrix")>
+    <img src="./plots/dimensionalityReduction/transformativeMatrix.PNG" alt="'Transformative' Matrix" title="'Transformative' Matrix">
 </div>
 <br>
 And here is the plot I arrived at:
 <br>
 <div align="center">
-    <img src="./plots/dimensionalityReduction/manualLDA.png" alt="Manual LDA" title="Manual LDA")>
+    <img src="./plots/dimensionalityReduction/manualLDA.png" alt="Manual LDA" title="Manual LDA">
 </div>
 <br>
 
