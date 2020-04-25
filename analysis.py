@@ -21,6 +21,7 @@ def main():
     createLDAScatterPlot()
     createPCAScatterPlot()
     homemadeDimensionalityReduction()
+    createManualLDA()
 
 if __name__ == '__main__':
         main()
