@@ -343,7 +343,7 @@ More detailed explanation of how to complete each of these steps can be found in
 One first calculates the within-class scatter matrix:
 <br>
 <div align="center">
-    <img src="./plots/scatterPlots/withinClassScatterMatrix.PNG" alt="Within-class Scatter Matrix" title="Within-class Scatter Matrix">
+    <img src="./plots/dimensionalityReduction/withinClassScatterMatrix.PNG" alt="Within-class Scatter Matrix" title="Within-class Scatter Matrix">
 </div>
 <br>
 Followed by the between-class scatter matrix
