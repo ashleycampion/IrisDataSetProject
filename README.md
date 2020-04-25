@@ -286,38 +286,39 @@ As mentioned above, one of the reasons - if not *the* reason - for the Iris data
 
 Linear discriminant analysis (LDA), normal discriminant analysis (NDA), or discriminant function analysis is a  a method used in statistics, pattern recognition, and machine learning to find a linear combination of features that characterizes, i.e. is capable of discriminating between, two or more classes of objects or events [3] (in the case of the Iris dataset we are looking to discriminate between the species).
 In mathematics, a linear combination is an expression constructed from a set of terms by multiplying each term by a constant and adding the results (e.g. a linear combination of x and y would be any expression of the form ax + by, where a and b are constants) [4].
-However, how exactly linear combinations are come upon by LDA is beyond the scope of this repository, so instead we can simply think of the results of LDA as <a href="#discriminant">discriminants</a>.
+How exactly linear combinations are come upon by LDA will be addressed below, but for now we can simply think of the results of LDA as <a href="#discriminant">discriminants</a>.
 
-It is important to note that while LDA is often refered to as a kinf of dimensionality reduction, it is in reality much more than that. Dimensionality reduction simply consists in taking two or more dimension (i.e. properties of an object that once plotted each become an axis), and reducing them to a lesser amount of dimensions, typically one or two, *while retaining as much of the information contained in the original dimensions as possible*.
+It is important to note that while LDA is often refered to as a kind of dimensionality reduction, it is in reality much more than that. Dimensionality reduction simply consists in taking two or more dimension (i.e. properties of an object that once plotted each become an axis), and reducing them to a lesser amount of dimensions, typically one or two, *while retaining as much of the information contained in the original dimensions as possible*.
 The reason for doing this is that multi-dimensional data, for example four-dimensional data as in the case of the Iris dataset, is very different for humans to get their heads around. While a human mind reasonably well trained in pattern-finding can look at a 2D plot and *see* roughly what is going on, anything more than 2D presents a challenge. The solution to this is thus to reduce the three dimensions to two, such that minimal information is lost in this reduction and the human eye can more readily see patterns in the data.
 
-It is also important to note, however, that dimensionality reduction in itself is meaningless. One could easily, for example, take the variables of each flower in the Iris Dataset and sum them together, and one would have thus performed a dimensionality reduction. Of course, a dimension that consists in the sum of the original dimensions is unlikely to be meaningful. The question is thus, in cases can dimensionality reduction be meaningful? There are generally three cases:
+It is also important to note, however, that dimensionality reduction in itself is meaningless. One could easily, for example, take the variables of each flower in the Iris Dataset and sum them together, and one would have thus performed a dimensionality reduction. Of course, a dimension that consists in the sum of the original dimensions is unlikely to be meaningful. The question is thus, in which cases can dimensionality reduction be meaningful? There are generally three:
 1. The first case is not of meaning, but of use. Reducing an object's dimensionality can make render it much less resource-intensive to include in computations. If one has a massive dataset of millions of objects with hundreds of dimensions each, reducing these dimensions would make it much more feasible to perform computations on the data.
 1. The second case is more clearly about meaning. As already said above, the human eye cannot grasp multi-dimensional data easily. By reducing the data's dimensionality to a more human-manageable number (generally 2D), there is a much greater change of one being able to see patterns in the data. The challenge here then is reducing the dimensions into a dimension that is still meaningful, and that leads us onto the third case.
 1. The third case is generally associated with machine learning, and in many ways it is a subcase of the second case. Essentially we want here to reduce the data to a dimension (or a small number of dimensions) that will make it possible to discriminate between the data or the classes in the dataset based on that (or those) dimensions. This dimension is what I (but not the literature at large) refer to in the case of class-discrimination as the <a href="#discriminant">discriminant</a>. Not that I distinguish here between dimensionality reductions intended to allow discrimination between the data and those intended to allow discrimination between the classes; there are different sets of algorithms for both of these tasks, the simplest being <a href="#Principal Component Analysis">Principal Component Analysis</a> (PCA) and Linear Discriminate Analysis (LDA) respecively.
 
-What you will notice about the three cases is that they extend each other in the order I have presented them, such that the third case is always at the same time an instance of the second and first cases, while the second case is not necessarily also an instance of the third case, and the first cases is not necessarily an instance of the second or third cases, i.e. one can perform a dimensionality reduction for computational-efficiency reasons (case on1) without finding a discriminant (case three), but one cannot find a discriminant without performing a dimensionality reduction that also happens to allow for more efficient computation of the data.
+What you will notice about the three cases is that they extend each other in the order I have presented them, such that the third case is always at the same time an instance of the second and first cases, while the second case is not necessarily also an instance of the third case, and the first cases is not necessarily an instance of the second or third cases, i.e. one can perform a dimensionality reduction for computational-efficiency reasons (case one) without finding a discriminant (case three), but one cannot find a discriminant without performing a dimensionality reduction that also happens to allow for more efficient computation of the data.
 
-LDA then, is an example of the third case where a discriminant is sought, so by necessity it is also a example of the first case. Note the LDA seeks a *linear* discriminant. The meaning of 'linear' is beyond the scope of this analysis.
+LDA then, is an example of the third case where a discriminant is sought, so by necessity it is also a example of the first case. Note the LDA seeks a *linear* discriminant. The meaning of 'linear' here comes from <a href="#linear combination">linear combination</a>.
 
-It is helpful when trying to understand what exactly LDA achieves to compare the results of LDA (i.e. the linear discriminants) with three other possible discriminants:
+Before we dig into the mathematics of how exactly LDA works, t is helpful when trying to understand what exactly LDA achieves in terms of machine learning to compare its results (i.e. the linear discriminants) with three other possible discriminants:
 1. The variable in the dataset best able to discriminate between the species, which from the plots above would appear to be petal width.
 1. A rudimentary 'homemade' attempt at reducing the flower's dimensions by weighting the dimensions in terms of their ability to allow us discriminate between the classes, i.e. petal width having the most weight, then petal length, and then the sepal values:
-1. The results of a Principal Component Analysis (PCA) of the dataset. PCA is similar to LDA except that instead of trying to create a dimension that maximizes the distance between the classes, it tries to create a dimension that maximizes the total distance between the data points themselves. Thus one might say that where LDA creates a class-discriminatn, PCA creates a data-discriminant.
+1. The results of a Principal Component Analysis (PCA) of the dataset. PCA is similar to LDA except that instead of trying to create a dimension that maximizes the distance between the classes, it tries to create a dimension that maximizes the total distance between the data points themselves. Thus one might say that where LDA creates a class-discriminatn, PCA creates a data-discriminant. The mathematical difference between LDA and PCA will be furthered explained below.
+
 <div align="center">
-    <img src="./plots/scatterPlots/petalWidthsepalLength.png" alt="Petal Width vs. Sepal Length" title="Petal Width vs. Sepal Length")>
+    <img src="./plots/scatterPlots/petalWidthsepalLength.png" alt="Petal Width vs. Sepal Length" title="Petal Width vs. Sepal Length">
 </div>
 
 <div align="center">
-    <img src="./plots/dimensionalityReduction/homemadeDimensionalityReduction.png" alt="Homemade Dimensionality Reduction" title="Homemade Dimensionality Reduction")>
+    <img src="./plots/dimensionalityReduction/homemadeDimensionalityReduction.png" alt="Homemade Dimensionality Reduction" title="Homemade Dimensionality Reduction">
 </div>
 
 <div align="center">
-    <img src="./plots/dimensionalityReduction/LDAScatterPlot.png" alt="LDA of Iris Dataset" title="LDA of Iris Dataset")>
+    <img src="./plots/dimensionalityReduction/LDAScatterPlot.png" alt="LDA of Iris Dataset" title="LDA of Iris Dataset">
 </div>
 
 <div align="center">
-    <img src="./plots/dimensionalityReduction/PCAScatterPlot.png" alt="LDA of Iris Dataset" title="LDA of Iris Dataset")>
+    <img src="./plots/dimensionalityReduction/PCAScatterPlot.png" alt="LDA of Iris Dataset" title="LDA of Iris Dataset">
 </div>
 
 We can see quite clearly that the first linear discriminant (LD1) is better at distinguishing between the species than both petal width, our homemade attempt, and even PCA.
@@ -325,7 +326,45 @@ Interestingly, the PCA appears to offer the worst results, and our homemade atte
 
 Clearly then, LDA is a good candidate for discriminating between the species, and thus also for teaching a machine how to determine what species an iris flower is based on its petal and sepal length and width. The better performance of LDA here in comparison to PCA also demonstrates the difference between supervised and unsupervised learning techniques. In a dataset such as this where the classes are already known, LDA, a supervised learning technique, generally outperforms unsupervised techniques such as PCA.
 
+How then does one perform linear discriminant analysis? Well, with Python packages, one just has to import and call the appropriate functions, but mathematically the steps are as follows:
+1. Calculate the within-class scatter matrix
+1. Calculate the between-class scatter matrix
+1. Decompose the product of the inverse of the within-class matrix and the between-class matrix into its pairs of eigenvalues and eigenvectors. The most intuitive meaning of eigenvalues is that the total value of all the dataset's eigenvalues is capable of representing the variance of the datasets values, such that each eigenvalue is only capable of representing a portion of that variance. If we divide an eigenvalue by the total value of the eigenvalues the result is an eigenvalues 'explained variance,' which is the proportion (on a scale of 0-1) of the dataset's variables' variance that is explained by the eigenvector. This is referred to as η <sup>2</sup>, and is the equivalent of what in <a href="#linear regression">linear regression</a> is known as the <a href="#coefficient of determination">coefficient of determination</a> . We basically want to find particularly high-value eigenvalues whose corresponding eigenvectors will be capable of transforming the dataset to a lower dimension while still being able to representing a sufficiently large amount of the dataset's variables' variance. The eigenvectors are in effect the linear discriminants we are looking for.
+1. Once we have identified the highest eigenvalues we are interested in, we create a matrix with their corresponding eigenvectors and then multiply the dataset-matrix by this to achieve the dimensionality reduction to the linear discriminant we have chosen.
+More detailed explanation of how to complete each of these steps can be found in the comments of the python file, 'dimensionalityReduction.py'.
+<br>
+One first calculates the within-class scatter matrix:
+<br>
+<div align="center">
+    <img src="./plots/scatterPlots/withinClassScatterMatrix.PNG" alt="Within-class Scatter Matrix" title="Within-class Scatter Matrix")>
+</div>
+<br>
+Followed by the between-class scatter matrix
+<br>
+<div align="center">
+    <img src="./plots/dimensionalityReduction/betweenClassScatterMatrix.PNG" alt="Between-class Scatter Matrix" title="Between-class Scatter Matrix")>
+</div>
+<br>
+Once the eigenvalues have been calculated, their 'explained variance' values should be calculated to determine which eigenvalues should be used.
+<br>
+<div align="center">
+    <img src="./plots/dimensionalityReduction/explainedVariance.PNG" alt="Explained Variance" title="Explained Variance")>
+</div>
+<br>
+Once one has chosen the eigenvalues, one then creates a matrix from their eigenvectors that will transform the dataset:
+<br>
+<div align="center">
+    <img src="./plots/dimensionalityReduction/transformativeMatrix.PNG" alt="'Transformative' Matrix" title="'Transformative' Matrix")>
+</div>
+<br>
+And here is the plot I arrived at:
+<br>
+<div align="center">
+    <img src="./plots/dimensionalityReduction/manualLDA.png" alt="Manual LDA" title="Manual LDA")>
+</div>
+<br>
 
+Note that the scale and even the shape of this LDA plot is different from the one above that was created with Python's sklearn package. This is not surprising considering Python's floating-point imprecision and the amount of steps involved in the process. Note however that the manually created plot is just as successful as distinguishing between the versicolors and virginicas, which is exactly what LDA is supposed to achieve.
 # Appendix
 
 ## Definition of Key Terms
@@ -408,3 +447,6 @@ Websites referenced in the python files:
     https://towardsdatascience.com/how-to-use-residual-plots-for-regression-model-validation-c3c70e8ab378
     https://www.surveygizmo.com/resources/blog/variance-covariance-correlation/
     https://365datascience.com/covariance-linear-correlation-coefficient/
+    https://www.statisticshowto.com/explained-variance-variation/
+    https://www.thejuliagroup.com/blog/factor-analysis-and-eigenvalues/
+    https://stackoverflow.com/questions/12555323/adding-new-column-to-existing-dataframe-in-python-pandas
