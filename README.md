@@ -116,7 +116,7 @@ But we are jumping the gun here, and while it is important to come into any data
 </div>
 <br>
 
-Now wasn't that just supremely uninteresting. These kind of statistics simply don't lend themselves to analysis.
+Now wasn't that just supremely uninteresting. I'm afraid these kind of statistics simply don't lend themselves to interesting analysis, although the means and standard deviations are of course important values that will be used in omre deatiled analyses.
 
 ## Plotting the Dataset
 
