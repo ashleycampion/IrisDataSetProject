@@ -280,7 +280,7 @@ The above residual plot is perhaps the most fascinating of all those so far show
 
 <br>
 <div align="center">
-    <img src="./plots/linearRegression/residualPlots.png" alt="Residual Plots" title="Residual Plots">
+    <img src="./plots/linearRegression/residualplots.png" alt="Residual Plots" title="Residual Plots">
 </div>
 <br>
 There are clearly no significant patterns in any of the individual plots, which again tells us that in analyzing the iris dataset for correlations it would be more profitable to analyze the classes separately.
