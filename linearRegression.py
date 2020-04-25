@@ -118,6 +118,26 @@ def linearRegression():
     plt.savefig(plotDir + "linearRegressionPetalLengthPetalWidth.png")
     plt.close()
 
+    residuals = [1 for x in df['petal_length']]
+    for i in range(len(df['petal_length'])):
+        residuals[i] = (yIntercept + regressionCoefficient * df['petal_length'][i]) - df['petal_width'][i]
+
+
+    ax = plt.subplot(1,1,1)
+    plt.plot(df["petal_length"], residuals, '.', label=label)
+    plt.xlabel("Petal Length (cm)")
+    plt.ylabel("Residual from Linear Regression (cm)")
+    plt.title("Residual Plot for Linear Regression of Petal Length vs. Petal Width")
+    plt.grid()
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+    ax.spines["bottom"].set_visible(False)
+    ax.spines["left"].set_visible(False)
+    plt.savefig(plotDir + "residualPlotPetalLengthPetalWidth.png")
+    plt.close()
+
+
+
 
 if __name__ == '__main__':
     linearRegression()
