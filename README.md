@@ -190,7 +190,7 @@ But again, while this is all very interesting, there is only so much one can do 
 
 ### Parallel Coordinates
 
-Before taking the diving into the realm of unforgiving functions, there is one last plot that is worth having a look at.
+Before taking the dive into the realm of unforgiving functions, there is one last plot that is worth having a look at.
 
 The parallel coordinates plot is hands down, no question, absolutement, god-forgive-you-if-you-doubt-it the most beautiful of plots of the iris data set. I mean just look at it:
 
@@ -221,14 +221,14 @@ We will also want to create the residual plot for each attempt at a linear regre
 We will perform single linear regression analysis on petal length and petal width without distinguishing between the species, as from the scatter plots above these appear to be the most closely correlated variables. The first step then is to calculate the variables' covariance, the steps of which are as follows:
 <br>
 <div align="center">
-    <img src="./plots/linearRegression/calculateCovarianceMatrix.PNG" alt="covariance matrix" title="calculating the covariance matrix")>
+    <img src="./plots/linearRegression/calculateCovarianceMatrix.png" alt="covariance matrix" title="calculating the covariance matrix">
 </div>
 <br>
 The script used to calculate the covariance is as follows
 <br>
 <br>
 <div align="center">
-    <img src="./plots/linearRegression/calculateCovarianceMatrixScript.PNG" alt="covariance matrix" title="calculating the covariance matrix")>
+    <img src="./plots/linearRegression/calculateCovarianceMatrixScript.PNG" alt="covariance matrix" title="calculating the covariance matrix">
 </div>
 <br>
 One first calcualtes the scatter matrix:
@@ -246,33 +246,33 @@ Followed by the covariance matrix:
 Which is closely followed by the correlation matrix:
 <br>
 <div align="center">
-    <img src="./plots/linearRegression/correlationMatrix.png" alt="correlation matrix" title="Correlation Matrix")>
+    <img src="./plots/linearRegression/correlationMatrix.png" alt="correlation matrix" title="Correlation Matrix">
 </div>
 <br>
 And then finally the 'determination matrix':
 <br>
 <div align="center">
-    <img src="./plots/linearRegression/determinationMatrix.PNG" alt="determination matrix" title="Determination Matrix")>
+    <img src="./plots/linearRegression/determinationMatrix.PNG" alt="determination matrix" title="Determination Matrix">
 </div>
 <br>
 Once the covariance matrix is calculated, it is straight forwared to calculate the regression coefficient (b1) and the y-intercept (b0):
 <br>
 <br>
 <div align="center">
-    <img src="./plots/linearRegression/plottingLinearRegression.PNG" alt="Plotting Linear Regression title="Plotting Linear Regression")>
+    <img src="./plots/linearRegression/plottingLinearRegression.PNG" alt="Plotting Linear Regression title="Plotting Linear Regression">
 </div>
 <br>
 And finally  the following linear regression plot is achieved:
 <br>
 <div align="center">
-    <img src="./plots/linearRegression/linearRegressionPetalLengthPetalWidth.png" alt="Linear Regression of Petal Length and Petal Width" title="Linear Regression of Petal Length and Petal Width")>
+    <img src="./plots/linearRegression/linearRegressionPetalLengthPetalWidth.png" alt="Linear Regression of Petal Length and Petal Width" title="Linear Regression of Petal Length and Petal Width">
 </div>
 <br>
 
 Along with the following residual plot:
 <br>
 <div align="center">
-    <img src="./plots/linearRegression/residualPlotPetalLengthPetalWidth.png" alt="Residual Plot of Petal Length and Petal Width" title="Residual Plot of Petal Length and Petal Width")>
+    <img src="./plots/linearRegression/residualPlotPetalLengthPetalWidth.png" alt="Residual Plot of Petal Length and Petal Width" title="Residual Plot of Petal Length and Petal Width">
 </div>
 <br>
 
