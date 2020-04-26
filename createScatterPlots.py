@@ -58,9 +58,6 @@ def createScatterPlots():
     # and is quicker, as demonstrated here:
     # https://pythonmatplotlibtips.blogspot.com/2018/01/compare-pltplot-and-pltscatter-in-speed-python-matplotlib.html
 
-    # I have not included the grid for these scatter plots, as
-    # I think it is distracting.
-
 
     # these plots plot sepal-length against the other variables in turn,
     # colouring the points according to the species

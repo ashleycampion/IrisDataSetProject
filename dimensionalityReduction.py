@@ -283,7 +283,7 @@ def createManualLDA():
     # expresses (on a scale of 0-1) the model's ability to represent the data,
     # or more specifically the model's ability to explain the variance in the
     # variables in the dataset. Note that explained variance is referred
-    # to as η squard (η**2), and its value is equal to the coefficient
+    # to as η squared (η**2), and its value is equal to the coefficient
     # of determination tha is used in regression analysis, R squared.
     # see here: https://www.statisticshowto.com/explained-variance-variation/
     # In understanding explained variance it is helpful to understand

@@ -49,6 +49,7 @@ def createBoxPlots():
     plot = sb.swarmplot(y="sepal_length", x="species", data=df, color="black", alpha=0.75)
     # again, seaborn is not as user-friendly as pyplot, and
     # we must use the plot's 'figure' object to call savefig()
+    plt.grid()
     plot.figure.savefig(plotDir + "sepalLength.png")
     # apparently, pyplot should be used to close seaborn plots:
     # https://stackoverflow.com/questions/57533954/how-to-close-seaborn-plots
@@ -57,18 +58,21 @@ def createBoxPlots():
     plot = sb.boxplot(y="sepal_width", x="species", data=df, width=0.5)
     plot.set_title("Species vs. Sepal Width")
     plot = sb.swarmplot(y="sepal_width", x="species", data=df, color="black", alpha=0.75)
+    plt.grid()
     plot.figure.savefig(plotDir + "sepalWidth.png")
     plt.close()
 
     plot = sb.boxplot(y="petal_length", x="species", data=df, width=0.5)
     plot.set_title("Species vs. Petal Length")
     plot = sb.swarmplot(y="petal_length", x="species", data=df, color="black", alpha=0.75)
+    plt.grid()
     plot.figure.savefig(plotDir + "petalLength.png")
     plt.close()
 
     plot = sb.boxplot(y="petal_width", x="species", data=df, width=0.5)
     plot.set_title("Species vs. Petal Width")
     plot = sb.swarmplot(y="petal_width", x="species", data=df, color="black", alpha=0.75)
+    plt.grid()
     plot.figure.savefig(plotDir + "petalWidth.png")
     plt.close()
 
