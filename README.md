@@ -21,6 +21,7 @@
         *  [Using Linear Regression](#using-linear-regression)
     1. [Statistical Classification of the Data](#statistical-classification-of-the-data)
         *  [Linear Discriminant Analysis of the Dataset](*linear-discriminate-analysis-of-the-dataset)
+1. [Conclusion](#conclusion)
 1. [Appendix](#appendix)
     * [Definitions of Key Terms](#definition-of-key-terms)
 1. [References](#references)
@@ -315,7 +316,7 @@ The reason for sepal width's negative correlations in the overall matrix is that
 
 It also interesting perhaps to note that the Setosas' variables are generally very weakly correlated, although this could be explained by the fact that their values are quite small and also have a small variance, so perhaps if the measurements were more accurate, i.e. if they were measured to two or three places after the decimal point, the correlation would improve.
 
-By far the more interesting thing to note, however, is the fact that apart from sepal width the variables' correlations improve as you abstract from the species, and again while this might seem like a paradox, in effect this serves as warning not to mix correlation with classification, i.e. just because something is a class does not mean that its variables will be highly correlated. In the case of Iris flowers, it is clear that the classification was not in terms of correlations between variables, but rather in terms of variable ranges. And that leads us nicely into our next section. We can think of it this way: iris flowers are a class of flowers, and setosas, vercisolors and virginicas are classes of iris flowers; and while iris flowers show strong correlations amongst sepal length, and petal length and width, but with gaps in the ranges of values for petal length and width, iris *species* show weaker correlations amongst the same variables, but are better able to account for the variables' ranges of values. We could conclude from this that the Iris designation accounts for strong variable correlation, whereas the species designations account for the actual variable values.
+<a id="#Interesting">By</a> far the more interesting thing to note, however, is the fact that apart from sepal width the variables' correlations improve as you abstract from the species, and again while this might seem like a paradox, in effect this serves as warning not to mix correlation with classification, i.e. just because something is a class does not mean that its variables will be highly correlated. In the case of Iris flowers, it is clear that the classification was not in terms of correlations between variables, but rather in terms of variable ranges. And that leads us nicely into our next section. We can think of it this way: iris flowers are a class of flowers, and setosas, vercisolors and virginicas are classes of iris flowers; and while iris flowers show strong correlations amongst sepal length, and petal length and width, but with gaps in the ranges of values for petal length and width, iris *species* show weaker correlations amongst the same variables, but are better able to account for the variables' ranges of values. We could conclude from this that the Iris designation accounts for strong variable correlation, whereas the species designations account for the actual variable values.
 
 And with this we can nicely move onto classification.
 
@@ -406,6 +407,11 @@ And here is the plot I arrived at:
 <br>
 
 Note that the scale and even the shape of this LDA plot is different from the one above that was created with Python's sklearn package. This is not surprising considering Python's floating-point imprecision and the amount of steps involved in the process. Note however that the manually created plot is just as successful as distinguishing between the versicolors and virginicas, which is exactly what LDA is supposed to achieve.
+
+# Conclusion
+
+The Iris dataset remains relevant due to its beginner-friendly nature: it has few features, classes and samples, though those few features and classes interrelate in interesting ways. It is a particularly useful dataset in terms of introducing students to the basic machine learnings concept of differenting classes based on a linear combination of features. What is particularly interesting about the dataset, however, is the different characteristics of the classification of flower as iris flower, and the classification of iris flowers as either setosas, versicolors or virginicas. As stated <a href="#interesting">above</a>, the Iris classification accounts for strong variable correlation, whereas the species classification account for the actual variable values. This should tell us that just as correlation does not imply causality, neither does classification imply correlation.
+
 # Appendix
 
 ## Definition of Key Terms
@@ -491,3 +497,5 @@ Websites referenced in the python files:
     https://www.statisticshowto.com/explained-variance-variation/
     https://www.thejuliagroup.com/blog/factor-analysis-and-eigenvalues/
     https://stackoverflow.com/questions/12555323/adding-new-column-to-existing-dataframe-in-python-pandas
+    https://stackoverflow.com/questions/56942670/matplotlib-seaborn-first-and-last-row-cut-in-half-of-heatmap-plot
+    https://likegeeks.com/seaborn-heatmap-tutorial/
