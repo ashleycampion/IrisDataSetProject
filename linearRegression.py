@@ -76,6 +76,15 @@ def linearRegression():
     stds = df.std().tolist()
 
     correlationMatrix = covarianceMatrix.copy()
+    # we now divide the covariances by the produce of the variables
+    # standard deviation. This can be done manually with nested for loops.
+    for i in range(len(covarianceMatrix)):
+        for j in range(len(stds)):
+            x = covarianceMatrix.iloc[i][j]
+            y =  stds[i]
+            correlationMatrix.iloc[i][j] /= (stds[i] * stds[j])
+    # we now check that this matches with Pandas own calculation
+    assert abs(((correlationMatrix - df.corr()).mean()).mean()) < 0.01
 
     # of course, where performing actual analysis, one would just call
     # the dataframe.corr() method to create the correlation matrix,
@@ -106,20 +115,34 @@ def linearRegression():
     # because the labels are quite lengthy, it is also clearer if we
     # rotate the xlabels slightly
     heatMap.set_xticklabels(heatMap.get_xticklabels(), rotation=10)
+    plt.title("Correlation Matrix for All Species")
     plt.savefig(plotDir + "correlationHeatMap.png")
     plt.close()
 
+    # and this is so easy that one might as well do it for each species
+    for label, group in df.groupby("species"):
+        heatMap = sns.heatmap(group.corr(), annot=True, vmin=-1, vmax=1, center= 0, cmap='coolwarm', square=True)
+        bottom, top = heatMap.get_ylim()
+        heatMap.set_ylim(bottom + 0.5, top - 0.5)
+        heatMap.set_yticklabels(heatMap.get_yticklabels(), rotation=0)
+        heatMap.set_xticklabels(heatMap.get_xticklabels(), rotation=10)
+        if label == 'setosa':
+            plt.title("Correlation Matrix for Setosas")
+            plt.savefig(plotDir + "correlationHeatMapSetosa.png")
+            plt.close()
+        elif label == 'versicolor':
+            plt.title("Correlation Matrix for Versicolors")
+            plt.savefig(plotDir + "correlationHeatMapVersicolor.png")
+            plt.close()
+        else:
+            plt.title("Correlation Matrix for Virginicas")
+            plt.savefig(plotDir + "correlationHeatMapVirginica.png")
+            plt.close()
 
 
-    # we now divide the covariances by the produce of the variables
-    # standard deviation. This can be done manually with nested for loops.
-    for i in range(len(covarianceMatrix)):
-        for j in range(len(stds)):
-            x = covarianceMatrix.iloc[i][j]
-            y =  stds[i]
-            correlationMatrix.iloc[i][j] /= (stds[i] * stds[j])
-    # we now check that this matches with Pandas own calculation
-    assert abs(((correlationMatrix - df.corr()).mean()).mean()) < 0.01
+
+
+
     # we can go a step further and calculate a 'determination' matrix
     # by squaring the correlation coefficients
     determinationMatrix = correlationMatrix.copy()
