@@ -224,7 +224,7 @@ We will perform single linear regression analysis on petal length and petal widt
     <img src="./plots/linearRegression/calculateCovarianceMatrix.png" alt="covariance matrix" title="calculating the covariance matrix">
 </div>
 <br>
-The script used to calculate the covariance is as follows
+The script used to calculate the covariance is as follows:
 <br>
 <br>
 <div align="center">
@@ -243,19 +243,19 @@ Followed by the covariance matrix:
     <img src="./plots/linearRegression/covarianceMatrix.PNG" alt="covariance matrix" title="Covariance Matrix")>
 </div>
 <br>
-Which is closely followed by the correlation matrix:
+Which is closely followed by the correlation matrix (the diagonals here should of course be one, but this is not hte case here due to Python's floating point imprecision):
 <br>
 <div align="center">
     <img src="./plots/linearRegression/correlationMatrix.png" alt="correlation matrix" title="Correlation Matrix">
 </div>
 <br>
-of course, where performing actual analysis, one would just call the dataframe.corr() method to create the correlation matrix, and then use seaborn's heatmap() method to display it (with a few parameters to tailor it to one's tastee).
+Of course, where performing actual analysis, one would just call the dataframe.corr() method to create the correlation matrix, and then use seaborn's heatmap() method to display it (with a few parameters to tailor it to one's tastee).
 <br>
 <div align="center">
     <img src="./plots/linearRegression/correlationHeatMap.png" alt="Correlation Heatmap" title="Correlation Heatmap">
 </div>
 <br>
-And then finally one arrives at the 'determination matrix':
+And then finally one arrives at the 'determination matrix' (i.e. a matrix containing the coefficients of determination, R<sup>2</sup>):
 <br>
 <div align="center">
     <img src="./plots/linearRegression/determinationMatrix.PNG" alt="determination matrix" title="Determination Matrix">
@@ -282,14 +282,42 @@ Along with the following residual plot:
 </div>
 <br>
 
-The above residual plot is perhaps the most fascinating of all those so far shown, precisely because of its ambiguity. We would like it to reveal no pattern, and yet for petal lengths of between five and six cm most of the residuals are negative, while for the rest of the petal lengths there appears to be a slight upward trend such that the larger the petal length the greater the residual. This does not mean that petal length and petal length are not correlated, but rather it suggests that there is some other factor that is determining petal width rather than petal length. It is interesting to note that if one looks at the scatter plot for petal length vs petal width, above, the only petal lengths of between five and six cm are virginicas, and the correlation between virginicas' petal lengths and widths appears to be by far the weakest, would lends credit to the idea that the is some other factor that determines an iris flower of 5-6 cm petal length's petal width than its petal length. And of course it is the virginicas that account for those flowers, which tells us that linear regressions for each species would probably be more successful. It would be helpful then to compare the residual plot for the iris flowers altogether with the individual plots for the species:
+The above residual plot is perhaps the most fascinating of all those so far shown, precisely because of its ambiguity. We would like it to reveal no pattern (or more particularly for every 'section' of the x-axis, the y-values should be evenly distributed above and below zero), and yet for petal lengths of between five and six cm most of the residuals are negative, while for the rest of the petal lengths there appears to be a slight upward trend such that the larger the petal length the greater the residual. This does not mean that petal length and petal length are not correlated, but rather it suggests that there is some other factor that is determining petal width rather than petal length (it could also suggest that a linear fit is not appropriate, and that a nonlinear fit would be better, but that is unlikely the case here). It is interesting to note that if one looks at the scatter plot for petal length vs petal width, above, the only petal lengths of between five and six cm are virginicas, which lends credit to the idea that the is some other factor that determines an iris flower of 5-6 cm petal length's petal width than its petal length, namely, the species, which tells us that linear regressions for each species would probably be more successful. It would be helpful then to compare the residual plot for the iris flowers altogether with the individual plots for the species:
 
 <br>
 <div align="center">
     <img src="./plots/linearRegression/residualplots.png" alt="Residual Plots" title="Residual Plots">
 </div>
 <br>
-There are clearly no significant patterns in any of the individual plots, which again tells us that in analyzing the iris dataset for correlations it would be more profitable to analyze the classes separately.
+There does not appear to be any significant patterns in any of the individual plots, which again tells us that in analyzing the iris dataset for correlations it would be more profitable to analyze the classes separately. And yet if one considers the correlation matrices for the individual species, something strange is revealed:
+
+<br>
+<div align="center">
+    <img src="./plots/linearRegression/correlationHeatMapSetosa.png" alt="Setosa Correlation Matrix" title="Setosa Correlation Matrix">
+</div>
+<br>
+
+<br>
+<div align="center">
+    <img src="./plots/linearRegression/correlationHeatMapVersicolor.png" alt="Versicolor Correlation Matrix" title="Versicolor Correlation Matrix">
+</div>
+<br>
+
+<br>
+<div align="center">
+    <img src="./plots/linearRegression/correlationHeatMapVirginica.png" alt="Virginica Correlation Matrix" title="Virginica Correlation Matrix">
+</div>
+<br>
+
+From these we can see that while across all species petal length and petal width have a correlation coefficient of 0.96, for Setosa, Versicolors and Virginicas, the coefficients are 0.31, 0.79 and 0.32 respectively. Somehow the correlation between petal length and width is *greater* when the species are not considered. Indeed this is true for all of the variables except sepal width, which is only variable to have a negative correlation with the other variables in the overall correlation matrix. What then is so special about sepal width?
+
+The reason for sepal width's negative correlations in the overall matrix is that while Setosa have the highest sepal width values, they have the lowest values for all the other variables, such that in the overall scatter plots for sepal width vs the other variables, as sepal width increases the other variables actually tend to decrease, due to the setosas' influence. And yet there is another interesting feature of sepal widths: if you look at the scatter plots, sepal width actually quite clearly stands out as the variable that is least linked with species. Sepal width presents us with a kind of paradox then: it is the variable least linked with species variables, and yet it is the only variable whose correlations do not improve if one unlinks them from the species variables. Of course, this is only an ostensible paradox, and is accounted for by the fact that the correlations depend on the other variables also, and as said before the setosa's slightly higher-valued sepal width and lower valued everything else then brings about negative correlations.
+
+It also interesting perhaps to note that the Setosas' variables are generally very weakly correlated, although this could be explained by the fact that their values are quite small and also have a small variance, so perhaps if the measurements were more accurate, i.e. if they were measured to two or three places after the decimal point, the correlation would improve.
+
+By far the more interesting thing to note, however, is the fact that apart from sepal width the variables' correlations improve as you abstract from the species, and again while this might seem like a paradox, in effect this serves as warning not to mix correlation with classification, i.e. just because something is a class does not mean that its variables will be highly correlated. In the case of Iris flowers, it is clear that the classification was not in terms of correlations between variables, but rather in terms of variable ranges. And that leads us nicely into our next section. We can think of it this way: iris flowers are a class of flowers, and setosas, vercisolors and virginicas are classes of iris flowers; and while iris flowers show strong correlations amongst sepal length, and petal length and width, but with gaps in the ranges of values for petal length and width, iris *species* show weaker correlations amongst the same variables, but are better able to account for the variables' ranges of values. We could conclude from this that the Iris designation accounts for strong variable correlation, whereas the species designations account for the actual variable values.
+
+And with this we can nicely move onto classification.
 
 ## Statistical Classification of the Data
 
