@@ -218,7 +218,7 @@ To better understand what is going on here, I find it helpful to dive into the m
 
 We will also want to create the residual plot for each attempt at a linear regression plot. If the y variable value can be 'predicted' with the linear regression equation as *b0 + b1 * x*, then the residual value is the difference between the actual y value and the predicted y value, and as such the residual plot consists of the explanatory variable values plotted against the magnitude of how much the actual dependent variables values differ from the predicted values (the 'residual' values). We want to make sure that there are no patterns in the residual plot, i.e. that the residuals are not in any way explained by the independent variables, such that their coefficient of determination is as close to zero as possible.
 
-We will perform single linear regression analysis on petal length and petal width without distinguishing between the species, as from the scatter plots above these appear to be the most closely correlated variables. The first step then is to calculate the variables' covariance, the steps of which are as follows:
+We will perform single linear regression analysis on petal length and petal width without distinguishing between the species, as from the scatter plots above these appear to be the most closely correlated variables. The first step then is to calculate the variables' covariance, the steps of which are as follows (for detailed instructions please see the comments in the 'linearRegression.py' file):
 <br>
 <div align="center">
     <img src="./plots/linearRegression/calculateCovarianceMatrix.png" alt="covariance matrix" title="calculating the covariance matrix">
@@ -231,7 +231,7 @@ The script used to calculate the covariance is as follows
     <img src="./plots/linearRegression/calculateCovarianceMatrixScript.PNG" alt="covariance matrix" title="calculating the covariance matrix">
 </div>
 <br>
-One first calcualtes the scatter matrix:
+One first calculates the scatter matrix:
 <br>
 <div align="center">
     <img src="./plots/linearRegression/scatterMatrix.PNG" alt="scatter matrix" title="Scatter Matrix")>
@@ -249,7 +249,13 @@ Which is closely followed by the correlation matrix:
     <img src="./plots/linearRegression/correlationMatrix.png" alt="correlation matrix" title="Correlation Matrix">
 </div>
 <br>
-And then finally the 'determination matrix':
+of course, where performing actual analysis, one would just call the dataframe.corr() method to create the correlation matrix, and then use seaborn's heatmap() method to display it (with a few parameters to tailor it to one's tastee).
+<br>
+<div align="center">
+    <img src="./plots/linearRegression/correlationHeatMap.png" alt="Correlation Heatmap" title="Correlation Heatmap">
+</div>
+<br>
+And then finally one arrives at the 'determination matrix':
 <br>
 <div align="center">
     <img src="./plots/linearRegression/determinationMatrix.PNG" alt="determination matrix" title="Determination Matrix">
