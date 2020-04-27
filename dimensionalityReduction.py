@@ -13,6 +13,12 @@ import matplotlib.pyplot as plt
 # and sklearn.decomposition respectively
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis as LDA
 from sklearn.decomposition import PCA
+# to test our models we will need to split our dataset in training
+# and testing sets; we import train_test_split for this purpose
+from sklearn.model_selection import train_test_split
+# we also want to display the classification report
+# and confusion matrix based on our tests
+from sklearn.metrics import classification_report, confusion_matrix
 
 # we will use the os module to create the
 # the directory to store the files to
@@ -73,6 +79,20 @@ def createLDAScatterPlot():
     # and testing data, but because here we want to visualize the
     # lda in a plot, we can just use the whole dataset
     X_lda_sklearn = sklearn_lda.fit_transform(X, Y)
+    # we set the size of the test set as 0.2 of the dataset,
+    # which is a generally well-performing proportion, and
+    # we don't need to set the random seed parameter. See here:
+    # https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html
+    X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2)
+    Y_predictions = sklearn_lda.fit(X_train, Y_train).predict(X_test)
+    # we print the confusion matrix
+    print("Here is the confusion matrix for sklearn's LDA of the Iris dataset:")
+    print(confusion_matrix(Y_test, Y_predictions))
+    print()
+    # followed by the classification report
+    print("Here is the Classification Report for sklearn's LDA of the Iris dataset:")
+    print(classification_report(Y_test, Y_predictions))
+
     # we now just plot these values as normal, using a scatter plot
     # so that the individual data points are distinguishable
     ax = plt.subplot(111)
@@ -348,8 +368,6 @@ def createManualLDA():
     plt.close()
 
     print(r"A manual linear discriminate analysis plot for the Iris dataset has been created and saved to the 'plots\dimensionalityReduction' directory.")
-
-
 
 if __name__ == '__main__':
     createLDAScatterPlot()
