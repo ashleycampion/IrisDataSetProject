@@ -55,7 +55,7 @@ This ReadMe's analysis of the Iris Dataset is structured as follows:
 * The data is conceptualized and questions about the dataset are formulated based on this conceptualization
 * The data is plotted, and rudimentary visual analyses of the data are undertaken based on the plots
 * The relationships between the variables in the dataset are analysed with <a href="#linear regression">linear regression</a> techniques
-* <a href="#Statistical classification">Statistical classification</a> of the data is undertaken using a <a href="#supervised learning">supervised learning</a> technique, (<a href="#linear discriminate analysis">linear discriminate analysis</a>)
+* <a href="#Statistical classification">Statistical classification</a> of the data is undertaken using a <a href="#supervised learning">supervised learning</a> technique (<a href="#linear discriminate analysis">linear discriminate analysis</a>)
 
 ## What is the Iris Dataset
 
@@ -117,7 +117,7 @@ But we are jumping the gun here, and while it is important to come into any data
 </div>
 <br>
 
-Now wasn't that just supremely uninteresting. I'm afraid these kind of statistics simply don't lend themselves to interesting analysis, although the means and standard deviations are of course important values that will be used in omre deatiled analyses.
+Now wasn't that just supremely uninteresting. I'm afraid these kind of statistics simply don't lend themselves to interesting analysis, although the means and standard deviations are of course important values that will be performing more detailed analyses such as regression analysis.
 
 ## Plotting the Dataset
 
@@ -244,7 +244,7 @@ Followed by the covariance matrix:
     <img src="./plots/linearRegression/covarianceMatrix.PNG" alt="covariance matrix" title="Covariance Matrix")>
 </div>
 <br>
-Which is closely followed by the correlation matrix (the diagonals here should of course be one, but this is not hte case here due to Python's floating point imprecision):
+Which is closely followed by the correlation matrix (the diagonals here should of course be one, but this is not the case here due to Python's floating point imprecision):
 <br>
 <div align="center">
     <img src="./plots/linearRegression/correlationMatrix.png" alt="correlation matrix" title="Correlation Matrix">
@@ -257,6 +257,7 @@ Of course, where performing actual analysis, one would just call the dataframe.c
 </div>
 <br>
 And then finally one arrives at the 'determination matrix' (i.e. a matrix containing the coefficients of determination, R<sup>2</sup>):
+<br>
 <br>
 <div align="center">
     <img src="./plots/linearRegression/determinationMatrix.PNG" alt="determination matrix" title="Determination Matrix">
@@ -283,7 +284,7 @@ Along with the following residual plot:
 </div>
 <br>
 
-The above residual plot is perhaps the most fascinating of all those so far shown, precisely because of its ambiguity. We would like it to reveal no pattern (or more particularly for every 'section' of the x-axis, the y-values should be evenly distributed above and below zero), and yet for petal lengths of between five and six cm most of the residuals are negative, while for the rest of the petal lengths there appears to be a slight upward trend such that the larger the petal length the greater the residual. This does not mean that petal length and petal length are not correlated, but rather it suggests that there is some other factor that is determining petal width rather than petal length (it could also suggest that a linear fit is not appropriate, and that a nonlinear fit would be better, but that is unlikely the case here). It is interesting to note that if one looks at the scatter plot for petal length vs petal width, above, the only petal lengths of between five and six cm are virginicas, which lends credit to the idea that the is some other factor that determines an iris flower of 5-6 cm petal length's petal width than its petal length, namely, the species, which tells us that linear regressions for each species would probably be more successful. It would be helpful then to compare the residual plot for the iris flowers altogether with the individual plots for the species:
+The above residual plot is perhaps the most fascinating of all those so far shown, precisely because of its ambiguity. We would like it to reveal no pattern (or more particularly for every 'section' of the x-axis, the y-values should be evenly distributed above and below zero), and yet for petal lengths of between five and six cm most of the residuals are negative, while for the rest of the petal lengths there appears to be a slight upward trend such that the larger the petal length the greater the residual. This does not mean that petal length and petal length are not correlated, but rather it suggests that there is some other factor that is determining petal width rather than petal length (it could also suggest that a linear fit is not appropriate, and that a nonlinear fit would be better, but that is unlikely the case here). It is interesting to note that if one looks at the scatter plot for petal length vs petal width, above, the only petal lengths of between five and six cm are virginicas, which lends credit to the idea that there is some factor other than its petal length that determines an iris flower of 5-6 cm petal length's petal width, namely, the species, which tells us that linear regressions for each species would probably be more successful. It would be helpful then to compare the residual plot for the iris flowers altogether with the individual plots for the species:
 
 <br>
 <div align="center">
@@ -410,7 +411,7 @@ Note that the scale and even the shape of this LDA plot is different from the on
 
 # Conclusion
 
-The Iris dataset remains relevant due to its beginner-friendly nature: it has few features, classes and samples, though those few features and classes interrelate in interesting ways. It is a particularly useful dataset in terms of introducing students to the basic machine learnings concept of differenting classes based on a linear combination of features. What is particularly interesting about the dataset, however, is the different characteristics of the classification of flower as iris flower, and the classification of iris flowers as either setosas, versicolors or virginicas. As stated [above](#interesting), the Iris classification accounts for strong variable correlation, whereas the species classification account for the actual variable values. This should tell us that just as correlation does not imply causality, neither does classification imply correlation.
+The Iris dataset remains relevant due to its beginner-friendly nature: it has few features, classes and samples, though those few features and classes interrelate in interesting ways. It is a particularly useful dataset in terms of introducing students to the basic machine learnings concept of differenting classes based on a linear combination of features. What is surely most interesting about the dataset, however, is how it reveals the different characteristics of the classification of a flower as an iris flower and the classification of an iris flowers as either a setosa, a versicolors or a virginica. As stated [above](#interesting), the Iris classification accounts for strong variable correlation, whereas the species classification is generally capable of determing the actual variable values. This should tell us that just as correlation does not imply causality, neither does classification imply correlation.
 
 # Appendix
 

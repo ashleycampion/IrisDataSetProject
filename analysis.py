@@ -10,6 +10,7 @@ from createScatterPlots import createScatterPlots
 from dimensionalityReduction import createLDAScatterPlot
 from dimensionalityReduction import createPCAScatterPlot
 from dimensionalityReduction import homemadeDimensionalityReduction
+from dimensionalityReduction import createManualLDA
 
 
 def main():

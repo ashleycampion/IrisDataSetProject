@@ -342,7 +342,7 @@ def linearRegression():
     ax = plt.subplot(2,2,4)
     plt.plot(df1["petal_length"], residuals, '.', label=label)
     plt.xlabel("Petal Length (cm)")
-    plt.title("virginica")
+    plt.title("Virginica")
     plt.grid()
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)

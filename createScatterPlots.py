@@ -246,7 +246,7 @@ def createScatterPlots():
     # Windows systems, i.e. with '\' as the path separator.
     # see here for the use of raw string:
     # https://stackoverflow.com/questions/4415259/convert-regular-python-string-to-raw-string
-    print(r"Scatter plots of the Iris dataset have have been created and saved to the 'plots\scatterPlots' directory.")
+    print(r"Scatter plots of the Iris dataset have been created and saved to the 'plots\scatterPlots' directory.")
 
 # if this is run as a script, we should call the
 # createHistograms() function, as that is what
