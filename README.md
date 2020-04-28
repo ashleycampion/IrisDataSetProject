@@ -409,6 +409,30 @@ And here is the plot I arrived at:
 
 Note that the scale and even the shape of this LDA plot is different from the one above that was created with Python's sklearn package. This is not surprising considering Python's floating-point imprecision and the amount of steps involved in the process. Note however that the manually created plot is just as successful as distinguishing between the versicolors and virginicas, which is exactly what LDA is supposed to achieve.
 
+Of course, when evaluating machine learning models, one does not simply glance over such plots; one must quantify their success. Sklearn provides two standard ways of doing just that: confusion matrices and classification reports. Confusion matrices are matrices where the rows represent the actual classes of the of the dataset's instances and the columns represents the classes that the model predicted, such that the number of true positive predictions is represented along the diagonal. The following confusion matrix is of sklearn's LDA model trained on 80% of the Iris dataset and tested on the remaining 20%:
+
+<br>
+<div align="center">
+    <img src="./plots/dimensionalityReduction/LDAConfusionMatrix.png" alt="LDA Confusion Matrix" title="LDA Confusion Matrix">
+</div>
+<br>
+
+The classification report displays the model's precision, recall, f1-score and support for each class, as the macro and weighted average of each of the aforementioned scores.
+* Precision is calculated as the percentage of predicted positives that were actually true positives (TP / TP + FP)
+* Recall is calculated as the percentage of positive correctly identified as positives (TP / TP + FN).
+* F1-score is a weighted average of precision and recall (2 * (precision*recall / precision + recall)).
+* Support refers to the number of instances of the particular class.
+* The 'macro' average refers to the average without regard to how many instances there are of each class.
+* The weighted average refers to the average that takes into account the numbers of each class, such that classes with high number of instances will have a greater weight when the average is calculated.
+
+The following classification is again of sklearn's LDA model trained on 80% of the Iris dataset and tested on the remaining 20%:
+
+<br>
+<div align="center">
+    <img src="./plots/dimensionalityReduction/LDAClassificationReport.png" alt="LDA Classification Report" title="LDA Classification Report">
+</div>
+<br>
+
 # Conclusion
 
 The Iris dataset remains relevant due to its beginner-friendly nature: it has few features, classes and samples, though those few features and classes interrelate in interesting ways. It is a particularly useful dataset in terms of introducing students to the basic machine learnings concept of differenting classes based on a linear combination of features. What is surely most interesting about the dataset, however, is how it reveals the different characteristics of the classification of a flower as an iris flower and the classification of an iris flowers as either a setosa, a versicolors or a virginica. As stated [above](#interesting), the Iris classification accounts for strong variable correlation, whereas the species classification is generally capable of determing the actual variable values. This should tell us that just as correlation does not imply causality, neither does classification imply correlation.
