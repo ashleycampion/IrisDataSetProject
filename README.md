@@ -413,7 +413,7 @@ Of course, when evaluating machine learning models, one does not simply glance o
 
 <br>
 <div align="center">
-    <img src="./plots/dimensionalityReduction/LDAConfusionMatrix.png" alt="LDA Confusion Matrix" title="LDA Confusion Matrix">
+    <img src="./plots/dimensionalityReduction/LDAConfusionMatrix.PNG" alt="LDA Confusion Matrix" title="LDA Confusion Matrix">
 </div>
 <br>
 
@@ -429,11 +429,12 @@ The following classification is again of sklearn's LDA model trained on 80% of t
 
 <br>
 <div align="center">
-    <img src="./plots/dimensionalityReduction/LDAClassificationReport.png" alt="LDA Classification Report" title="LDA Classification Report">
+    <img src="./plots/dimensionalityReduction/LDAClassificationReport.PNG" alt="LDA Classification Report" title="LDA Classification Report">
 </div>
 <br>
 
 # Conclusion
+
 
 The Iris dataset remains relevant due to its beginner-friendly nature: it has few features, classes and samples, though those few features and classes interrelate in interesting ways. It is a particularly useful dataset in terms of introducing students to the basic machine learnings concept of differenting classes based on a linear combination of features. What is surely most interesting about the dataset, however, is how it reveals the different characteristics of the classification of a flower as an iris flower and the classification of an iris flowers as either a setosa, a versicolors or a virginica. As stated [above](#interesting), the Iris classification accounts for strong variable correlation, whereas the species classification is generally capable of determing the actual variable values. This should tell us that just as correlation does not imply causality, neither does classification imply correlation.
 
