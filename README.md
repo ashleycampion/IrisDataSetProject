@@ -525,3 +525,4 @@ Websites referenced in the python files:
     https://stackoverflow.com/questions/56942670/matplotlib-seaborn-first-and-last-row-cut-in-half-of-heatmap-plot
     https://likegeeks.com/seaborn-heatmap-tutorial/
     https://stattrek.com/statistics/dictionary.aspx?definition=residual%20plot
+    https://datascience.stackexchange.com/questions/65839/macro-average-and-weighted-average-meaning-in-classification-report
